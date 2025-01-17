@@ -1,11 +1,21 @@
-import 'package:bright/features/splach/presentation/view/splach_view.dart';
+import 'package:bright/features/boarding/prsentation/views/boarding_view.dart';
+import 'package:bright/features/splash/cubit/splash_cubit.dart';
+import 'package:bright/features/splash/presentation/views/splash_view.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 final GoRouter router = GoRouter(
   routes: [
     GoRoute(
       path: '/',
-      builder: (context, state) => SplachView(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => SplashCubit()..splachViewTimer(),
+        child: SplashView(),
+      ),
+    ),
+    GoRoute(
+      path: '/BoardingView',
+      builder: (context, state) => BoardingView(),
     ),
   ],
 );

@@ -1,5 +1,5 @@
 abstract class AppSpace {
-  static int mainSpace = 22;
-  static int maxSpace = 90;
-  static int smallSpace = 14;
+  static const double mainSpace = 22;
+  static const double maxSpace = 90;
+  static const double smallSpace = 14;
 }

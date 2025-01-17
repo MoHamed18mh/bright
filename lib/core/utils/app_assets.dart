@@ -1,5 +1,5 @@
 // ignore_for_file: prefer_single_quotes
-abstract class Assets {
+class Assets {
   Assets._();
   
   /// Assets for assetsImagesAbout
@@ -49,6 +49,10 @@ abstract class Assets {
   /// Assets for assetsImagesCourse3
   /// assets/images/course-3.jpg
   static const String assetsImagesCourse3 = "assets/images/course-3.jpg";
+
+  /// Assets for assetsImagesLogo
+  /// assets/images/logo.png
+  static const String assetsImagesLogo = "assets/images/logo.png";
 
   /// Assets for assetsImagesTeam1
   /// assets/images/team-1.jpg
