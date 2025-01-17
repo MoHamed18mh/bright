@@ -17,6 +17,7 @@ class CustomShimmerIcon extends StatelessWidget {
         highlightColor: Colors.white,
         child: Image.asset(
           Assets.assetsImagesLogo,
+          fit: BoxFit.fill,
         ),
       ),
     );

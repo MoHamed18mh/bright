@@ -1,7 +1,7 @@
 abstract class AppStrings {
   static const String appName = 'Bright Minds',
       // boarding
-      welcomeTo = 'Welcome To',
+      welcomeTo = 'Welcome To ',
       discoverWorldOfKnowledge =
           'Discover a World of knowledge at your fingertips with \'Bright Minds\' comprehensive learning platform',
       learnFrom = 'Learn From The Best',
