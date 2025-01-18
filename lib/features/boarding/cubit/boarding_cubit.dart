@@ -1,5 +1,6 @@
 import 'package:bright/core/database/cache_helper.dart';
 import 'package:bright/core/functions/navigation.dart';
+import 'package:bright/core/services/service_locator.dart';
 import 'package:bright/features/boarding/cubit/boarding_state.dart';
 import 'package:bright/features/boarding/data/model/boarding_model.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +29,7 @@ class BoardingCubit extends Cubit<BoardingState> {
   }
 
   void navigateToLogin(BuildContext context) {
-    CacheHelper().saveData(key: 'isBoardingVisited', value: true);
+    getIt<CacheHelper>().saveData(key: 'isBoardingVisited', value: true);
     navigateReplacement(context, '/LoginView');
     emit(BoardingCompleted());
   }

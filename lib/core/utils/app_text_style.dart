@@ -20,9 +20,11 @@ abstract class AppTextStyle {
     fontWeight: FontWeight.bold,
     color: AppColors.lightBlack,
   );
-  static final nunitoSans16grey = TextStyle(
+  static final nunitoSans14grey = TextStyle(
     fontFamily: 'NunitoSans',
     fontSize: 14,
     color: Colors.grey[700],
   );
+
+  static textButtonStyle(double? fontSize) {}
 }

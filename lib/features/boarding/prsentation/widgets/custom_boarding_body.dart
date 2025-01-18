@@ -37,7 +37,7 @@ class CustomBoardingBody extends StatelessWidget {
                   Text(
                     boardingData[index].subTitle,
                     textAlign: TextAlign.center,
-                    style: AppTextStyle.nunitoSans16grey,
+                    style: AppTextStyle.nunitoSans14grey,
                   ),
                 ],
               );

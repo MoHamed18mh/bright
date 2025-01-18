@@ -3,7 +3,7 @@ import 'package:bright/core/utils/app_strings.dart';
 import 'package:bright/core/widgets/material_button_widget.dart';
 import 'package:bright/core/widgets/text_button_widget.dart';
 import 'package:bright/features/boarding/cubit/boarding_cubit.dart';
-import 'package:bright/features/boarding/prsentation/widgets/app_header_widget.dart';
+import 'package:bright/core/widgets/app_header_widget.dart';
 import 'package:bright/features/boarding/prsentation/widgets/custom_boarding_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,6 +24,7 @@ class BoardingView extends StatelessWidget {
                 alignment: Alignment.centerRight,
                 onPressed: () =>
                     context.read<BoardingCubit>().navigateToLogin(context),
+                text1: AppStrings.skip,
               ),
             ),
             SliverToBoxAdapter(child: SizedBox(height: AppSpace.mainSpace)),
