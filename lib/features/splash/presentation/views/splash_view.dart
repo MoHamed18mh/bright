@@ -14,8 +14,10 @@ class SplashView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<SplashCubit, SplashState>(
       listener: (context, state) {
-        if (state is SplashNavigate) {
+        if (state is SplashNavigateToBoarding) {
           navigateReplacement(context, '/BoardingView');
+        } else if (state is SplashNavigateToLogin) {
+          navigateReplacement(context, '/LoginView');
         }
       },
       child: Scaffold(
