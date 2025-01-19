@@ -27,10 +27,13 @@ class CustomLoginForm extends StatelessWidget {
             alignment: Alignment.centerRight,
             onPressed: () {},
             text1: AppStrings.forgotPassword,
-            fontSize: 14,
+            fontSize: 13,
           ),
-          const SizedBox(height: AppSpace.mainSpace * 4),
-          MaterialButtonWidget(onPressed: () {}, text: AppStrings.login)
+          const SizedBox(height: AppSpace.maxSpace1),
+          MaterialButtonWidget(
+            onPressed: () {},
+            text: AppStrings.login,
+          ),
         ],
       ),
     );

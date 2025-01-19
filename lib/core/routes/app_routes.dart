@@ -12,7 +12,7 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/',
       builder: (context, state) => BlocProvider(
-        create: (context) => SplashCubit()..splachViewTimer(),
+        create: (context) => SplashCubit()..splashViewTimer(),
         child: SplashView(),
       ),
     ),

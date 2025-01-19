@@ -6,7 +6,7 @@ import 'package:bright/features/splash/cubit/splash_state.dart';
 class SplashCubit extends Cubit<SplashState> {
   SplashCubit() : super(SplashInitial());
 
-  void splachViewTimer() async {
+  void splashViewTimer() async {
     await Future.delayed(
       Duration(seconds: 4),
       () {

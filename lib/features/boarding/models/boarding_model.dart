@@ -12,11 +12,13 @@ class BoardingModel {
 
 List<BoardingModel> boardingData = [
   BoardingModel(
-      imagePath: Assets.assetsImagesBoarding1,
-      title: AppStrings.welcomeTo,
-      subTitle: AppStrings.discoverWorldOfKnowledge,),
+    imagePath: Assets.assetsImagesBoarding1,
+    title: AppStrings.welcomeTo,
+    subTitle: AppStrings.discoverWorldOfKnowledge,
+  ),
   BoardingModel(
-      imagePath: Assets.assetsImagesBoarding2,
-      title: AppStrings.learnFrom,
-      subTitle: AppStrings.accessHighQuality,),
+    imagePath: Assets.assetsImagesBoarding2,
+    title: AppStrings.learnFrom,
+    subTitle: AppStrings.accessHighQuality,
+  ),
 ];

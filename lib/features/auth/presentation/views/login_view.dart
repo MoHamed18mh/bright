@@ -13,12 +13,12 @@ class LoginView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Padding(
-      padding: const EdgeInsets.symmetric(horizontal: AppSpace.smallSpace),
+      padding: const EdgeInsets.symmetric(horizontal: AppSpace.paddingSpace),
       child: CustomScrollView(
         slivers: [
-          SliverToBoxAdapter(child: SizedBox(height: AppSpace.maxSpace * 1.5)),
+          SliverToBoxAdapter(child: SizedBox(height: AppSpace.maxSpace3)),
           SliverToBoxAdapter(child: AppHeaderWidget()),
-          SliverToBoxAdapter(child: SizedBox(height: AppSpace.maxSpace / 1.5)),
+          SliverToBoxAdapter(child: SizedBox(height: AppSpace.maxSpace2)),
           SliverToBoxAdapter(child: CustomLoginForm()),
           SliverToBoxAdapter(
             child: TextButtonWidget(

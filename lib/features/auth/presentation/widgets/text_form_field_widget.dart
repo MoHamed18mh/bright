@@ -17,13 +17,13 @@ class TextFormFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      style: AppTextStyle.nunitoSans20LightBlackBold.copyWith(fontSize: 16),
+      style: AppTextStyle.nunitoSans16LightBlackBold,
       obscureText: obscureText ?? false,
       decoration: InputDecoration(
         prefixIcon: prefixIcon,
         prefixIconColor: AppColors.primaryColor,
         hintText: text,
-        hintStyle: AppTextStyle.nunitoSans14grey,
+        hintStyle: AppTextStyle.nunitoSans13grey,
         suffixIcon: suffixIcon,
         suffixIconColor: AppColors.primaryColor,
         border: outLineInputBorder(),

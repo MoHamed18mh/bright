@@ -30,14 +30,14 @@ class CustomBoardingBody extends StatelessWidget {
                     height: 250,
                     fit: BoxFit.fill,
                   ),
-                  SizedBox(height: AppSpace.mainSpace),
+                  SizedBox(height: AppSpace.smallSpace),
                   SmoothPageIndicatorWidget(),
-                  SizedBox(height: AppSpace.mainSpace * 1.3),
-                  BoardingBodyTitleWidget(index: index),
+                  SizedBox(height: AppSpace.meduimSpace1),
+                  BoardingTitleWidget(index: index),
                   Text(
                     boardingData[index].subTitle,
                     textAlign: TextAlign.center,
-                    style: AppTextStyle.nunitoSans14grey,
+                    style: AppTextStyle.nunitoSans13grey,
                   ),
                 ],
               );
