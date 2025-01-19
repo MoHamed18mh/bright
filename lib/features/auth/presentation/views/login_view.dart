@@ -1,8 +1,9 @@
+import 'package:bright/core/functions/navigation.dart';
 import 'package:bright/core/utils/app_space.dart';
 import 'package:bright/core/utils/app_strings.dart';
 import 'package:bright/core/widgets/app_header_widget.dart';
 import 'package:bright/core/widgets/text_button_widget.dart';
-import 'package:bright/features/auth/presentation/widgets/custom_login_form_field.dart';
+import 'package:bright/features/auth/presentation/widgets/custom_login_form.dart';
 import 'package:flutter/material.dart';
 
 class LoginView extends StatelessWidget {
@@ -18,11 +19,11 @@ class LoginView extends StatelessWidget {
           SliverToBoxAdapter(child: SizedBox(height: AppSpace.maxSpace * 1.5)),
           SliverToBoxAdapter(child: AppHeaderWidget()),
           SliverToBoxAdapter(child: SizedBox(height: AppSpace.maxSpace / 1.5)),
-          SliverToBoxAdapter(child: CustomLoginFormField()),
+          SliverToBoxAdapter(child: CustomLoginForm()),
           SliverToBoxAdapter(
             child: TextButtonWidget(
               alignment: Alignment.center,
-              onPressed: () {},
+              onPressed: () => navigateReplacement(context, '/RegisterView'),
               text1: AppStrings.dontHaveAccount,
               text2: AppStrings.signUp,
               fontSize: 16,

@@ -2,7 +2,7 @@ import 'package:bright/core/utils/app_space.dart';
 import 'package:bright/core/utils/app_text_style.dart';
 import 'package:bright/features/boarding/cubit/boarding_cubit.dart';
 import 'package:bright/features/boarding/cubit/boarding_state.dart';
-import 'package:bright/features/boarding/data/model/boarding_model.dart';
+import 'package:bright/features/boarding/models/boarding_model.dart';
 import 'package:bright/features/boarding/prsentation/widgets/boarding_body_title_widget.dart';
 import 'package:bright/features/boarding/prsentation/widgets/smooth_page_indicator_widget.dart';
 import 'package:flutter/material.dart';

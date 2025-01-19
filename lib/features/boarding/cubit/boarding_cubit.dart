@@ -2,7 +2,7 @@ import 'package:bright/core/database/cache_helper.dart';
 import 'package:bright/core/functions/navigation.dart';
 import 'package:bright/core/services/service_locator.dart';
 import 'package:bright/features/boarding/cubit/boarding_state.dart';
-import 'package:bright/features/boarding/data/model/boarding_model.dart';
+import 'package:bright/features/boarding/models/boarding_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

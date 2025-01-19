@@ -1,4 +1,5 @@
 import 'package:bright/features/auth/presentation/views/login_view.dart';
+import 'package:bright/features/auth/presentation/views/register_view.dart';
 import 'package:bright/features/boarding/cubit/boarding_cubit.dart';
 import 'package:bright/features/boarding/prsentation/views/boarding_view.dart';
 import 'package:bright/features/splash/cubit/splash_cubit.dart';
@@ -22,8 +23,13 @@ final GoRouter router = GoRouter(
         child: BoardingView(),
       ),
     ),
-    GoRoute(path: '/LoginView',
-    builder: (context, state) => LoginView(),
+    GoRoute(
+      path: '/LoginView',
+      builder: (context, state) => LoginView(),
+    ),
+    GoRoute(
+      path: '/RegisterView',
+      builder: (context, state) => RegisterView(),
     ),
   ],
 );

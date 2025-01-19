@@ -5,8 +5,8 @@ import 'package:bright/core/widgets/text_button_widget.dart';
 import 'package:bright/features/auth/presentation/widgets/text_form_field_widget.dart';
 import 'package:flutter/material.dart';
 
-class CustomLoginFormField extends StatelessWidget {
-  const CustomLoginFormField({super.key});
+class CustomLoginForm extends StatelessWidget {
+  const CustomLoginForm({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class CustomLoginFormField extends StatelessWidget {
           const SizedBox(height: AppSpace.mainSpace),
           TextFormFieldWidget(
             text: AppStrings.password,
-            prefixIcon: Icon(Icons.lock_outline),
+            prefixIcon: Icon(Icons.lock_open_outlined),
             suffixIcon: Icon(Icons.visibility_outlined),
           ),
           TextButtonWidget(

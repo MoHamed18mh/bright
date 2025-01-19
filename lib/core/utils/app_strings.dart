@@ -8,16 +8,17 @@ abstract class AppStrings {
       accessHighQuality =
           'Access high-quality courses from top educators and industry experts, anytime, anywhere',
       // auth
+      
       email = 'Email',
       password = 'Password',
       confirmPassword = 'Confirm Password',
       forgotPassword = 'Forgot Password?',
       login = 'Login',
       dontHaveAccount = 'Don\'t have account? ',
-      haveAccount = 'Have account? ',
+      alreadyHaveAccount = 'Already have account? ',
       signUp = 'Sign Up',
       signIn = 'Sign In',
-      creatAccount = 'Create Account',
+      register = 'Register',
       firstName = 'First Name',
       lastName = 'Last Name',
       resetPassword = 'Reset Password',
