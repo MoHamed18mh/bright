@@ -15,12 +15,12 @@ class CustomBoardingBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<BoardingCubit, BoardingState>(
       builder: (context, state) {
-        BoardingCubit boardingCubit = BlocProvider.of<BoardingCubit>(context);
         return SizedBox(
           height: 400,
           child: PageView.builder(
-            controller: boardingCubit.pageController,
-            onPageChanged: (index) => boardingCubit.updateCurrentIndex(index),
+            controller: context.read<BoardingCubit>().pageController,
+            onPageChanged: (index) =>
+                context.read<BoardingCubit>().updateCurrentIndex(index), 
             itemCount: boardingData.length,
             itemBuilder: (context, index) {
               return Column(

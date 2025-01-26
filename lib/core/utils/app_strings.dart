@@ -8,7 +8,6 @@ abstract class AppStrings {
       accessHighQuality =
           'Access high-quality courses from top educators and industry experts, anytime, anywhere',
       // auth
-      
       email = 'Email',
       password = 'Password',
       confirmPassword = 'Confirm Password',
@@ -23,11 +22,12 @@ abstract class AppStrings {
       lastName = 'Last Name',
       resetPassword = 'Reset Password',
       enterEmail = 'Enter Your Email',
+      phoneNumber = 'Phone Number',
       reset = 'Reset',
       // app strings
-      home='Home',
-      courses ='Courses',
-      ourTeam='Our Team',
+      home = 'Home',
+      courses = 'Courses',
+      ourTeam = 'Our Team',
       bestOnlineCourses = 'Best Online Courses',
       theBestOnlineLearning = 'The Best Online Learning Platform',
       getEducatedFromHome = 'Get Educated Online From Your Home',
@@ -59,7 +59,7 @@ abstract class AppStrings {
       newSletter = 'Newsletter',
       gallery = 'Gallery',
       infoExample = 'info@example.com',
-      phoneNumber = '+012 345 67890',
+      number = '+012 345 67890',
       address = '123 Street, New York, USA',
       contact = 'Contact',
       faq = 'FAQs & Help',

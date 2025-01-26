@@ -13,16 +13,19 @@ class CustomLoginForm extends StatelessWidget {
     return Form(
       child: Column(
         children: [
+          // email field
           TextFormFieldWidget(
             text: AppStrings.email,
             prefixIcon: Icon(Icons.email_outlined),
           ),
           const SizedBox(height: AppSpace.mainSpace),
+          // password field
           TextFormFieldWidget(
             text: AppStrings.password,
             prefixIcon: Icon(Icons.lock_open_outlined),
             suffixIcon: Icon(Icons.visibility_outlined),
           ),
+          // text button for go to forgotPasswordView screen
           TextButtonWidget(
             alignment: Alignment.centerRight,
             onPressed: () {},
@@ -30,6 +33,7 @@ class CustomLoginForm extends StatelessWidget {
             fontSize: 13,
           ),
           const SizedBox(height: AppSpace.maxSpace1),
+          // login button
           MaterialButtonWidget(
             onPressed: () {},
             text: AppStrings.login,

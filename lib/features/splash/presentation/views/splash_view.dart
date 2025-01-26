@@ -1,4 +1,5 @@
 import 'package:bright/core/functions/navigation.dart';
+import 'package:bright/core/routes/route_key.dart';
 import 'package:bright/core/utils/app_space.dart';
 import 'package:bright/features/splash/cubit/splash_cubit.dart';
 import 'package:bright/features/splash/cubit/splash_state.dart';
@@ -15,9 +16,9 @@ class SplashView extends StatelessWidget {
     return BlocListener<SplashCubit, SplashState>(
       listener: (context, state) {
         if (state is SplashNavigateToBoarding) {
-          navigateReplacement(context, '/BoardingView');
+          navigateReplacement(context, RouteKey.boardingView);
         } else if (state is SplashNavigateToLogin) {
-          navigateReplacement(context, '/LoginView');
+          navigateReplacement(context, RouteKey.loginView);
         }
       },
       child: Scaffold(

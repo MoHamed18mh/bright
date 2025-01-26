@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   setupServiceLocator();
-
   await getIt<CacheHelper>().init();
   runApp(const BrightMinds());
 }
