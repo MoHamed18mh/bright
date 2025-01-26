@@ -1,3 +1,5 @@
+import 'package:bright/core/api/dio_consumer.dart';
+import 'package:bright/core/repositories/auth_repo.dart';
 import 'package:bright/core/routes/route_key.dart';
 import 'package:bright/features/auth/cubit/auth_cubit.dart';
 import 'package:bright/features/auth/presentation/views/login_view.dart';
@@ -7,6 +9,7 @@ import 'package:bright/features/boarding/prsentation/views/boarding_view.dart';
 import 'package:bright/features/home/presentation/views/home_view.dart';
 import 'package:bright/features/splash/cubit/splash_cubit.dart';
 import 'package:bright/features/splash/presentation/views/splash_view.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
@@ -30,14 +33,14 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: RouteKey.loginView,
       builder: (context, state) => BlocProvider(
-        create: (context) => AuthCubit(),
+        create: (context) => AuthCubit(AuthRepo(api: DioConsumer(dio: Dio()))),
         child: LoginView(),
       ),
     ),
     GoRoute(
       path: RouteKey.registerView,
       builder: (context, state) => BlocProvider(
-        create: (context) => AuthCubit(),
+        create: (context) => AuthCubit(AuthRepo(api: DioConsumer(dio: Dio()))),
         child: RegisterView(),
       ),
     ),

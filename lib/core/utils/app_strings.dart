@@ -24,6 +24,7 @@ abstract class AppStrings {
       enterEmail = 'Enter Your Email',
       phoneNumber = 'Phone Number',
       reset = 'Reset',
+      wellcom = 'Wellcom',
       // app strings
       home = 'Home',
       courses = 'Courses',

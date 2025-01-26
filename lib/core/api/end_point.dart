@@ -10,9 +10,12 @@ abstract class ApiKey {
       token = 'token',
       user = 'user',
       email = 'email',
+      password = 'password',
       displayName = 'displayName',
       mobile = 'mobile',
       id = 'id',
       imageCover = 'imageCover',
-      walletBalance = 'waletBalance';
+      walletBalance = 'waletBalance',
+      // id key in token
+      idSchema ='http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier';
 }

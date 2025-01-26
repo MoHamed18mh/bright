@@ -21,6 +21,7 @@ class TextFormFieldWidget extends StatelessWidget {
       style: AppTextStyle.nunitoSans16LightBlackBold,
       controller: controller,
       validator: validator,
+      cursorColor: AppColors.lightBlack,
       decoration: InputDecoration(
         prefixIcon: prefixIcon,
         prefixIconColor: AppColors.primaryColor,

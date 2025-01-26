@@ -1,11 +1,15 @@
+import 'package:bright/core/repositories/auth_repo.dart';
 import 'package:bright/features/auth/cubit/auth_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AuthCubit extends Cubit<AuthState> {
-  AuthCubit() : super(AuthInitial());
+  AuthCubit(this.authRepo) : super(AuthInitial());
 
-  // text form field password widget
+  // get auth repo
+  final AuthRepo authRepo;
+
+  // text form field password obscure
   bool obscurePasswordValue = true;
 
   // login keys
@@ -20,7 +24,8 @@ class AuthCubit extends Cubit<AuthState> {
   TextEditingController registerEmailController = TextEditingController();
   TextEditingController registerPhoneController = TextEditingController();
   TextEditingController registerPasswordController = TextEditingController();
-  TextEditingController registerConfirmPasswordController = TextEditingController();
+  TextEditingController registerConfirmPasswordController =
+      TextEditingController();
 
   // change the value of obscurePasswordValue
   void changeObscurePasswordValue() {
@@ -38,5 +43,19 @@ class AuthCubit extends Cubit<AuthState> {
       return 'This field cannot be empty';
     }
     return null;
+  }
+
+  // login function
+  Future login() async {
+    emit(LoginLoadinState());
+    final response = await authRepo.login(
+      email: loginEmailController.text,
+      password: loginPasswordController.text,
+    );
+    response.fold(
+      (errorMessage) => emit(LoginFailureState(errorMessage: errorMessage)),
+      (loginModel) =>
+          emit(LoginSuccessState(displayName: loginModel.user.displayName)),
+    );
   }
 }

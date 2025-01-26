@@ -8,23 +8,29 @@ class DioConsumer extends ApiConsumer {
 
   DioConsumer({required this.dio}) {
     dio.options.baseUrl = EndPoint.baseUrl;
-    // dio.interceptors.add(LogInterceptor());
+    dio.interceptors.add(LogInterceptor(
+      request: true,
+      requestBody: true,
+      requestHeader: true,
+      responseBody: true,
+      responseHeader: true,
+    ));
     // dio.interceptors.add(ApiInterceptor());
   }
 
   @override
   Future get(
     String path, {
-    data,
+    dynamic data,
     Map<String, dynamic>? queryParameters,
   }) async {
     try {
-      final response = dio.get(
+      final response = await dio.get(
         path,
         data: data,
         queryParameters: queryParameters,
       );
-      return response;
+      return response.data;
     } on DioException catch (e) {
       handelException(e);
     }
@@ -33,7 +39,7 @@ class DioConsumer extends ApiConsumer {
   @override
   Future delet(
     String path, {
-    data,
+    dynamic data,
     Map<String, dynamic>? queryParameters,
     bool isFormData = false,
   }) async {
@@ -43,7 +49,7 @@ class DioConsumer extends ApiConsumer {
         data: isFormData ? FormData.fromMap(data) : data,
         queryParameters: queryParameters,
       );
-      return response;
+      return response.data;
     } on DioException catch (e) {
       handelException(e);
     }
@@ -52,7 +58,7 @@ class DioConsumer extends ApiConsumer {
   @override
   Future post(
     String path, {
-    data,
+    dynamic data,
     Map<String, dynamic>? queryParameters,
     bool isFormData = false,
   }) async {
@@ -62,7 +68,7 @@ class DioConsumer extends ApiConsumer {
         data: isFormData ? FormData.fromMap(data) : data,
         queryParameters: queryParameters,
       );
-      return response;
+      return response.data;
     } on DioException catch (e) {
       handelException(e);
     }
@@ -71,7 +77,7 @@ class DioConsumer extends ApiConsumer {
   @override
   Future put(
     String path, {
-    data,
+    dynamic data,
     Map<String, dynamic>? queryParameters,
     bool isFormData = false,
   }) async {
@@ -81,7 +87,7 @@ class DioConsumer extends ApiConsumer {
         data: isFormData ? FormData.fromMap(data) : data,
         queryParameters: queryParameters,
       );
-      return response;
+      return response.data;
     } on DioException catch (e) {
       handelException(e);
     }

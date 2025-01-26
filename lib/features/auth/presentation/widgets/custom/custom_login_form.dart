@@ -1,3 +1,7 @@
+import 'package:bright/core/functions/navigation.dart';
+import 'package:bright/core/functions/show_toast.dart';
+import 'package:bright/core/routes/route_key.dart';
+import 'package:bright/core/utils/app_colors.dart';
 import 'package:bright/core/utils/app_space.dart';
 import 'package:bright/core/utils/app_strings.dart';
 import 'package:bright/core/widgets/material_button_widget.dart';
@@ -15,7 +19,14 @@ class CustomLoginForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AuthCubit, AuthState>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        if (state is LoginSuccessState) {
+          showToast(msg: '${AppStrings.wellcom} ${state.displayName}');
+          navigateReplacement(context, RouteKey.homeView);
+        } else if (state is LoginFailureState) {
+          showToast(msg: state.errorMessage);
+        }
+      },
       builder: (context, state) {
         // read from AuthCubit
         AuthCubit authCubit = context.read<AuthCubit>();
@@ -47,12 +58,16 @@ class CustomLoginForm extends StatelessWidget {
               ),
               const SizedBox(height: AppSpace.maxSpace1),
               // login button
-              MaterialButtonWidget(
-                onPressed: () {
-                  authCubit.loginKey.currentState!.validate();
-                },
-                text: AppStrings.login,
-              ),
+              (state is LoginLoadinState)
+                  ? CircularProgressIndicator(color: AppColors.primaryColor)
+                  : MaterialButtonWidget(
+                      onPressed: () {
+                        if (authCubit.loginKey.currentState!.validate()) {
+                          authCubit.login();
+                        }
+                      },
+                      text: AppStrings.login,
+                    ),
             ],
           ),
         );

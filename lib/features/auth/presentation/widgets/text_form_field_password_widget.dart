@@ -28,6 +28,7 @@ class TextFormFieldPasswrodWidget extends StatelessWidget {
           controller: controller,
           validator: validator,
           obscureText: authCubit.obscurePasswordValue,
+          cursorColor: AppColors.lightBlack,
           decoration: InputDecoration(
             prefixIcon: prefixIcon,
             prefixIconColor: AppColors.primaryColor,
