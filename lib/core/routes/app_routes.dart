@@ -1,4 +1,5 @@
 import 'package:bright/core/api/dio_consumer.dart';
+import 'package:bright/core/functions/handle_deep_link.dart';
 import 'package:bright/core/repositories/auth_repo.dart';
 import 'package:bright/core/routes/route_key.dart';
 import 'package:bright/features/auth/cubit/auth_cubit.dart';
@@ -14,6 +15,21 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 final GoRouter router = GoRouter(
+  // set start screen
+  initialLocation: RouteKey.launch,
+  // Redirect deep links while retaining the data sent with it
+  redirect: (context, state) {
+    final String? deepLinkePathe = handleDeepLink(state.uri.path);
+    if (deepLinkePathe != null) {
+      return Uri(
+        path: deepLinkePathe,
+        queryParameters: state.uri.queryParameters,
+      ).toString();
+    } else {
+      return null;
+    }
+  },
+  //
   routes: [
     GoRoute(
       path: RouteKey.launch,
@@ -49,4 +65,5 @@ final GoRouter router = GoRouter(
       builder: (context, state) => HomeView(),
     ),
   ],
+  //
 );
