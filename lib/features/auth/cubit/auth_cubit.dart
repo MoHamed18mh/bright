@@ -65,18 +65,7 @@ class AuthCubit extends Cubit<AuthState> {
       (messege) => emit(RegisterSuccessState(message: messege)),
     );
   }
-
-  // ****************** confirm Email
-  Future<void> confirmEmail(
-      {required String email, required String token}) async {
-    emit(ConfirmLoadingState());
-    final response = await authRepo.confirmEmail(email: email, token: token);
-    response.fold(
-      (errorMessage) => emit(ConfirmFailureState(errorMessage: errorMessage)),
-      (message) => emit(ConfirmSuccessState(message: message)),
-    );
-  }
-  // ***************************************************************************
+  // // ***************************************************************************
 
   // *********************** login method **************************************
   Future login() async {

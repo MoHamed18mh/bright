@@ -36,19 +36,3 @@ final class RegisterFailureState extends AuthState {
   RegisterFailureState({required this.errorMessage});
 }
 // *****************************************************************************
-
-// ************* Confirm states ***********************************************
-final class ConfirmLoadingState extends AuthState {}
-
-final class ConfirmSuccessState extends AuthState {
-  final String message;
-
-  ConfirmSuccessState({required this.message});
-}
-
-final class ConfirmFailureState extends AuthState {
-  final String errorMessage;
-
-  ConfirmFailureState({required this.errorMessage});
-}
-// *****************************************************************************

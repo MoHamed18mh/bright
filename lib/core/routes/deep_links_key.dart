@@ -1,5 +1,5 @@
 abstract class DeepLinksKey {
-  static const String verifyDeepLink = 'https://brightminds.runasp.net/verify';
+  static const String verifyDeepLink = 'https://brightminds.runasp.net${DeepLinkPathKey.verify}';
 }
 
 abstract class DeepLinkPathKey {

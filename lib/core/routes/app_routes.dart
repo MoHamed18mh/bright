@@ -20,10 +20,10 @@ final GoRouter router = GoRouter(
   initialLocation: RouteKey.launch,
   // *********** Redirect deep links while retaining the data sent with it *****
   redirect: (context, state) {
-    final String? deepLinkePathe = handleDeepLink(state.uri.path);
-    if (deepLinkePathe != null) {
+    final String? deepLinkPath = handleDeepLink(state.uri.path);
+    if (deepLinkPath != null) {
       return Uri(
-        path: deepLinkePathe,
+        path: deepLinkPath,
         queryParameters: state.uri.queryParameters,
       ).toString();
     } else {
@@ -34,11 +34,25 @@ final GoRouter router = GoRouter(
   routes: [
     GoRoute(
       path: RouteKey.launch,
-      builder: (context, state) => BlocProvider(
-        create: (context) => SplashCubit()
-          ..splashViewTimer(), // start splashViewTimer when screen is launch
-        child: SplashView(),
-      ),
+      builder: (context, state) {
+        // ****************** get data from deep link **************************
+        final String? email = state.uri.queryParameters[ApiKey.email];
+        final String? token = state.uri.queryParameters[ApiKey.token];
+
+        final SplashCubit splashCubit =
+            SplashCubit(AuthRepo(api: DioConsumer(dio: Dio())));
+
+        // ********** if email or token is not unll call confirmEmail **********
+        if (email != null && token != null) {
+          splashCubit.getEmailAndTokenFromDeepLink(email: email, token: token);
+        }
+        splashCubit.splashViewTimer();
+
+        return BlocProvider(
+          create: (context) => splashCubit,
+          child: SplashView(),
+        );
+      },
     ),
     //
     GoRoute(
@@ -52,18 +66,9 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: RouteKey.loginView,
       builder: (context, state) {
-        // ****************** get data from deep link **************************
-        final String? email = state.uri.queryParameters[ApiKey.email];
-        final String? token = state.uri.queryParameters[ApiKey.token];
-
-        final AuthCubit authCubit =
-            AuthCubit(AuthRepo(api: DioConsumer(dio: Dio())));
-        // ********** if email or token is not unll call confirmEmail **********
-        if (email != null && token != null) {
-          authCubit.confirmEmail(email: email, token: token);
-        }
         return BlocProvider(
-          create: (context) => authCubit,
+          create: (context) =>
+              AuthCubit(AuthRepo(api: DioConsumer(dio: Dio()))),
           child: LoginView(),
         );
       },
@@ -83,5 +88,4 @@ final GoRouter router = GoRouter(
     ),
     //
   ],
-  //
 );
