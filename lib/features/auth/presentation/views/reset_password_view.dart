@@ -1,11 +1,11 @@
 import 'package:bright/core/utils/app_space.dart';
 import 'package:bright/core/utils/app_strings.dart';
-import 'package:bright/features/auth/presentation/widgets/custom/custom_new_password_form.dart';
+import 'package:bright/features/auth/presentation/widgets/custom/custom_reset_password_form.dart';
 import 'package:bright/features/auth/presentation/widgets/forgot_password_title.dart';
 import 'package:flutter/material.dart';
 
-class NewPasswordView extends StatelessWidget {
-  const NewPasswordView({super.key});
+class ResetPasswordView extends StatelessWidget {
+  const ResetPasswordView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +15,7 @@ class NewPasswordView extends StatelessWidget {
       child: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(child: SizedBox(height: AppSpace.maxSpace2)),
+
           SliverToBoxAdapter(
             child: ForgotPasswordTitle(
               text1: AppStrings.newPassword,
@@ -22,11 +23,11 @@ class NewPasswordView extends StatelessWidget {
             ),
           ),
           SliverToBoxAdapter(child: SizedBox(height: AppSpace.meduimSpace2)),
-          // *************** fields and button of New password screen **********
-          SliverToBoxAdapter(child: CustomNewPasswordForm()),
+
+          // *************** fields and button of reset password screen **********
+          SliverToBoxAdapter(child: CustomResetPasswordForm()),
         ],
       ),
     ));
   }
 }
-

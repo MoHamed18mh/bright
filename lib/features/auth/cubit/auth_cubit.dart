@@ -27,7 +27,21 @@ class AuthCubit extends Cubit<AuthState> {
   TextEditingController registerConfirmPasswordController =
       TextEditingController();
 
-  //n******************* change the value of obscurePasswordValue **************
+  // forgot password key
+  GlobalKey<FormState> forgotPasswordKey = GlobalKey<FormState>();
+  TextEditingController forgotPassEmailController = TextEditingController();
+
+  // reset password key
+  GlobalKey<FormState> resetPasswordKey = GlobalKey<FormState>();
+  TextEditingController resetPasswordController = TextEditingController();
+  TextEditingController resetConfirmPasswordController =
+      TextEditingController();
+
+  // data from deep link
+  String? deepEmail;
+  String? deepToken;
+
+  // ******************* change the value of obscurePasswordValue **************
   void changeObscurePasswordValue() {
     if (obscurePasswordValue) {
       obscurePasswordValue = false;
@@ -47,9 +61,9 @@ class AuthCubit extends Cubit<AuthState> {
   }
   // ***************************************************************************
 
-  // *********************** register methodes *********************************
+  // ********************* register and confirm methodes ***********************
   // ****************** regisger
-  Future register() async {
+  Future<void> register() async {
     emit(RegisterLoadingState());
     final response = await authRepo.register(
       firstName: registerFirstNameController.text,
@@ -65,10 +79,21 @@ class AuthCubit extends Cubit<AuthState> {
       (messege) => emit(RegisterSuccessState(message: messege)),
     );
   }
-  // // ***************************************************************************
+
+  // ****************** confirm Email
+  Future<void> confirmEmail(
+      {required String email, required String token}) async {
+    emit(ConfirmLoadingState());
+    final response = await authRepo.confirmEmail(email: email, token: token);
+    response.fold(
+      (errorMessage) => emit(ConfirmFailureState(errorMessage: errorMessage)),
+      (message) => emit(ConfirmSuccessState(message: message)),
+    );
+  }
+  // ***************************************************************************
 
   // *********************** login method **************************************
-  Future login() async {
+  Future<void> login() async {
     emit(LoginLoadingState());
     final response = await authRepo.login(
       email: loginEmailController.text,
@@ -78,6 +103,42 @@ class AuthCubit extends Cubit<AuthState> {
       (errorMessage) => emit(LoginFailureState(errorMessage: errorMessage)),
       (loginModel) =>
           emit(LoginSuccessState(displayName: loginModel.user.displayName)),
+    );
+  }
+  // ***************************************************************************
+
+  // ****************** forgot password and reset  method **********************
+  // ****************** forgot password
+  Future<void> forgotPassword() async {
+    emit(ForgotPasswordLoadingState());
+    final response =
+        await authRepo.forgotPassword(email: forgotPassEmailController.text);
+    response.fold(
+      (errorMessage) =>
+          emit(ForgotPasswordFailureState(errorMessage: errorMessage)),
+      (message) => emit(ForgotPasswordSuccessState(message: message)),
+    );
+  }
+
+  // ****************** get email and token from deep link
+  void getEmailAndToken({required String email, required String token}) {
+    deepEmail = email;
+    deepToken = token;
+  }
+
+  // ****************** reset password
+  Future<void> resetPassword() async {
+    emit(ResetPasswordLoadingState());
+    final response = await authRepo.resetPassword(
+      email: deepEmail!,
+      token: deepToken!,
+      password: resetPasswordController.text,
+      confirmPassword: resetConfirmPasswordController.text,
+    );
+    response.fold(
+      (errorMessage) =>
+          emit(ResetPasswordFailureState(errorMessage: errorMessage)),
+      (message) => emit(ResetPasswordSuccessState(message: message)),
     );
   }
   // ***************************************************************************

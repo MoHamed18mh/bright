@@ -27,6 +27,7 @@ class ForgotPasswordView extends StatelessWidget {
               ),
             ),
             SliverToBoxAdapter(child: SizedBox(height: AppSpace.meduimSpace1)),
+
             // *************** fields and button of forgot screen **************
             SliverToBoxAdapter(child: CustomForgotPasswordForm()),
           ],

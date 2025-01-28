@@ -43,7 +43,7 @@ class AuthRepo {
         EndPoint.authenticate,
         data: {
           ApiKey.email: email,
-          ApiKey.clientUrl: DeepLinksKey.verifyDeepLink
+          ApiKey.clientUrl: DeepLinksKey.verifyDeepLink,
         },
       );
       return Right(AppStrings.pleaseCheckEmail);
@@ -68,6 +68,8 @@ class AuthRepo {
       return Right(AppStrings.verifyDone);
     } on ServerException catch (e) {
       return Left(e.errorModel.message);
+    } catch (e) {
+      return Left(AppStrings.unexpectedError);
     }
   }
   // ***************************************************************************
@@ -94,6 +96,47 @@ class AuthRepo {
       return Left(e.errorModel.message);
     } catch (e) {
       return Left(AppStrings.unexpectedError);
+    }
+  }
+  // ***************************************************************************
+
+  // ******************* prepare forgotPassword method *************************
+
+  // ******************* send verify email
+  Future<Either<String, String>> forgotPassword({required String email}) async {
+    try {
+      await api.post(
+        EndPoint.forgotPassword,
+        data: {
+          ApiKey.email: email,
+          ApiKey.clientUrl: DeepLinksKey.forgotPasswordDeepLink,
+        },
+      );
+      return Right(AppStrings.pleaseCheckEmail);
+    } on ServerException catch (e) {
+      return Left(e.errorModel.message);
+    } catch (e) {
+      return Left(AppStrings.unexpectedError);
+    }
+  }
+
+  // ********************* reset password
+  Future<Either<String, String>> resetPassword({
+    required String email,
+    required String token,
+    required String password,
+    required String confirmPassword,
+  }) async {
+    try {
+      await api.post(EndPoint.resetPassword, data: {
+        ApiKey.email: email,
+        ApiKey.token: token,
+        ApiKey.password: password,
+        ApiKey.confirmPassword: confirmPassword,
+      });
+      return Right(AppStrings.successResetPassword);
+    } on ServerException catch (e) {
+      return Left(e.errorModel.message);
     }
   }
   // ***************************************************************************

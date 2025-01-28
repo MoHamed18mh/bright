@@ -33,7 +33,7 @@ class CustomRegisterForm extends StatelessWidget {
           key: authCubit.registerKey,
           child: Column(
             children: [
-              // ************** First Name field *******************************
+              // ************** First Name field 
               TextFormFieldWidget(
                 text: AppStrings.firstName,
                 prefixIcon: Icon(Icons.person_outline),
@@ -42,7 +42,7 @@ class CustomRegisterForm extends StatelessWidget {
               ),
               const SizedBox(height: AppSpace.mainSpace),
 
-              // ************** last Name field ********************************
+              // ************** last Name field 
               TextFormFieldWidget(
                 text: AppStrings.lastName,
                 prefixIcon: Icon(Icons.person_outline),
@@ -51,7 +51,7 @@ class CustomRegisterForm extends StatelessWidget {
               ),
               const SizedBox(height: AppSpace.mainSpace),
 
-              // ************** Email field ************************************
+              // ************** Email field 
               TextFormFieldWidget(
                 text: AppStrings.email,
                 prefixIcon: Icon(Icons.email_outlined),
@@ -60,7 +60,7 @@ class CustomRegisterForm extends StatelessWidget {
               ),
               const SizedBox(height: AppSpace.mainSpace),
 
-              // ************** Phone field ************************************
+              // ************** Phone field 
               TextFormFieldWidget(
                 text: AppStrings.phoneNumber,
                 prefixIcon: Icon(Icons.phone_outlined),
@@ -69,7 +69,7 @@ class CustomRegisterForm extends StatelessWidget {
               ),
               const SizedBox(height: AppSpace.mainSpace),
 
-              // ************** password field *********************************
+              // ************** password field
               TextFormFieldPasswordWidget(
                 text: AppStrings.password,
                 validator: authCubit.validator,
@@ -77,7 +77,7 @@ class CustomRegisterForm extends StatelessWidget {
               ),
               const SizedBox(height: AppSpace.mainSpace),
 
-              // ************** confirm password field *************************
+              // ************** confirm password field
               TextFormFieldPasswordWidget(
                 text: AppStrings.confirmPassword,
                 validator: authCubit.validator,
@@ -85,7 +85,7 @@ class CustomRegisterForm extends StatelessWidget {
               ),
               const SizedBox(height: AppSpace.meduimSpace2),
 
-              // ************** register button ********************************
+              // ************** register button
               (state is RegisterLoadingState)
                   ? CircularProgressIndicator(color: AppColors.primaryColor)
                   : MaterialButtonWidget(

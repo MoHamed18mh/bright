@@ -1,14 +1,11 @@
 import 'package:bright/core/database/cache_helper.dart';
 import 'package:bright/core/database/cache_key.dart';
-import 'package:bright/core/repositories/auth_repo.dart';
 import 'package:bright/core/services/service_locator.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bright/features/splash/cubit/splash_state.dart';
 
 class SplashCubit extends Cubit<SplashState> {
-  SplashCubit(this.authRepo) : super(SplashInitial());
-
-  final AuthRepo authRepo;
+  SplashCubit() : super(SplashInitial());
 
   String? deepEmail;
   String? deepToken;
@@ -31,10 +28,6 @@ class SplashCubit extends Cubit<SplashState> {
                   false;
 
           if (isBoardingVisited) {
-            // If the email and token sent from the deep link are not null then confirmEmail
-            if (deepEmail != null && deepToken != null) {
-              await confirmEmail();
-            }
             emit(SplashNavigateToLogin());
           } else {
             emit(SplashNavigateToBoarding());
@@ -42,25 +35,6 @@ class SplashCubit extends Cubit<SplashState> {
         }
       },
     );
-  }
-  // ***************************************************************************
-
-  // ****************** confirm Email ******************************************
-  Future<void> confirmEmail() async {
-    final response =
-        await authRepo.confirmEmail(email: deepEmail!, token: deepToken!);
-    response.fold(
-      (errorMessage) => emit(ConfirmFailureState(errorMessage: errorMessage)),
-      (message) => emit(ConfirmSuccessState(message: message)),
-    );
-  }
-  // ***************************************************************************
-
-  // ************* will call when splash screen is opened **********************
-  void getEmailAndTokenFromDeepLink(
-      {required String email, required String token}) {
-    deepEmail = email;
-    deepToken = token;
   }
   // ***************************************************************************
 }

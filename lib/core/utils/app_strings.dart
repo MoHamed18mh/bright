@@ -26,7 +26,7 @@ abstract class AppStrings {
       enterEmail = 'Enter Your Email',
       willSendMessage = 'Will Send Verify Email For You',
       phoneNumber = 'Phone Number',
-      reset = 'Reset',
+      successResetPassword = 'Success Reset Password!',
       pleaseCheckEmail = 'Please Check Your Email For Verify',
       sendEmail = 'Send Email',
       unexpectedError = 'Unexpected error occurred',

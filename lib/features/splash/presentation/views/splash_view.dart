@@ -1,5 +1,4 @@
 import 'package:bright/core/functions/navigation.dart';
-import 'package:bright/core/functions/show_toast.dart';
 import 'package:bright/core/routes/route_key.dart';
 import 'package:bright/core/utils/app_space.dart';
 import 'package:bright/features/splash/cubit/splash_cubit.dart';
@@ -22,10 +21,6 @@ class SplashView extends StatelessWidget {
           navigateReplacement(context, RouteKey.boardingView);
         } else if (state is SplashNavigateToLogin) {
           navigateReplacement(context, RouteKey.loginView);
-        } else if (state is ConfirmSuccessState) {
-          showToast(msg: state.message);
-        } else if (state is ConfirmFailureState) {
-          showToast(msg: state.errorMessage);
         }
       },
       child: Scaffold(

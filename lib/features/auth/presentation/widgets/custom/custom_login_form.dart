@@ -18,6 +18,8 @@ class CustomLoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AuthCubit authCubit = context.read<AuthCubit>();
+
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is LoginSuccessState) {
@@ -28,13 +30,11 @@ class CustomLoginForm extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        // read from AuthCubit
-        AuthCubit authCubit = context.read<AuthCubit>();
         return Form(
           key: authCubit.loginKey,
           child: Column(
             children: [
-              // email field
+              // ************* email field
               TextFormFieldWidget(
                 text: AppStrings.email,
                 prefixIcon: Icon(Icons.email_outlined),
@@ -42,13 +42,15 @@ class CustomLoginForm extends StatelessWidget {
                 controller: authCubit.loginEmailController,
               ),
               const SizedBox(height: AppSpace.mainSpace),
-              // password field
+
+              // ************** password field
               TextFormFieldPasswordWidget(
                 text: AppStrings.password,
                 validator: authCubit.validator,
                 controller: authCubit.loginPasswordController,
               ),
-              // text button for go to forgotPasswordView screen
+
+              // **************** text button for go to forgotPasswordView screen
               TextButtonWidget(
                 alignment: Alignment.centerRight,
                 onPressed: () => navigate(context, RouteKey.forgotPasswordView),
@@ -56,7 +58,8 @@ class CustomLoginForm extends StatelessWidget {
                 fontSize: 13,
               ),
               const SizedBox(height: AppSpace.maxSpace1),
-              // login button
+
+              // *************** login button
               (state is LoginLoadingState)
                   ? CircularProgressIndicator(color: AppColors.primaryColor)
                   : MaterialButtonWidget(

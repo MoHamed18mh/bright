@@ -4,6 +4,6 @@ abstract class RouteKey {
   static const String loginView = '/LoginView';
   static const String registerView = '/RegisterView';
   static const String forgotPasswordView = '/ForgotPasswordView';
-  static const String newPasswordView = '/NewPasswordView';
+  static const String resetPasswordView = '/ResetPasswordView';
   static const String homeView = '/HomeView';
 }

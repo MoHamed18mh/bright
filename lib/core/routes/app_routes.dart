@@ -6,7 +6,7 @@ import 'package:bright/core/routes/route_key.dart';
 import 'package:bright/features/auth/cubit/auth_cubit.dart';
 import 'package:bright/features/auth/presentation/views/forgot_password_view.dart';
 import 'package:bright/features/auth/presentation/views/login_view.dart';
-import 'package:bright/features/auth/presentation/views/new_password_view.dart';
+import 'package:bright/features/auth/presentation/views/reset_password_view.dart';
 import 'package:bright/features/auth/presentation/views/register_view.dart';
 import 'package:bright/features/boarding/cubit/boarding_cubit.dart';
 import 'package:bright/features/boarding/prsentation/views/boarding_view.dart';
@@ -20,6 +20,7 @@ import 'package:go_router/go_router.dart';
 final GoRouter router = GoRouter(
   // ************** set start screen *******************************************
   initialLocation: RouteKey.launch,
+
   // *********** Redirect deep links while retaining the data sent with it *****
   redirect: (context, state) {
     final String? deepLinkPath = handleDeepLink(state.uri.path);
@@ -37,21 +38,9 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: RouteKey.launch,
       builder: (context, state) {
-        // ****************** get data from deep link **************************
-        final String? email = state.uri.queryParameters[ApiKey.email];
-        final String? token = state.uri.queryParameters[ApiKey.token];
-
-        final SplashCubit splashCubit =
-            SplashCubit(AuthRepo(api: DioConsumer(dio: Dio())));
-
-        // ********** if email or token is not unll call confirmEmail **********
-        if (email != null && token != null) {
-          splashCubit.getEmailAndTokenFromDeepLink(email: email, token: token);
-        }
-        splashCubit.splashViewTimer();
-
         return BlocProvider(
-          create: (context) => splashCubit,
+          create: (context) =>
+              SplashCubit()..splashViewTimer(), // start splash timer
           child: SplashView(),
         );
       },
@@ -68,9 +57,18 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: RouteKey.loginView,
       builder: (context, state) {
+        // ****************** get data from deep link **************************
+        final String? deepEmail = state.uri.queryParameters[ApiKey.email];
+        final String? deepToken = state.uri.queryParameters[ApiKey.token];
+
+        final AuthCubit authCubit =
+            AuthCubit(AuthRepo(api: DioConsumer(dio: Dio())));
+        // ****** if deepemail and deeptoken is not unll then call confirmEmail
+        if (deepEmail != null && deepToken != null) {
+          authCubit.confirmEmail(email: deepEmail, token: deepToken);
+        }
         return BlocProvider(
-          create: (context) =>
-              AuthCubit(AuthRepo(api: DioConsumer(dio: Dio()))),
+          create: (context) => authCubit,
           child: LoginView(),
         );
       },
@@ -93,12 +91,25 @@ final GoRouter router = GoRouter(
     ),
     //
     GoRoute(
-      path: RouteKey.newPasswordView,
-      builder: (context, state) => BlocProvider(
-        create: (context) => AuthCubit(AuthRepo(api: DioConsumer(dio: Dio()))),
-        child: NewPasswordView(),
-      ),
-    ),
+        path: RouteKey.resetPasswordView,
+        builder: (context, state) {
+          // ****************** get data from deep link ************************
+          final String? deepEmail = state.uri.queryParameters[ApiKey.email];
+          final String? deepToken = state.uri.queryParameters[ApiKey.token];
+
+          final AuthCubit authCubit =
+              AuthCubit(AuthRepo(api: DioConsumer(dio: Dio())));
+
+          //if deepemail and deeptoken is not unll then call getEmailAndToken for send them to authCubit
+          if (deepEmail != null && deepToken != null) {
+            authCubit.getEmailAndToken(email: deepEmail, token: deepToken);
+          }
+
+          return BlocProvider(
+            create: (context) => authCubit,
+            child: ResetPasswordView(),
+          );
+        }),
     //
     GoRoute(
       path: RouteKey.homeView,

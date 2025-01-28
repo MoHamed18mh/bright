@@ -25,13 +25,23 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
             <!-- ******************************* prepare deep links filters ***************************** -->
-            <!-- https://brightminds.runasp.net/verify   this send with verify email -->
+            
+            <!-- https://brightminds.runasp.net/verify   to verify email -->
             <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="https" android:host="brightminds.runasp.net" />
                 <data android:pathPrefix="/verify" />
+            </intent-filter>
+
+            <!-- https://brightminds.runasp.net/resetpassword   for forgotPassword -->
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="https" android:host="brightminds.runasp.net" />
+                <data android:pathPrefix="/resetpassword" />
             </intent-filter>
             <!-- **************************************************************************************** -->
         </activity>

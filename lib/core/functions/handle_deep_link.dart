@@ -3,7 +3,8 @@ import 'package:bright/core/routes/route_key.dart';
 
 String? handleDeepLink(String deepLink) {
   final Map<String, String> deepLinkRoutes = {
-    DeepLinkPathKey.verify: RouteKey.launch,
+    DeepLinkPathKey.verify: RouteKey.loginView,
+    DeepLinkPathKey.resetPassword: RouteKey.resetPasswordView,
   };
 
   return deepLinkRoutes[deepLink];

@@ -4,6 +4,8 @@ abstract class EndPoint {
   static final String register = '/api/Account/register';
   static final String authenticate = '/api/Account/authnticate-email';
   static final String confirmEmail = '/api/Account/confirm-email';
+  static final String forgotPassword = '/api/Account/forget-password';
+  static final String resetPassword = '/api/Account/reset-password';
 }
 
 abstract class ApiKey {
@@ -15,6 +17,7 @@ abstract class ApiKey {
       token = 'token',
       email = 'email',
       password = 'password',
+      confirmPassword = 'confirmPassword',
       displayName = 'displayName',
       mobile = 'mobile',
       id = 'id',
