@@ -7,4 +7,16 @@ final class SplashNavigateToBoarding extends SplashState {}
 
 final class SplashNavigateToLogin extends SplashState {}
 
+final class SplashNavigateToLoginWithUri extends SplashState {
+  final Uri uri;
+
+  SplashNavigateToLoginWithUri({required this.uri});
+}
+
+final class SplashNavigateToResetPasswordWithUri extends SplashState {
+  final Uri uri;
+
+  SplashNavigateToResetPasswordWithUri({required this.uri});
+}
+
 final class SplashNavigateToHome extends SplashState {}

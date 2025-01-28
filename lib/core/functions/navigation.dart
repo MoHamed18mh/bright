@@ -1,11 +1,11 @@
 import 'package:go_router/go_router.dart';
 
-void navigate(context, String path, {Object? data}) {
-  GoRouter.of(context).push(path, extra: data);
+void navigate(context, String path, {Object? extra}) {
+  GoRouter.of(context).push(path, extra: extra);
 }
 
-void navigateReplacement(context, String path, {Object? data}) {
-  GoRouter.of(context).pushReplacement(path, extra: data);
+void navigateReplacement(context, String path, {Object? extra}) {
+  GoRouter.of(context).pushReplacement(path, extra: extra);
 }
 
 void navigatePop(context) {

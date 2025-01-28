@@ -13,14 +13,19 @@ class SplashView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<SplashCubit, SplashState>(
-      listener: (context, state) {
+    return BlocListener<SplashCubit, SplashState>(      listener: (context, state) {
         if (state is SplashNavigateToHome) {
           navigateReplacement(context, RouteKey.homeView);
         } else if (state is SplashNavigateToBoarding) {
           navigateReplacement(context, RouteKey.boardingView);
         } else if (state is SplashNavigateToLogin) {
           navigateReplacement(context, RouteKey.loginView);
+        } else if (state is SplashNavigateToLoginWithUri) {
+          // pass new uri using extra to loginView goRouter
+          navigateReplacement(context, RouteKey.loginView, extra: state.uri);
+        } else if (state is SplashNavigateToResetPasswordWithUri) {
+          // pass new uri using extra to resetPasswordView goRouter
+          navigateReplacement(context, RouteKey.resetPasswordView, extra: state.uri);
         }
       },
       child: Scaffold(

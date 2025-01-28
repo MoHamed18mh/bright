@@ -23,11 +23,18 @@ final GoRouter router = GoRouter(
 
   // *********** Redirect deep links while retaining the data sent with it *****
   redirect: (context, state) {
+    // handel deep link with goRouter paths
     final String? deepLinkPath = handleDeepLink(state.uri.path);
+
+    // build new deep link for open app with splashView
     if (deepLinkPath != null) {
       return Uri(
-        path: deepLinkPath,
-        queryParameters: state.uri.queryParameters,
+        path: RouteKey.launch, // set lanunc path to open app on splash view
+        queryParameters: {
+          RouteKey.deepLinkPath:
+              deepLinkPath, // save handled deepLinkPath in queryParameters
+          ...state.uri.queryParameters, // set all other value with out changes
+        },
       ).toString();
     } else {
       return null;
@@ -40,7 +47,9 @@ final GoRouter router = GoRouter(
       builder: (context, state) {
         return BlocProvider(
           create: (context) =>
-              SplashCubit()..splashViewTimer(), // start splash timer
+              // send query parameters to splashCubit with splashViewTimer
+              // to navigate to the next screen after splash
+              SplashCubit()..splashViewTimer(state.uri.queryParameters),
           child: SplashView(),
         );
       },
@@ -57,13 +66,14 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: RouteKey.loginView,
       builder: (context, state) {
-        // ****************** get data from deep link **************************
-        final String? deepEmail = state.uri.queryParameters[ApiKey.email];
-        final String? deepToken = state.uri.queryParameters[ApiKey.token];
+        // *********** reseive new uri from splash
+        final Uri? uri = state.extra as Uri?;
+        final String? deepEmail = uri?.queryParameters[ApiKey.email];
+        final String? deepToken = uri?.queryParameters[ApiKey.token];
 
         final AuthCubit authCubit =
             AuthCubit(AuthRepo(api: DioConsumer(dio: Dio())));
-        // ****** if deepemail and deeptoken is not unll then call confirmEmail
+
         if (deepEmail != null && deepToken != null) {
           authCubit.confirmEmail(email: deepEmail, token: deepToken);
         }
@@ -93,14 +103,16 @@ final GoRouter router = GoRouter(
     GoRoute(
         path: RouteKey.resetPasswordView,
         builder: (context, state) {
-          // ****************** get data from deep link ************************
-          final String? deepEmail = state.uri.queryParameters[ApiKey.email];
-          final String? deepToken = state.uri.queryParameters[ApiKey.token];
+
+          // receive new uri form splash
+          final Uri? uri = state.extra as Uri?;
+          final String? deepEmail = uri?.queryParameters[ApiKey.email];
+          final String? deepToken = uri?.queryParameters[ApiKey.token];
 
           final AuthCubit authCubit =
               AuthCubit(AuthRepo(api: DioConsumer(dio: Dio())));
 
-          //if deepemail and deeptoken is not unll then call getEmailAndToken for send them to authCubit
+              // ************* send deepEmail and deepToken to Auth cubit
           if (deepEmail != null && deepToken != null) {
             authCubit.getEmailAndToken(email: deepEmail, token: deepToken);
           }
