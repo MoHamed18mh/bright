@@ -72,7 +72,6 @@ class CustomRegisterForm extends StatelessWidget {
               // ************** password field *********************************
               TextFormFieldPasswordWidget(
                 text: AppStrings.password,
-                prefixIcon: Icon(Icons.lock_open_outlined),
                 validator: authCubit.validator,
                 controller: authCubit.registerPasswordController,
               ),
@@ -81,7 +80,6 @@ class CustomRegisterForm extends StatelessWidget {
               // ************** confirm password field *************************
               TextFormFieldPasswordWidget(
                 text: AppStrings.confirmPassword,
-                prefixIcon: Icon(Icons.lock_open_outlined),
                 validator: authCubit.validator,
                 controller: authCubit.registerConfirmPasswordController,
               ),

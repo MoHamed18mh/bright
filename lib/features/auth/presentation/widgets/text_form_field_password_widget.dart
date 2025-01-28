@@ -9,12 +9,10 @@ class TextFormFieldPasswordWidget extends StatelessWidget {
   const TextFormFieldPasswordWidget({
     super.key,
     required this.text,
-    required this.prefixIcon,
     this.validator,
     this.controller,
   });
   final String text;
-  final Icon prefixIcon;
   final String? Function(String?)? validator;
   final TextEditingController? controller;
 
@@ -30,7 +28,7 @@ class TextFormFieldPasswordWidget extends StatelessWidget {
           obscureText: authCubit.obscurePasswordValue,
           cursorColor: AppColors.lightBlack,
           decoration: InputDecoration(
-            prefixIcon: prefixIcon,
+            prefixIcon: Icon(Icons.lock_open_outlined),
             prefixIconColor: AppColors.primaryColor,
             hintText: text,
             hintStyle: AppTextStyle.nunitoSans13grey,

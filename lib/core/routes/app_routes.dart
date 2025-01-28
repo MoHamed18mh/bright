@@ -4,7 +4,9 @@ import 'package:bright/core/functions/handle_deep_link.dart';
 import 'package:bright/core/repositories/auth_repo.dart';
 import 'package:bright/core/routes/route_key.dart';
 import 'package:bright/features/auth/cubit/auth_cubit.dart';
+import 'package:bright/features/auth/presentation/views/forgot_password_view.dart';
 import 'package:bright/features/auth/presentation/views/login_view.dart';
+import 'package:bright/features/auth/presentation/views/new_password_view.dart';
 import 'package:bright/features/auth/presentation/views/register_view.dart';
 import 'package:bright/features/boarding/cubit/boarding_cubit.dart';
 import 'package:bright/features/boarding/prsentation/views/boarding_view.dart';
@@ -79,6 +81,22 @@ final GoRouter router = GoRouter(
       builder: (context, state) => BlocProvider(
         create: (context) => AuthCubit(AuthRepo(api: DioConsumer(dio: Dio()))),
         child: RegisterView(),
+      ),
+    ),
+    //
+    GoRoute(
+      path: RouteKey.forgotPasswordView,
+      builder: (context, state) => BlocProvider(
+        create: (context) => AuthCubit(AuthRepo(api: DioConsumer(dio: Dio()))),
+        child: ForgotPasswordView(),
+      ),
+    ),
+    //
+    GoRoute(
+      path: RouteKey.newPasswordView,
+      builder: (context, state) => BlocProvider(
+        create: (context) => AuthCubit(AuthRepo(api: DioConsumer(dio: Dio()))),
+        child: NewPasswordView(),
       ),
     ),
     //

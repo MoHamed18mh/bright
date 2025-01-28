@@ -45,14 +45,13 @@ class CustomLoginForm extends StatelessWidget {
               // password field
               TextFormFieldPasswordWidget(
                 text: AppStrings.password,
-                prefixIcon: Icon(Icons.lock_open_outlined),
                 validator: authCubit.validator,
                 controller: authCubit.loginPasswordController,
               ),
               // text button for go to forgotPasswordView screen
               TextButtonWidget(
                 alignment: Alignment.centerRight,
-                onPressed: () {},
+                onPressed: () => navigate(context, RouteKey.forgotPasswordView),
                 text1: AppStrings.forgotPassword,
                 fontSize: 13,
               ),
