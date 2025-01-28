@@ -43,7 +43,7 @@ class CustomLoginForm extends StatelessWidget {
               ),
               const SizedBox(height: AppSpace.mainSpace),
               // password field
-              TextFormFieldPasswrodWidget(
+              TextFormFieldPasswordWidget(
                 text: AppStrings.password,
                 prefixIcon: Icon(Icons.lock_open_outlined),
                 validator: authCubit.validator,
@@ -58,7 +58,7 @@ class CustomLoginForm extends StatelessWidget {
               ),
               const SizedBox(height: AppSpace.maxSpace1),
               // login button
-              (state is LoginLoadinState)
+              (state is LoginLoadingState)
                   ? CircularProgressIndicator(color: AppColors.primaryColor)
                   : MaterialButtonWidget(
                       onPressed: () {

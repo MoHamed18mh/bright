@@ -5,8 +5,8 @@ import 'package:bright/features/auth/cubit/auth_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class TextFormFieldPasswrodWidget extends StatelessWidget {
-  const TextFormFieldPasswrodWidget({
+class TextFormFieldPasswordWidget extends StatelessWidget {
+  const TextFormFieldPasswordWidget({
     super.key,
     required this.text,
     required this.prefixIcon,

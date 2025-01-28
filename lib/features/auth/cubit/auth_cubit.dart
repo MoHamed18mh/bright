@@ -22,12 +22,12 @@ class AuthCubit extends Cubit<AuthState> {
   TextEditingController registerFirstNameController = TextEditingController();
   TextEditingController registerLastNameController = TextEditingController();
   TextEditingController registerEmailController = TextEditingController();
-  TextEditingController registerPhoneController = TextEditingController();
+  TextEditingController registerMobileController = TextEditingController();
   TextEditingController registerPasswordController = TextEditingController();
   TextEditingController registerConfirmPasswordController =
       TextEditingController();
 
-  // change the value of obscurePasswordValue
+  //n******************* change the value of obscurePasswordValue **************
   void changeObscurePasswordValue() {
     if (obscurePasswordValue) {
       obscurePasswordValue = false;
@@ -36,18 +36,51 @@ class AuthCubit extends Cubit<AuthState> {
     }
     emit(ChangeObscurePasswordState());
   }
+  // ***************************************************************************
 
-  // check if text form field is empty
+  // ******** check if text form field is empty for validate *******************
   String? validator(String? value) {
     if (value == null || value.isEmpty) {
       return 'This field cannot be empty';
     }
     return null;
   }
+  // ***************************************************************************
 
-  // login function
+  // *********************** register methodes *********************************
+  // ****************** regisger
+  Future register() async {
+    emit(RegisterLoadingState());
+    final response = await authRepo.register(
+      firstName: registerFirstNameController.text,
+      lastName: registerLastNameController.text,
+      email: registerEmailController.text,
+      mobile: registerMobileController.text,
+      password: registerPasswordController.text,
+      confirmPassword: registerConfirmPasswordController.text,
+    );
+    response.fold(
+      (errorMessage) =>
+          emit(RegisterFailureState(errorMessage: errorMessage.toString())),
+      (messege) => emit(RegisterSuccessState(message: messege)),
+    );
+  }
+
+  // ****************** confirm Email
+  Future<void> confirmEmail(
+      {required String email, required String token}) async {
+    emit(ConfirmLoadingState());
+    final response = await authRepo.confirmEmail(email: email, token: token);
+    response.fold(
+      (errorMessage) => emit(ConfirmFailureState(errorMessage: errorMessage)),
+      (message) => emit(ConfirmSuccessState(message: message)),
+    );
+  }
+  // ***************************************************************************
+
+  // *********************** login method **************************************
   Future login() async {
-    emit(LoginLoadinState());
+    emit(LoginLoadingState());
     final response = await authRepo.login(
       email: loginEmailController.text,
       password: loginPasswordController.text,
@@ -58,4 +91,5 @@ class AuthCubit extends Cubit<AuthState> {
           emit(LoginSuccessState(displayName: loginModel.user.displayName)),
     );
   }
+  // ***************************************************************************
 }

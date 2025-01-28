@@ -1,4 +1,5 @@
 import 'package:bright/core/api/dio_consumer.dart';
+import 'package:bright/core/api/end_point.dart';
 import 'package:bright/core/functions/handle_deep_link.dart';
 import 'package:bright/core/repositories/auth_repo.dart';
 import 'package:bright/core/routes/route_key.dart';
@@ -15,9 +16,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 final GoRouter router = GoRouter(
-  // set start screen
+  // ************** set start screen *******************************************
   initialLocation: RouteKey.launch,
-  // Redirect deep links while retaining the data sent with it
+  // *********** Redirect deep links while retaining the data sent with it *****
   redirect: (context, state) {
     final String? deepLinkePathe = handleDeepLink(state.uri.path);
     if (deepLinkePathe != null) {
@@ -39,6 +40,7 @@ final GoRouter router = GoRouter(
         child: SplashView(),
       ),
     ),
+    //
     GoRoute(
       path: RouteKey.boardingView,
       builder: (context, state) => BlocProvider(
@@ -46,13 +48,27 @@ final GoRouter router = GoRouter(
         child: BoardingView(),
       ),
     ),
+    //
     GoRoute(
       path: RouteKey.loginView,
-      builder: (context, state) => BlocProvider(
-        create: (context) => AuthCubit(AuthRepo(api: DioConsumer(dio: Dio()))),
-        child: LoginView(),
-      ),
+      builder: (context, state) {
+        // ****************** get data from deep link **************************
+        final String? email = state.uri.queryParameters[ApiKey.email];
+        final String? token = state.uri.queryParameters[ApiKey.token];
+
+        final AuthCubit authCubit =
+            AuthCubit(AuthRepo(api: DioConsumer(dio: Dio())));
+        // ********** if email or token is not unll call confirmEmail **********
+        if (email != null && token != null) {
+          authCubit.confirmEmail(email: email, token: token);
+        }
+        return BlocProvider(
+          create: (context) => authCubit,
+          child: LoginView(),
+        );
+      },
     ),
+    //
     GoRoute(
       path: RouteKey.registerView,
       builder: (context, state) => BlocProvider(
@@ -60,10 +76,12 @@ final GoRouter router = GoRouter(
         child: RegisterView(),
       ),
     ),
+    //
     GoRoute(
       path: RouteKey.homeView,
       builder: (context, state) => HomeView(),
     ),
+    //
   ],
   //
 );

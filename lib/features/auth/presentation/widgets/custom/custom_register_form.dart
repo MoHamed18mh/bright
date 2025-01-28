@@ -1,3 +1,7 @@
+import 'package:bright/core/functions/navigation.dart';
+import 'package:bright/core/functions/show_toast.dart';
+import 'package:bright/core/routes/route_key.dart';
+import 'package:bright/core/utils/app_colors.dart';
 import 'package:bright/core/utils/app_space.dart';
 import 'package:bright/core/utils/app_strings.dart';
 import 'package:bright/core/widgets/material_button_widget.dart';
@@ -14,14 +18,22 @@ class CustomRegisterForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final authCubit = context.read<AuthCubit>();
+
     return BlocConsumer<AuthCubit, AuthState>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        if (state is RegisterSuccessState) {
+          showToast(msg: state.message);
+          navigateReplacement(context, RouteKey.loginView);
+        } else if (state is RegisterFailureState) {
+          showToast(msg: state.errorMessage);
+        }
+      },
       builder: (context, state) {
         return Form(
           key: authCubit.registerKey,
           child: Column(
             children: [
-              // First Name field
+              // ************** First Name field *******************************
               TextFormFieldWidget(
                 text: AppStrings.firstName,
                 prefixIcon: Icon(Icons.person_outline),
@@ -29,7 +41,8 @@ class CustomRegisterForm extends StatelessWidget {
                 controller: authCubit.registerFirstNameController,
               ),
               const SizedBox(height: AppSpace.mainSpace),
-              // last Name field
+
+              // ************** last Name field ********************************
               TextFormFieldWidget(
                 text: AppStrings.lastName,
                 prefixIcon: Icon(Icons.person_outline),
@@ -37,7 +50,8 @@ class CustomRegisterForm extends StatelessWidget {
                 controller: authCubit.registerLastNameController,
               ),
               const SizedBox(height: AppSpace.mainSpace),
-              // Email field
+
+              // ************** Email field ************************************
               TextFormFieldWidget(
                 text: AppStrings.email,
                 prefixIcon: Icon(Icons.email_outlined),
@@ -45,36 +59,45 @@ class CustomRegisterForm extends StatelessWidget {
                 controller: authCubit.registerEmailController,
               ),
               const SizedBox(height: AppSpace.mainSpace),
-              // Phone field
+
+              // ************** Phone field ************************************
               TextFormFieldWidget(
                 text: AppStrings.phoneNumber,
                 prefixIcon: Icon(Icons.phone_outlined),
                 validator: authCubit.validator,
-                controller: authCubit.registerPhoneController,
+                controller: authCubit.registerMobileController,
               ),
               const SizedBox(height: AppSpace.mainSpace),
-              // password field
-              TextFormFieldPasswrodWidget(
+
+              // ************** password field *********************************
+              TextFormFieldPasswordWidget(
                 text: AppStrings.password,
                 prefixIcon: Icon(Icons.lock_open_outlined),
                 validator: authCubit.validator,
                 controller: authCubit.registerPasswordController,
               ),
               const SizedBox(height: AppSpace.mainSpace),
-              // confirm password field
-              TextFormFieldPasswrodWidget(
+
+              // ************** confirm password field *************************
+              TextFormFieldPasswordWidget(
                 text: AppStrings.confirmPassword,
                 prefixIcon: Icon(Icons.lock_open_outlined),
                 validator: authCubit.validator,
                 controller: authCubit.registerConfirmPasswordController,
               ),
               const SizedBox(height: AppSpace.meduimSpace2),
-              // register button
-              MaterialButtonWidget(
-                  onPressed: () {
-                    authCubit.registerKey.currentState!.validate();
-                  },
-                  text: AppStrings.register)
+
+              // ************** register button ********************************
+              (state is RegisterLoadingState)
+                  ? CircularProgressIndicator(color: AppColors.primaryColor)
+                  : MaterialButtonWidget(
+                      onPressed: () {
+                        if (authCubit.registerKey.currentState!.validate()) {
+                          authCubit.register();
+                        }
+                      },
+                      text: AppStrings.register,
+                    ),
             ],
           ),
         );

@@ -7,7 +7,7 @@ class ServerException implements Exception {
   ServerException({required this.errorModel});
 }
 
-void handelException(DioException e) {
+void handleException(DioException e) {
   if (e.response != null && e.response!.data != null) {
     throw ServerException(errorModel: ErrorModel.fromJson(e.response!.data));
   } else {

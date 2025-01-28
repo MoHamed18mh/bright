@@ -24,6 +24,9 @@ abstract class AppStrings {
       enterEmail = 'Enter Your Email',
       phoneNumber = 'Phone Number',
       reset = 'Reset',
+      pleaseCheckEmail = 'Please Check Your Email For Verify',
+      unexpectedError = 'Unexpected error occurred',
+      verifyDone = 'Verify Done! Login Now',
       wellcom = 'Wellcom',
       // app strings
       home = 'Home',
