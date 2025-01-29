@@ -25,7 +25,7 @@ class BoardingTitleWidget extends StatelessWidget {
               boardingData.length - 1)
             TextSpan(
               text: AppStrings.appName,
-              style: AppTextStyle.notoSerif22PrimaryBold,
+              style: AppTextStyle.notoSerif20PrimaryBold,
             ),
         ],
       ),

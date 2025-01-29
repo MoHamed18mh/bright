@@ -4,7 +4,7 @@ import 'package:bright/core/routes/route_key.dart';
 import 'package:bright/core/utils/app_colors.dart';
 import 'package:bright/core/utils/app_space.dart';
 import 'package:bright/core/utils/app_strings.dart';
-import 'package:bright/core/widgets/app_header_widget.dart';
+import 'package:bright/features/auth/presentation/widgets/auth_head_widget.dart';
 import 'package:bright/core/widgets/text_button_widget.dart';
 import 'package:bright/features/auth/cubit/auth_cubit.dart';
 import 'package:bright/features/auth/cubit/auth_state.dart';
@@ -39,7 +39,7 @@ class LoginView extends StatelessWidget {
                     slivers: [
                       SliverToBoxAdapter(
                           child: SizedBox(height: AppSpace.maxSpace3)),
-                      SliverToBoxAdapter(child: AppHeaderWidget()),
+                      SliverToBoxAdapter(child: AuthHeadWidget()),
                       SliverToBoxAdapter(
                           child: SizedBox(height: AppSpace.maxSpace2)),
                       // ********** the body of the login screen ***************************

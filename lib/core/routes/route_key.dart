@@ -5,6 +5,7 @@ abstract class RouteKey {
   static const String registerView = '/RegisterView';
   static const String forgotPasswordView = '/ForgotPasswordView';
   static const String resetPasswordView = '/ResetPasswordView';
+  static const String dropDownView = '/DropDownView';
   static const String homeView = '/HomeView';
   static const String deepLinkPath = 'deepLinkPath'; // the key of create local deep link
 }

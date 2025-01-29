@@ -8,9 +8,15 @@ abstract class AppTextStyle {
     fontWeight: FontWeight.bold,
     color: AppColors.primaryColor,
   );
-  static final notoSerif22PrimaryBold = TextStyle(
+  static final notoSerif20PrimaryBold = TextStyle(
     fontFamily: 'NotoSerif',
     fontSize: 20,
+    fontWeight: FontWeight.bold,
+    color: AppColors.primaryColor,
+  );
+  static final notoSerif25PrimaryBold = TextStyle(
+    fontFamily: 'NotoSerif',
+    fontSize: 25,
     fontWeight: FontWeight.bold,
     color: AppColors.primaryColor,
   );

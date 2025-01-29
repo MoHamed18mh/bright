@@ -33,7 +33,7 @@ class TextButtonWidget extends StatelessWidget {
               if (text2 != null)
                 TextSpan(
                   text: text2,
-                  style: AppTextStyle.notoSerif22PrimaryBold.copyWith(
+                  style: AppTextStyle.notoSerif20PrimaryBold.copyWith(
                     fontSize: fontSize,
                   ),
                 ),

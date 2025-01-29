@@ -10,6 +10,8 @@ import 'package:bright/features/auth/presentation/views/reset_password_view.dart
 import 'package:bright/features/auth/presentation/views/register_view.dart';
 import 'package:bright/features/boarding/cubit/boarding_cubit.dart';
 import 'package:bright/features/boarding/prsentation/views/boarding_view.dart';
+import 'package:bright/features/drop_down_menu/cubit/drop_down_cubit.dart';
+import 'package:bright/features/drop_down_menu/presentation/views/drop_down_view.dart';
 import 'package:bright/features/home/presentation/views/home_view.dart';
 import 'package:bright/features/splash/cubit/splash_cubit.dart';
 import 'package:bright/features/splash/presentation/views/splash_view.dart';
@@ -101,27 +103,35 @@ final GoRouter router = GoRouter(
     ),
     //
     GoRoute(
-        path: RouteKey.resetPasswordView,
-        builder: (context, state) {
+      path: RouteKey.resetPasswordView,
+      builder: (context, state) {
+        // receive new uri form splash
+        final Uri? uri = state.extra as Uri?;
+        final String? deepEmail = uri?.queryParameters[ApiKey.email];
+        final String? deepToken = uri?.queryParameters[ApiKey.token];
 
-          // receive new uri form splash
-          final Uri? uri = state.extra as Uri?;
-          final String? deepEmail = uri?.queryParameters[ApiKey.email];
-          final String? deepToken = uri?.queryParameters[ApiKey.token];
+        final AuthCubit authCubit =
+            AuthCubit(AuthRepo(api: DioConsumer(dio: Dio())));
 
-          final AuthCubit authCubit =
-              AuthCubit(AuthRepo(api: DioConsumer(dio: Dio())));
+        // ************* send deepEmail and deepToken to Auth cubit
+        if (deepEmail != null && deepToken != null) {
+          authCubit.getEmailAndToken(email: deepEmail, token: deepToken);
+        }
 
-              // ************* send deepEmail and deepToken to Auth cubit
-          if (deepEmail != null && deepToken != null) {
-            authCubit.getEmailAndToken(email: deepEmail, token: deepToken);
-          }
-
-          return BlocProvider(
-            create: (context) => authCubit,
-            child: ResetPasswordView(),
-          );
-        }),
+        return BlocProvider(
+          create: (context) => authCubit,
+          child: ResetPasswordView(),
+        );
+      },
+    ),
+    //
+    GoRoute(
+      path: RouteKey.dropDownView,
+      builder: (context, state) => BlocProvider(
+        create: (context) => DropDownCubit(),
+        child: DropDownView(),
+      ),
+    ),
     //
     GoRoute(
       path: RouteKey.homeView,

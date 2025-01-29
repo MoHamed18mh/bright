@@ -3,7 +3,7 @@ import 'package:bright/core/routes/route_key.dart';
 import 'package:bright/core/utils/app_space.dart';
 import 'package:bright/features/splash/cubit/splash_cubit.dart';
 import 'package:bright/features/splash/cubit/splash_state.dart';
-import 'package:bright/features/splash/presentation/widgets/custom_shimmer_icon.dart';
+import 'package:bright/features/splash/presentation/widgets/custom_shimmer_logo.dart';
 import 'package:bright/features/splash/presentation/widgets/custom_shimmer_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,9 +13,10 @@ class SplashView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<SplashCubit, SplashState>(      listener: (context, state) {
-        if (state is SplashNavigateToHome) {
-          navigateReplacement(context, RouteKey.homeView);
+    return BlocListener<SplashCubit, SplashState>(
+      listener: (context, state) {
+        if (state is SplashNavigateToDropDownView) {
+          navigateReplacement(context, RouteKey.dropDownView);
         } else if (state is SplashNavigateToBoarding) {
           navigateReplacement(context, RouteKey.boardingView);
         } else if (state is SplashNavigateToLogin) {
@@ -25,7 +26,8 @@ class SplashView extends StatelessWidget {
           navigateReplacement(context, RouteKey.loginView, extra: state.uri);
         } else if (state is SplashNavigateToResetPasswordWithUri) {
           // pass new uri using extra to resetPasswordView goRouter
-          navigateReplacement(context, RouteKey.resetPasswordView, extra: state.uri);
+          navigateReplacement(context, RouteKey.resetPasswordView,
+              extra: state.uri);
         }
       },
       child: Scaffold(
@@ -33,7 +35,7 @@ class SplashView extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              CustomShimmerIcon(),
+              CustomShimmerLogo(),
               SizedBox(height: AppSpace.mainSpace),
               CustomShimmerText(),
             ],

@@ -35,7 +35,6 @@ abstract class AppStrings {
       // app strings
       home = 'Home',
       courses = 'Courses',
-      ourTeam = 'Our Team',
       bestOnlineCourses = 'Best Online Courses',
       theBestOnlineLearning = 'The Best Online Learning Platform',
       getEducatedFromHome = 'Get Educated Online From Your Home',

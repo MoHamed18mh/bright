@@ -24,7 +24,7 @@ class CustomLoginForm extends StatelessWidget {
       listener: (context, state) {
         if (state is LoginSuccessState) {
           showToast(msg: '${AppStrings.wellcom} ${state.displayName}');
-          navigateReplacement(context, RouteKey.homeView);
+          navigateReplacement(context, RouteKey.dropDownView);
         } else if (state is LoginFailureState) {
           showToast(msg: state.errorMessage);
         }

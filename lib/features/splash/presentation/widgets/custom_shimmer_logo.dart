@@ -3,8 +3,8 @@ import 'package:bright/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
-class CustomShimmerIcon extends StatelessWidget {
-  const CustomShimmerIcon({
+class CustomShimmerLogo extends StatelessWidget {
+  const CustomShimmerLogo({
     super.key,
   });
 

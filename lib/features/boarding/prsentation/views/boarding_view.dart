@@ -5,7 +5,7 @@ import 'package:bright/core/utils/app_strings.dart';
 import 'package:bright/core/widgets/material_button_widget.dart';
 import 'package:bright/core/widgets/text_button_widget.dart';
 import 'package:bright/features/boarding/cubit/boarding_cubit.dart';
-import 'package:bright/core/widgets/app_header_widget.dart';
+import 'package:bright/features/auth/presentation/widgets/auth_head_widget.dart';
 import 'package:bright/features/boarding/cubit/boarding_state.dart';
 import 'package:bright/features/boarding/prsentation/widgets/custom/custom_boarding_body.dart';
 import 'package:flutter/material.dart';
@@ -24,10 +24,12 @@ class BoardingView extends StatelessWidget {
           }
         },
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: AppSpace.paddingSpace),
+          padding:
+              const EdgeInsets.symmetric(horizontal: AppSpace.paddingSpace),
           child: CustomScrollView(
             slivers: [
-              SliverToBoxAdapter(child: SizedBox(height: AppSpace.meduimSpace1)),
+              SliverToBoxAdapter(
+                  child: SizedBox(height: AppSpace.meduimSpace1)),
               SliverToBoxAdapter(
                 // text button for skip boarding
                 child: TextButtonWidget(
@@ -38,8 +40,9 @@ class BoardingView extends StatelessWidget {
                 ),
               ),
               SliverToBoxAdapter(child: SizedBox(height: AppSpace.mainSpace)),
-              SliverToBoxAdapter(child: AppHeaderWidget()),
-              SliverToBoxAdapter(child: SizedBox(height: AppSpace.meduimSpace2)),
+              SliverToBoxAdapter(child: AuthHeadWidget()),
+              SliverToBoxAdapter(
+                  child: SizedBox(height: AppSpace.meduimSpace2)),
               // the body of the screen
               SliverToBoxAdapter(child: CustomBoardingBody()),
               SliverToBoxAdapter(child: SizedBox(height: AppSpace.mainSpace)),
