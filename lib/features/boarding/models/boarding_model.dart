@@ -1,5 +1,4 @@
 import 'package:bright/core/utils/app_assets.dart';
-import 'package:bright/core/utils/app_strings.dart';
 
 class BoardingModel {
   final String imagePath;
@@ -13,12 +12,12 @@ class BoardingModel {
 List<BoardingModel> boardingData = [
   BoardingModel(
     imagePath: Assets.assetsImagesBoarding1,
-    title: AppStrings.welcomeTo,
-    subTitle: AppStrings.discoverWorldOfKnowledge,
+    title: 'Welcome To ',
+    subTitle: 'Discover a World of knowledge at your fingertips with \'Bright Minds\' comprehensive learning platform',
   ),
   BoardingModel(
     imagePath: Assets.assetsImagesBoarding2,
-    title: AppStrings.learnFrom,
-    subTitle: AppStrings.accessHighQuality,
+    title: 'Learn From The Best',
+    subTitle: 'Access high-quality courses from top educators and industry experts, anytime, anywhere',
   ),
 ];

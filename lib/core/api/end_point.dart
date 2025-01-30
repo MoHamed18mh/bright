@@ -2,7 +2,7 @@ abstract class EndPoint {
   static final String baseUrl = 'https://brightminds.runasp.net';
   static final String login = '/api/Account/login';
   static final String register = '/api/Account/register';
-  static final String authenticate = '/api/Account/authnticate-email';
+  static final String authenticateEmail = '/api/Account/authnticate-email';
   static final String confirmEmail = '/api/Account/confirm-email';
   static final String forgotPassword = '/api/Account/forget-password';
   static final String resetPassword = '/api/Account/reset-password';

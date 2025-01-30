@@ -26,7 +26,7 @@ class TextButtonWidget extends StatelessWidget {
             children: [
               TextSpan(
                 text: text1,
-                style: AppTextStyle.nunitoSans20LightBlackBold.copyWith(
+                style: AppTextStyle.nunitoSans26LightBlackBold.copyWith(
                   fontSize: fontSize,
                 ),
               ),

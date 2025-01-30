@@ -12,7 +12,6 @@ import 'package:bright/features/boarding/cubit/boarding_cubit.dart';
 import 'package:bright/features/boarding/prsentation/views/boarding_view.dart';
 import 'package:bright/features/drop_down_menu/cubit/drop_down_cubit.dart';
 import 'package:bright/features/drop_down_menu/presentation/views/drop_down_view.dart';
-import 'package:bright/features/home/presentation/views/home_view.dart';
 import 'package:bright/features/splash/cubit/splash_cubit.dart';
 import 'package:bright/features/splash/presentation/views/splash_view.dart';
 import 'package:dio/dio.dart';
@@ -20,10 +19,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 final GoRouter router = GoRouter(
-  // ************** set start screen *******************************************
+  // ************** set start screen 
   initialLocation: RouteKey.launch,
 
-  // *********** Redirect deep links while retaining the data sent with it *****
+  // *********** Redirect deep links while retaining the data sent with it 
   redirect: (context, state) {
     // handel deep link with goRouter paths
     final String? deepLinkPath = handleDeepLink(state.uri.path);
@@ -131,11 +130,6 @@ final GoRouter router = GoRouter(
         create: (context) => DropDownCubit(),
         child: DropDownView(),
       ),
-    ),
-    //
-    GoRoute(
-      path: RouteKey.homeView,
-      builder: (context, state) => HomeView(),
     ),
     //
   ],

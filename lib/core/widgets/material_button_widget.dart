@@ -21,7 +21,7 @@ class MaterialButtonWidget extends StatelessWidget {
       ),
       child: Text(
         text,
-        style: AppTextStyle.nunitoSans20LightBlackBold.copyWith(
+        style: AppTextStyle.nunitoSans26LightBlackBold.copyWith(
           color: Colors.white,
         ),
       ),

@@ -19,13 +19,13 @@ class BoardingTitleWidget extends StatelessWidget {
         children: [
           TextSpan(
             text: boardingData[index].title,
-            style: AppTextStyle.nunitoSans20LightBlackBold,
+            style: AppTextStyle.nunitoSans22LightBlackBold,
           ),
           if (context.read<BoardingCubit>().currentIndex !=
               boardingData.length - 1)
             TextSpan(
               text: AppStrings.appName,
-              style: AppTextStyle.notoSerif20PrimaryBold,
+              style: AppTextStyle.notoSerif25PrimaryBold,
             ),
         ],
       ),

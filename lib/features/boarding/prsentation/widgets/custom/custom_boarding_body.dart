@@ -13,14 +13,15 @@ class CustomBoardingBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final boardingCubit = context.read<BoardingCubit>();
+
     return BlocBuilder<BoardingCubit, BoardingState>(
       builder: (context, state) {
         return SizedBox(
-          height: 400,
+          height: 420,
           child: PageView.builder(
-            controller: context.read<BoardingCubit>().pageController,
-            onPageChanged: (index) =>
-                context.read<BoardingCubit>().updateCurrentIndex(index), 
+            controller: boardingCubit.pageController,
+            onPageChanged: (index) => boardingCubit.updateCurrentIndex(index),
             itemCount: boardingData.length,
             itemBuilder: (context, index) {
               return Column(
@@ -30,9 +31,10 @@ class CustomBoardingBody extends StatelessWidget {
                     height: 250,
                     fit: BoxFit.fill,
                   ),
-                  SizedBox(height: AppSpace.smallSpace),
+                  const SizedBox(height: AppSpace.smallSpace),
                   SmoothPageIndicatorWidget(),
-                  SizedBox(height: AppSpace.meduimSpace1),
+                  //
+                  const SizedBox(height: AppSpace.meduimSpace1),
                   BoardingTitleWidget(index: index),
                   Text(
                     boardingData[index].subTitle,

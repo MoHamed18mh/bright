@@ -17,11 +17,15 @@ class RegisterView extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: AppSpace.paddingSpace),
         child: CustomScrollView(
           slivers: [
-            SliverToBoxAdapter(child: SizedBox(height: AppSpace.meduimSpace2)),
+            SliverToBoxAdapter(
+                child: const SizedBox(height: AppSpace.meduimSpace2)),
             SliverToBoxAdapter(child: AuthHeadWidget()),
-            SliverToBoxAdapter(child: SizedBox(height: AppSpace.meduimSpace1)),
+            SliverToBoxAdapter(
+                child: const SizedBox(height: AppSpace.meduimSpace1)),
+
             // the body of the register screen
             SliverToBoxAdapter(child: CustomRegisterForm()),
+
             // text button for go to loginView screen
             SliverToBoxAdapter(
               child: TextButtonWidget(

@@ -11,10 +11,10 @@ class ResetPasswordView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Padding(
-      padding: EdgeInsets.symmetric(horizontal: AppSpace.paddingSpace),
+      padding: const EdgeInsets.symmetric(horizontal: AppSpace.paddingSpace),
       child: CustomScrollView(
         slivers: [
-          SliverToBoxAdapter(child: SizedBox(height: AppSpace.maxSpace2)),
+          SliverToBoxAdapter(child: const SizedBox(height: AppSpace.maxSpace2)),
 
           SliverToBoxAdapter(
             child: ForgotPasswordTitle(
@@ -22,9 +22,9 @@ class ResetPasswordView extends StatelessWidget {
               text2: AppStrings.yourNewPassword,
             ),
           ),
-          SliverToBoxAdapter(child: SizedBox(height: AppSpace.meduimSpace2)),
+          SliverToBoxAdapter(child: const SizedBox(height: AppSpace.meduimSpace2)),
 
-          // *************** fields and button of reset password screen **********
+          // *************** fields and button of reset password screen 
           SliverToBoxAdapter(child: CustomResetPasswordForm()),
         ],
       ),

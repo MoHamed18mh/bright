@@ -40,7 +40,7 @@ class AuthRepo {
       );
       // send email verify
       await api.post(
-        EndPoint.authenticate,
+        EndPoint.authenticateEmail,
         data: {
           ApiKey.email: email,
           ApiKey.clientUrl: DeepLinksKey.verifyDeepLink,
@@ -101,7 +101,6 @@ class AuthRepo {
   // ***************************************************************************
 
   // ******************* prepare forgotPassword method *************************
-
   // ******************* send verify email
   Future<Either<String, String>> forgotPassword({required String email}) async {
     try {

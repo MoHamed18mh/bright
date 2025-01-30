@@ -36,7 +36,7 @@ class SplashView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CustomShimmerLogo(),
-              SizedBox(height: AppSpace.mainSpace),
+              const SizedBox(height: AppSpace.mainSpace),
               CustomShimmerText(),
             ],
           ),

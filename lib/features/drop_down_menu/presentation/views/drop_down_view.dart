@@ -19,7 +19,7 @@ class DropDownView extends StatelessWidget {
             slivers: [
               SliverPadding(
                 padding:
-                    EdgeInsets.symmetric(horizontal: AppSpace.paddingSpace),
+                    const EdgeInsets.symmetric(horizontal: AppSpace.paddingSpace),
                 sliver: CustomSliverAppBar(),
               ),
               SliverToBoxAdapter(child: CustomDropDownMenu()),

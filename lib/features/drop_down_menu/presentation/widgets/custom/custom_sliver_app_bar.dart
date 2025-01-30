@@ -21,8 +21,8 @@ class CustomSliverAppBar extends StatelessWidget {
 
       // to greate the size from bottom
       bottom: PreferredSize(
-        preferredSize: Size.fromHeight(10),
-        child: SizedBox(height: 10),
+        preferredSize: const Size.fromHeight(10),
+        child: const SizedBox(height: 10),
       ),
     );
   }

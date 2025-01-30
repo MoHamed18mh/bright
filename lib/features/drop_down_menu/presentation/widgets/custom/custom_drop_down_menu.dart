@@ -18,7 +18,7 @@ class CustomDropDownMenu extends StatelessWidget {
       builder: (context, state) {
         return AnimatedContainer(
           color: Colors.white,
-          duration: Duration(milliseconds: 800),
+          duration: const Duration(milliseconds: 800),
           curve: Curves.easeInOut,
 
           // should call MenuIsVisible to make menu closed when app is start
@@ -32,12 +32,14 @@ class CustomDropDownMenu extends StatelessWidget {
                   dorpDownCubit.setCurrentScreen(index);
                   dorpDownCubit.changeMnueVisibility();
                 },
+
                 // if (crrentScreen == index) return true
                 selected: dorpDownCubit.currrentScrren == index,
                 selectedColor: AppColors.primaryColor,
+
                 titleTextStyle: AppTextStyle.nunitoSans16LightBlackBold,
                 contentPadding:
-                    EdgeInsets.symmetric(horizontal: AppSpace.paddingSpace),
+                    const EdgeInsets.symmetric(horizontal: AppSpace.mainSpace),
                 title: Text(menuHeaders[index]),
               );
             },

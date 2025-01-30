@@ -38,13 +38,15 @@ class LoginView extends StatelessWidget {
                   child: CustomScrollView(
                     slivers: [
                       SliverToBoxAdapter(
-                          child: SizedBox(height: AppSpace.maxSpace3)),
+                          child: const SizedBox(height: AppSpace.maxSpace3)),
                       SliverToBoxAdapter(child: AuthHeadWidget()),
                       SliverToBoxAdapter(
                           child: SizedBox(height: AppSpace.maxSpace2)),
-                      // ********** the body of the login screen ***************************
+
+                      // ********** the body of the login screen
                       SliverToBoxAdapter(child: CustomLoginForm()),
-                      // ********** text button for go to login screen *********************
+
+                      // ********** text button for go to login screen
                       SliverToBoxAdapter(
                         child: TextButtonWidget(
                           alignment: Alignment.center,

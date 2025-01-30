@@ -8,7 +8,7 @@ import 'package:bright/features/splash/cubit/splash_state.dart';
 class SplashCubit extends Cubit<SplashState> {
   SplashCubit() : super(SplashInitial());
 
-  // ***** start when app is launch and go to the next screen after 4 seconds **
+  // ***** start when app is launch and go to the next screen after 4 seconds
   void splashViewTimer(Map<String, String> queryParameters) async {
     await Future.delayed(
       Duration(seconds: 4),
@@ -32,7 +32,7 @@ class SplashCubit extends Cubit<SplashState> {
           return;
         }
 
-        // check if userId exists in the cache
+        // check if userId exists in the cache then user is login
         bool isUserIdExists =
             await getIt<CacheHelper>().containsKey(key: CacheKey.userId);
 

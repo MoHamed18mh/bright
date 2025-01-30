@@ -20,9 +20,9 @@ abstract class AppTextStyle {
     fontWeight: FontWeight.bold,
     color: AppColors.primaryColor,
   );
-  static final nunitoSans20LightBlackBold = TextStyle(
+  static final nunitoSans22LightBlackBold = TextStyle(
     fontFamily: 'NunitoSans',
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: FontWeight.bold,
     color: AppColors.lightBlack,
   );
@@ -32,6 +32,7 @@ abstract class AppTextStyle {
     fontWeight: FontWeight.bold,
     color: AppColors.lightBlack,
   );
+
   static final nunitoSans16LightBlackBold = TextStyle(
     fontFamily: 'NunitoSans',
     fontSize: 16,
@@ -43,6 +44,4 @@ abstract class AppTextStyle {
     fontSize: 13,
     color: Colors.grey[700],
   );
-
-  static textButtonStyle(double? fontSize) {}
 }

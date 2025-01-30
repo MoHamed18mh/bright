@@ -16,41 +16,48 @@ class BoardingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: BlocListener<BoardingCubit, BoardingState>(
-        listener: (context, state) {
-          if (state is BoardingCompleted) {
-            navigateReplacement(context, RouteKey.loginView);
-          }
-        },
-        child: Padding(
+    final boardingCubit = context.read<BoardingCubit>();
+
+    return BlocListener<BoardingCubit, BoardingState>(
+      listener: (context, state) {
+        if (state is BoardingCompleted) {
+          navigateReplacement(context, RouteKey.loginView);
+        }
+      },
+      child: Scaffold(
+        body: Padding(
           padding:
               const EdgeInsets.symmetric(horizontal: AppSpace.paddingSpace),
           child: CustomScrollView(
             slivers: [
               SliverToBoxAdapter(
-                  child: SizedBox(height: AppSpace.meduimSpace1)),
+                  child: const SizedBox(height: AppSpace.meduimSpace1)),
               SliverToBoxAdapter(
                 // text button for skip boarding
                 child: TextButtonWidget(
                   alignment: Alignment.centerRight,
-                  onPressed: () =>
-                      context.read<BoardingCubit>().navigateToLogin(context),
+                  onPressed: () => boardingCubit.navigateToLogin(context),
                   text1: AppStrings.skip,
+                  fontSize: 20,
                 ),
               ),
-              SliverToBoxAdapter(child: SizedBox(height: AppSpace.mainSpace)),
+
+              SliverToBoxAdapter(
+                  child: const SizedBox(height: AppSpace.mainSpace)),
               SliverToBoxAdapter(child: AuthHeadWidget()),
               SliverToBoxAdapter(
-                  child: SizedBox(height: AppSpace.meduimSpace2)),
+                  child: const SizedBox(height: AppSpace.meduimSpace2)),
+
               // the body of the screen
               SliverToBoxAdapter(child: CustomBoardingBody()),
-              SliverToBoxAdapter(child: SizedBox(height: AppSpace.mainSpace)),
+              SliverToBoxAdapter(
+                  child: const SizedBox(height: AppSpace.mainSpace)),
+
               // button for the next screen in boarding
               SliverToBoxAdapter(
                 child: MaterialButtonWidget(
                   onPressed: () {
-                    context.read<BoardingCubit>().nextBoardingView(context);
+                    boardingCubit.nextBoardingView(context);
                   },
                   text: AppStrings.next,
                 ),

@@ -14,11 +14,13 @@ class DropDownIconButtonWidget extends StatelessWidget {
         return InkWell(
           onTap: () => context.read<DropDownCubit>().changeMnueVisibility(),
           child: Container(
-            padding: EdgeInsets.all(3),
+            padding: const EdgeInsets.all(3),
             decoration: BoxDecoration(
               border: Border.all(
-                color: AppColors.primaryColor,
-                width: 3,
+                color: (state is MenuIsVisible)
+                    ? AppColors.primaryColor
+                    : Colors.grey,
+                width: (state is MenuIsVisible) ? 4 : 2,
               ),
               borderRadius: BorderRadius.circular(5),
             ),

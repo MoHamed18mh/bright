@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class DropDownCubit extends Cubit<DropDownState> {
   DropDownCubit() : super(DropDownInitial());
 
-  // ********* the variable of current screen from drop down menu ***********
+  // ********* the variable of current screen from drop down menu 
   int currrentScrren = 0;
 
   // ********* change current screen *************

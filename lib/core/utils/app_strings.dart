@@ -1,12 +1,6 @@
 abstract class AppStrings {
   static const String appName = 'Bright Minds',
-      // boarding
-      welcomeTo = 'Welcome To ',
-      discoverWorldOfKnowledge =
-          'Discover a World of knowledge at your fingertips with \'Bright Minds\' comprehensive learning platform',
-      learnFrom = 'Learn From The Best',
-      accessHighQuality =
-          'Access high-quality courses from top educators and industry experts, anytime, anywhere',
+
       // auth
       email = 'Email',
       password = 'Password',
@@ -22,16 +16,18 @@ abstract class AppStrings {
       lastName = 'Last Name',
       createNewPassword = 'Create New Password',
       newPassword = 'New Password',
-      yourNewPassword = 'Your new password must be different from the previously used passwords',
+      yourNewPassword =
+          'Your new password must be different from the previously used passwords',
       enterEmail = 'Enter Your Email',
       willSendMessage = 'Will Send Verify Email For You',
       phoneNumber = 'Phone Number',
       successResetPassword = 'Success Reset Password!',
       pleaseCheckEmail = 'Please Check Your Email For Verify',
       sendEmail = 'Send Email',
-      unexpectedError = 'Unexpected error occurred',
       verifyDone = 'Verify Done! Login Now',
       wellcom = 'Wellcom',
+      unexpectedError = 'Unexpected error occurred',
+
       // app strings
       home = 'Home',
       courses = 'Courses',

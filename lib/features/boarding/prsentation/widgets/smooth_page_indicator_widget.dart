@@ -17,7 +17,7 @@ class SmoothPageIndicatorWidget extends StatelessWidget {
       count: boardingData.length,
       effect: ExpandingDotsEffect(
         dotHeight: 8,
-        dotWidth: 12,
+        dotWidth: 10,
         activeDotColor: AppColors.primaryColor,
       ),
     );

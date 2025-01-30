@@ -29,7 +29,7 @@ class CustomForgotPasswordForm extends StatelessWidget {
           key: authCubit.forgotPasswordKey,
           child: Column(
             children: [
-              // ************** forgot password form field
+              // ************** forgot password email field
               TextFormFieldWidget(
                 text: AppStrings.email,
                 prefixIcon: Icon(Icons.email_outlined),
@@ -37,7 +37,7 @@ class CustomForgotPasswordForm extends StatelessWidget {
               ),
               SizedBox(height: AppSpace.meduimSpace2),
 
-              // ************ button send verify email for reset password ******
+              // ************ button send verify email for reset password 
               (state is ForgotPasswordLoadingState)
                   ? CircularProgressIndicator(color: AppColors.primaryColor)
                   : MaterialButtonWidget(

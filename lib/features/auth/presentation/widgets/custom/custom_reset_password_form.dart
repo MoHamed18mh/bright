@@ -17,6 +17,7 @@ class CustomResetPasswordForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AuthCubit authCubit = context.read<AuthCubit>();
+    
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is ResetPasswordSuccessState) {
@@ -36,16 +37,16 @@ class CustomResetPasswordForm extends StatelessWidget {
                 text: AppStrings.password,
                 controller: authCubit.resetPasswordController,
               ),
-              SizedBox(height: AppSpace.mainSpace),
+              const SizedBox(height: AppSpace.mainSpace),
 
               // ************* reset confirm password field
               TextFormFieldPasswordWidget(
                 text: AppStrings.confirmPassword,
                 controller: authCubit.resetConfirmPasswordController,
               ),
-              SizedBox(height: AppSpace.meduimSpace2),
+              const SizedBox(height: AppSpace.meduimSpace2),
 
-              // *********** button for create new password ************************
+              // *********** button for create new password 
               (state is ResetPasswordLoadingState)
                   ? CircularProgressIndicator(color: AppColors.primaryColor)
                   : MaterialButtonWidget(
