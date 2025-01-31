@@ -39,9 +39,20 @@ abstract class AppTextStyle {
     fontWeight: FontWeight.bold,
     color: AppColors.lightBlack,
   );
-  static final nunitoSans13grey = TextStyle(
+  static final nunitoSans13Grey700 = TextStyle(
     fontFamily: 'NunitoSans',
     fontSize: 13,
     color: Colors.grey[700],
+  );
+  static final nunitoSans14Grey800 = TextStyle(
+    fontFamily: 'NunitoSans',
+    fontSize: 14,
+    color: Colors.grey[900],
+  );
+  static final notoSerif38WhiteBlod = TextStyle(
+    fontFamily: 'NotoSerif',
+    fontSize: 38,
+    color: AppColors.white,
+    fontWeight: FontWeight.bold,
   );
 }

@@ -31,7 +31,7 @@ class TextFormFieldPasswordWidget extends StatelessWidget {
             prefixIcon: Icon(Icons.lock_open_outlined),
             prefixIconColor: AppColors.primaryColor,
             hintText: text,
-            hintStyle: AppTextStyle.nunitoSans13grey,
+            hintStyle: AppTextStyle.nunitoSans13Grey700,
             suffixIcon: suffixIcon(context),
             suffixIconColor: AppColors.primaryColor,
             border: outLineInputBorder(),

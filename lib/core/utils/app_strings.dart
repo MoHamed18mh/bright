@@ -29,6 +29,7 @@ abstract class AppStrings {
       unexpectedError = 'Unexpected error occurred',
 
       // app strings
+      instructors = 'Instructors',
       home = 'Home',
       courses = 'Courses',
       bestOnlineCourses = 'Best Online Courses',
@@ -76,7 +77,6 @@ abstract class AppStrings {
       testimonial = 'Testimonial',
       designation = 'Designation',
       instructorName = 'Instructor Name',
-      instructors = 'Instructors',
       expertInstructors = 'Expert Instructors',
       // anthor
       skip = 'Skip',

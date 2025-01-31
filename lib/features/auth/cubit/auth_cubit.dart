@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit(this.authRepo) : super(AuthInitial());
 
-  // get auth repo
+  //
   final AuthRepo authRepo;
 
   // text form field password obscure

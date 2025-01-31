@@ -26,7 +26,7 @@ class TextFormFieldWidget extends StatelessWidget {
         prefixIcon: prefixIcon,
         prefixIconColor: AppColors.primaryColor,
         hintText: text,
-        hintStyle: AppTextStyle.nunitoSans13grey,
+        hintStyle: AppTextStyle.nunitoSans13Grey700,
         suffixIconColor: AppColors.primaryColor,
         border: outLineInputBorder(),
         enabledBorder: outLineInputBorder(),

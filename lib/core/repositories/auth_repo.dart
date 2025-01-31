@@ -27,7 +27,7 @@ class AuthRepo {
     try {
       // register function
       await api.post(
-        EndPoint.register,
+        EndPoint.postRegister,
         data: {
           ApiKey.rFirstName: firstName,
           ApiKey.rLastName: lastName,
@@ -40,7 +40,7 @@ class AuthRepo {
       );
       // send email verify
       await api.post(
-        EndPoint.authenticateEmail,
+        EndPoint.postAuthenticateEmail,
         data: {
           ApiKey.email: email,
           ApiKey.clientUrl: DeepLinksKey.verifyDeepLink,
@@ -59,7 +59,7 @@ class AuthRepo {
       {required String email, required String token}) async {
     try {
       await api.post(
-        EndPoint.confirmEmail,
+        EndPoint.postConfirmEmail,
         data: {
           ApiKey.email: email,
           ApiKey.token: token,
@@ -81,7 +81,7 @@ class AuthRepo {
   }) async {
     try {
       final response = await api.post(
-        EndPoint.login,
+        EndPoint.postLogin,
         data: {
           ApiKey.email: email,
           ApiKey.password: password,
@@ -105,7 +105,7 @@ class AuthRepo {
   Future<Either<String, String>> forgotPassword({required String email}) async {
     try {
       await api.post(
-        EndPoint.forgotPassword,
+        EndPoint.postForgotPassword,
         data: {
           ApiKey.email: email,
           ApiKey.clientUrl: DeepLinksKey.forgotPasswordDeepLink,
@@ -127,7 +127,7 @@ class AuthRepo {
     required String confirmPassword,
   }) async {
     try {
-      await api.post(EndPoint.resetPassword, data: {
+      await api.post(EndPoint.postResetPassword, data: {
         ApiKey.email: email,
         ApiKey.token: token,
         ApiKey.password: password,
