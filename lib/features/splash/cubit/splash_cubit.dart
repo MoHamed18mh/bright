@@ -37,7 +37,7 @@ class SplashCubit extends Cubit<SplashState> {
             await getIt<CacheHelper>().containsKey(key: CacheKey.userId);
 
         if (isUserIdExists) {
-          emit(SplashNavigateToDropDownView());
+          emit(SplashNavigateToHomeView());
         } else {
           // get the value of the 'isBoardingVisited' from the database and make it 'false' if not found
           bool isBoardingVisited =

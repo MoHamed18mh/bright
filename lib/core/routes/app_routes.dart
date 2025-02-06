@@ -2,6 +2,7 @@ import 'package:bright/core/api/dio_consumer.dart';
 import 'package:bright/core/api/end_point.dart';
 import 'package:bright/core/functions/handle_deep_link.dart';
 import 'package:bright/core/repositories/auth_repo.dart';
+import 'package:bright/core/repositories/instructor_repo.dart';
 import 'package:bright/core/routes/route_key.dart';
 import 'package:bright/features/auth/cubit/auth_cubit.dart';
 import 'package:bright/features/auth/presentation/views/forgot_password_view.dart';
@@ -10,19 +11,23 @@ import 'package:bright/features/auth/presentation/views/reset_password_view.dart
 import 'package:bright/features/auth/presentation/views/register_view.dart';
 import 'package:bright/features/boarding/cubit/boarding_cubit.dart';
 import 'package:bright/features/boarding/prsentation/views/boarding_view.dart';
-import 'package:bright/features/drop_down_menu/cubit/drop_down_cubit.dart';
-import 'package:bright/features/drop_down_menu/presentation/views/drop_down_view.dart';
+import 'package:bright/features/contact/presentation/views/contact_view.dart';
+import 'package:bright/features/course/presentation/views/course_view.dart';
+import 'package:bright/features/home/presentation/views/home_view.dart';
+import 'package:bright/features/instructor/cubit/instructor_cubit.dart';
+import 'package:bright/features/instructor/presentation/views/instructor_view.dart';
 import 'package:bright/features/splash/cubit/splash_cubit.dart';
 import 'package:bright/features/splash/presentation/views/splash_view.dart';
+import 'package:bright/features/testimonial/presentation/views/testimonial_view.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 final GoRouter router = GoRouter(
-  // ************** set start screen 
+  // ************** set start screen
   initialLocation: RouteKey.launch,
 
-  // *********** Redirect deep links while retaining the data sent with it 
+  // *********** Redirect deep links while retaining the data sent with it
   redirect: (context, state) {
     // handel deep link with goRouter paths
     final String? deepLinkPath = handleDeepLink(state.uri.path);
@@ -125,12 +130,33 @@ final GoRouter router = GoRouter(
     ),
     //
     GoRoute(
-      path: RouteKey.dropDownView,
+      path: RouteKey.homeView,
+      builder: (context, state) => HomeView(),
+    ),
+    //
+    GoRoute(
+      path: RouteKey.courseView,
+      builder: (context, state) => CourseView(),
+    ),
+    //
+    GoRoute(
+      path: RouteKey.instructorView,
       builder: (context, state) => BlocProvider(
-        create: (context) => DropDownCubit(),
-        child: DropDownView(),
+        create: (context) =>
+            InstructorCubit(InstructorRepo(api: DioConsumer(dio: Dio())))
+              ..getInstructors(),
+        child: InstructorView(),
       ),
     ),
     //
+    GoRoute(
+      path: RouteKey.testimonialView,
+      builder: (context, state) => TestimonialView(),
+    ),
+    //
+    GoRoute(
+      path: RouteKey.contactView,
+      builder: (context, state) => ContactView(),
+    ),
   ],
 );

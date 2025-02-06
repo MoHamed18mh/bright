@@ -13,6 +13,7 @@ class BackIconButtonWidget extends StatelessWidget {
         onPressed: () => navigatePop(context),
         icon: Icon(
           Icons.arrow_back_ios_new_rounded,
+          size: 30,
           color: AppColors.primaryColor,
         ),
       ),

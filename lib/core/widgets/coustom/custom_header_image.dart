@@ -2,6 +2,7 @@ import 'package:bright/core/utils/app_assets.dart';
 import 'package:bright/core/utils/app_colors.dart';
 import 'package:bright/core/utils/app_space.dart';
 import 'package:bright/core/utils/app_text_style.dart';
+import 'package:bright/core/widgets/back_icon_button_widget.dart';
 import 'package:flutter/material.dart';
 
 class CustomHeaderImage extends StatelessWidget {
@@ -28,6 +29,10 @@ class CustomHeaderImage extends StatelessWidget {
                 style: AppTextStyle.notoSerif38WhiteBlod,
               ),
             ),
+          ),
+          Positioned(
+            top: AppSpace.meduimSpace1,
+            child: BackIconButtonWidget(),
           ),
         ],
       ),

@@ -16,47 +16,49 @@ class InstructorView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<InstructorCubit, InstructorState>(
       builder: (context, state) {
-        return CustomScrollView(
-          slivers: [
-            SliverToBoxAdapter(
-              child: CustomHeaderImage(
-                title: AppStrings.instructors,
+        return Scaffold(
+          body: CustomScrollView(
+            slivers: [
+              SliverToBoxAdapter(
+                child: CustomHeaderImage(
+                  title: AppStrings.instructors,
+                ),
               ),
-            ),
-            SliverToBoxAdapter(
-              child: const SizedBox(height: AppSpace.maxSpace2),
-            ),
-            //
-            SliverToBoxAdapter(
-              child: CustomSectionHeader(
-                title: AppStrings.instructors,
-                subTitle: AppStrings.expertInstructors,
+              SliverToBoxAdapter(
+                child: const SizedBox(height: AppSpace.maxSpace2),
               ),
-            ),
-            SliverToBoxAdapter(
-              child: const SizedBox(height: AppSpace.meduimSpace2),
-            ),
-            //
-            SliverList(
-              delegate: SliverChildBuilderDelegate(
-                childCount: (state is InstructorSuccessState)
-                    ? state.instructorModel.data.items.length
-                    : 3,
-                (BuildContext context, int index) {
-                  if (state is InstructorSuccessState) {
-                    return CustomInstructorItem(
-                        itemModel: state.instructorModel.data.items[index]);
-                  } else {
-                    return CustomInstructorShimmer();
-                  }
-                },
+              //
+              SliverToBoxAdapter(
+                child: CustomSectionHeader(
+                  title: AppStrings.instructors,
+                  subTitle: AppStrings.expertInstructors,
+                ),
               ),
-            ),
-            //
-            SliverToBoxAdapter(
-              child: const SizedBox(height: AppSpace.meduimSpace2),
-            ),
-          ],
+              SliverToBoxAdapter(
+                child: const SizedBox(height: AppSpace.meduimSpace2),
+              ),
+              //
+              SliverList(
+                delegate: SliverChildBuilderDelegate(
+                  childCount: (state is InstructorSuccessState)
+                      ? state.instructorModel.data.items.length
+                      : 3,
+                  (BuildContext context, int index) {
+                    if (state is InstructorSuccessState) {
+                      return CustomInstructorItem(
+                          itemModel: state.instructorModel.data.items[index]);
+                    } else {
+                      return CustomInstructorShimmer();
+                    }
+                  },
+                ),
+              ),
+              //
+              SliverToBoxAdapter(
+                child: const SizedBox(height: AppSpace.meduimSpace2),
+              ),
+            ],
+          ),
         );
       },
     );

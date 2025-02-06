@@ -19,4 +19,4 @@ final class SplashNavigateToResetPasswordWithUri extends SplashState {
   SplashNavigateToResetPasswordWithUri({required this.uri});
 }
 
-final class SplashNavigateToDropDownView extends SplashState {}
+final class SplashNavigateToHomeView extends SplashState {}

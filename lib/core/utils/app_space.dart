@@ -7,6 +7,8 @@ abstract class AppSpace {
   static const double maxSpace1 = 80;
   static const double maxSpace2 = 100;
   static const double maxSpace3 = 150;
+  static const double maxSpace4 = 200;
+  static const double maxSpace5 = 240;
   static const double itemsHeight1 = 400;
   static const double itemsHeight2 = 480;
   static const double imageHeight1 = 355;

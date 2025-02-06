@@ -15,8 +15,8 @@ class SplashView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<SplashCubit, SplashState>(
       listener: (context, state) {
-        if (state is SplashNavigateToDropDownView) {
-          navigateReplacement(context, RouteKey.dropDownView);
+        if (state is SplashNavigateToHomeView) {
+          navigateReplacement(context, RouteKey.homeView);
         } else if (state is SplashNavigateToBoarding) {
           navigateReplacement(context, RouteKey.boardingView);
         } else if (state is SplashNavigateToLogin) {
