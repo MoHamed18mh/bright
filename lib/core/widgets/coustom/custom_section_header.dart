@@ -28,7 +28,7 @@ class CustomSectionHeader extends StatelessWidget {
         ),
         Text(
           subTitle,
-          style: AppTextStyle.nunitoSans26LightBlackBold,
+          style: AppTextStyle.nunitoSans22LightBlackBold,
         ),
       ],
     );

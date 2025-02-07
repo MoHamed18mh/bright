@@ -6,7 +6,6 @@ class RightDecorationLinesWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -14,13 +13,13 @@ class RightDecorationLinesWidget extends StatelessWidget {
       children: [
         Container(
           height: 3,
-          width: size.width / 6,
+          width: 50,
           color: AppColors.primaryColor,
         ),
         const SizedBox(height: 5),
         Container(
           height: 3,
-          width: size.width / 4.5,
+          width: 70,
           color: AppColors.primaryColor,
         ),
       ],

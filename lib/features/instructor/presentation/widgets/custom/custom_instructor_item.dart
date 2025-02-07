@@ -16,14 +16,14 @@ class CustomInstructorItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.all(AppSpace.paddingSpace),
-      height: AppSpace.itemsHeight2,
+      height: AppSpace.size5,
       color: AppColors.primaryHighLight,
       //
       child: Column(
         children: [
           Image.network(
             itemModel.imageCover,
-            height: AppSpace.imageHeight1,
+            height: AppSpace.size2,
             fit: BoxFit.cover,
           ),
           const SizedBox(height: AppSpace.mainSpace),

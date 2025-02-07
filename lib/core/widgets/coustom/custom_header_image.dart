@@ -12,12 +12,12 @@ class CustomHeaderImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: AppSpace.itemsHeight1,
+      height: AppSpace.size4,
       child: Stack(
         children: [
           Image.asset(
             Assets.assetsImagesCarousel1,
-            height: AppSpace.itemsHeight1,
+            height: AppSpace.size4,
             fit: BoxFit.cover,
           ),
           //
