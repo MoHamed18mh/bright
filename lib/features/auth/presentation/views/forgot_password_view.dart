@@ -1,7 +1,7 @@
 import 'package:bright/core/utils/app_space.dart';
 import 'package:bright/core/utils/app_strings.dart';
 import 'package:bright/core/widgets/back_icon_button_widget.dart';
-import 'package:bright/features/auth/presentation/widgets/custom/custom_forgot_password_form.dart';
+import 'package:bright/features/auth/presentation/widgets/customs/custom_forgot_password_form.dart';
 import 'package:bright/features/auth/presentation/widgets/forgot_password_title.dart';
 import 'package:flutter/material.dart';
 

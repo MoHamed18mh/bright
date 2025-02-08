@@ -5,8 +5,8 @@ import 'package:bright/core/widgets/coustom/custom_header_image.dart';
 import 'package:bright/core/widgets/coustom/custom_section_header.dart';
 import 'package:bright/features/instructor/cubit/instructor_cubit.dart';
 import 'package:bright/features/instructor/cubit/instructor_state.dart';
-import 'package:bright/features/instructor/presentation/widgets/custom/custom_instructor_item.dart';
-import 'package:bright/features/instructor/presentation/widgets/custom/custom_instructor_shimmer.dart';
+import 'package:bright/features/instructor/presentation/widgets/custom_instructor_item.dart';
+import 'package:bright/features/instructor/presentation/widgets/custom_instructor_shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

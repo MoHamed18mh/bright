@@ -7,6 +7,8 @@ abstract class EndPoint {
   static final String postForgotPassword = '/api/Account/forget-password';
   static final String postResetPassword = '/api/Account/reset-password';
   static final String getInstructors = '/api/Instructor';
+  static final String getCategories = '/api/Category';
+  static final String getCourses = '/api/Course';
 }
 
 abstract class ApiKey {
@@ -48,5 +50,15 @@ abstract class ApiKey {
       qualifications = 'qualifications',
       userId = 'userId',
       jobTitle = 'jobTitle',
-      items = 'items';
+      name = 'name',
+      items = 'items',
+
+      // courses keys
+      sections = 'sections',
+      updatedDate = 'updatedDate',
+      createdDate = 'createdDate',
+      pictureUrl = 'pictureUrl',
+      instructorName = 'instructorName',
+      price = 'price',
+      description = 'description';
 }

@@ -4,7 +4,7 @@ import 'package:bright/core/utils/app_space.dart';
 import 'package:bright/core/utils/app_strings.dart';
 import 'package:bright/features/auth/presentation/widgets/auth_head_widget.dart';
 import 'package:bright/core/widgets/text_button_widget.dart';
-import 'package:bright/features/auth/presentation/widgets/custom/custom_register_form.dart';
+import 'package:bright/features/auth/presentation/widgets/customs/custom_register_form.dart';
 import 'package:flutter/material.dart';
 
 class RegisterView extends StatelessWidget {

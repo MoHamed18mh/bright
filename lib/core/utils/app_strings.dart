@@ -51,6 +51,7 @@ abstract class AppStrings {
           'Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit.',
       aboutUs = 'About Us',
       wellcomTo = 'Wellcom to BRIGHT MINDS',
+      popularCourses = 'Popular Courses',
       webDesign = 'Web Design',
       courses49 = '49 Courses',
       categories = 'Categories',

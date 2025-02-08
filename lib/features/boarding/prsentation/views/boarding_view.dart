@@ -7,7 +7,7 @@ import 'package:bright/core/widgets/text_button_widget.dart';
 import 'package:bright/features/boarding/cubit/boarding_cubit.dart';
 import 'package:bright/features/auth/presentation/widgets/auth_head_widget.dart';
 import 'package:bright/features/boarding/cubit/boarding_state.dart';
-import 'package:bright/features/boarding/prsentation/widgets/custom/custom_boarding_body.dart';
+import 'package:bright/features/boarding/prsentation/widgets/customs/custom_boarding_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

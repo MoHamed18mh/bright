@@ -8,7 +8,7 @@ import 'package:bright/features/auth/presentation/widgets/auth_head_widget.dart'
 import 'package:bright/core/widgets/text_button_widget.dart';
 import 'package:bright/features/auth/cubit/auth_cubit.dart';
 import 'package:bright/features/auth/cubit/auth_state.dart';
-import 'package:bright/features/auth/presentation/widgets/custom/custom_login_form.dart';
+import 'package:bright/features/auth/presentation/widgets/customs/custom_login_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

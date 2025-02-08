@@ -7,14 +7,17 @@ class ContainerShimmerWidget extends StatelessWidget {
     super.key,
     this.height,
     this.width,
+    this.edgeInsets,
   });
 
   final double? height;
   final double? width;
+  final EdgeInsets? edgeInsets;
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
+      margin: edgeInsets,
       height: height ?? 20,
       width: width,
       child: Shimmer.fromColors(
