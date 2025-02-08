@@ -2,7 +2,7 @@ class SplashState {}
 
 final class SplashInitial extends SplashState {}
 
-// *************** navigate states *********************************************
+// *************** navigate states 
 final class SplashNavigateToBoarding extends SplashState {}
 
 final class SplashNavigateToLogin extends SplashState {}

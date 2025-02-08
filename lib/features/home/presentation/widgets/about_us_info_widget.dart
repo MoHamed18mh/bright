@@ -19,7 +19,8 @@ class AboutUsInfoWidget extends StatelessWidget {
             subTitle: AppStrings.wellcomTo,
           ),
           const SizedBox(height: AppSpace.mainSpace),
-          //
+
+          // ************ about information
           Text(
             AppStrings.temporErateAtClita,
             style: AppTextStyle.nunitoSans16LightBlackBold,

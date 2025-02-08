@@ -1,3 +1,4 @@
+import 'package:bright/core/utils/app_assets.dart';
 import 'package:bright/core/utils/app_space.dart';
 import 'package:bright/core/utils/app_strings.dart';
 import 'package:bright/core/widgets/coustom/custom_header_image.dart';
@@ -22,6 +23,7 @@ class InstructorView extends StatelessWidget {
               SliverToBoxAdapter(
                 child: CustomHeaderImage(
                   title: AppStrings.instructors,
+                  imagePath: Assets.assetsImagesTeam1,
                 ),
               ),
               SliverToBoxAdapter(

@@ -34,15 +34,16 @@ class LoginView extends StatelessWidget {
                 )
               : Padding(
                   padding: const EdgeInsets.symmetric(
-                      horizontal: AppSpace.paddingSpace),
+                    horizontal: AppSpace.paddingSpace,
+                    vertical: AppSpace.maxSpace3,
+                  ),
                   child: CustomScrollView(
                     slivers: [
-                      SliverToBoxAdapter(
-                          child: const SizedBox(height: AppSpace.maxSpace3)),
                       SliverToBoxAdapter(child: AuthHeadWidget()),
                       SliverToBoxAdapter(
-                          child: SizedBox(height: AppSpace.maxSpace2)),
-
+                        child: SizedBox(height: AppSpace.maxSpace2),
+                      ),
+                      
                       // ********** the body of the login screen
                       SliverToBoxAdapter(child: CustomLoginForm()),
 

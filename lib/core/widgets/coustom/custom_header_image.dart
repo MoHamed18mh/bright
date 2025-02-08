@@ -1,4 +1,3 @@
-import 'package:bright/core/utils/app_assets.dart';
 import 'package:bright/core/utils/app_colors.dart';
 import 'package:bright/core/utils/app_space.dart';
 import 'package:bright/core/utils/app_text_style.dart';
@@ -6,8 +5,8 @@ import 'package:bright/core/widgets/back_icon_button_widget.dart';
 import 'package:flutter/material.dart';
 
 class CustomHeaderImage extends StatelessWidget {
-  const CustomHeaderImage({super.key, required this.title});
-  final String title;
+  const CustomHeaderImage({super.key, required this.title, required this.imagePath});
+  final String title, imagePath;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +15,7 @@ class CustomHeaderImage extends StatelessWidget {
       child: Stack(
         children: [
           Image.asset(
-            Assets.assetsImagesCarousel1,
+            imagePath,
             height: AppSpace.size4,
             fit: BoxFit.cover,
           ),

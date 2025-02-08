@@ -3,8 +3,8 @@ import 'package:bright/core/utils/app_colors.dart';
 import 'package:bright/core/utils/app_text_style.dart';
 import 'package:flutter/material.dart';
 
-class ButtonSectionWidget extends StatelessWidget {
-  const ButtonSectionWidget({
+class ButtonImageWidget extends StatelessWidget {
+  const ButtonImageWidget({
     super.key,
     required this.imagePath,
     required this.title,
@@ -34,7 +34,7 @@ class ButtonSectionWidget extends StatelessWidget {
             alignment: Alignment.center,
             child: Text(
               title,
-              style: AppTextStyle.notoSerif24WhiteBlod,
+              style: AppTextStyle.notoSerif30WhiteBlod,
             ),
           )
         ],

@@ -1,6 +1,6 @@
 import 'package:bright/core/utils/app_space.dart';
 import 'package:bright/features/home/model/home_model.dart';
-import 'package:bright/features/home/presentation/widgets/button_section_widget.dart';
+import 'package:bright/features/home/presentation/widgets/button_image_widget.dart';
 import 'package:flutter/material.dart';
 
 class CustomImageButtons extends StatelessWidget {
@@ -21,7 +21,7 @@ class CustomImageButtons extends StatelessWidget {
         String title = homeData.keys.elementAt(index);
         HomeModel homeModel = homeData[title]!;
         //
-        return ButtonSectionWidget(
+        return ButtonImageWidget(
           imagePath: homeModel.imagePath,
           title: title,
           path: homeModel.route,
