@@ -1,7 +1,7 @@
 import 'package:bright/core/utils/app_space.dart';
 import 'package:bright/features/testimonial/cubit/testimonial_cubit.dart';
 import 'package:bright/features/testimonial/cubit/testimonial_state.dart';
-import 'package:bright/features/testimonial/presentation/widgets/testimonial_item.dart';
+import 'package:bright/features/testimonial/presentation/widgets/testimonial_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

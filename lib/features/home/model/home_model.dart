@@ -22,7 +22,7 @@ Map<String, HomeModel> homeData = {
     imagePath: Assets.assetsImagesTestimonial1,
     route: RouteKey.testimonialView,
   ),
-  AppStrings.contactUs: HomeModel(
+  AppStrings.contact: HomeModel(
     imagePath: Assets.assetsImagesContactus,
     route: RouteKey.contactView,
   ),
