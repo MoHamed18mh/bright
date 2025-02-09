@@ -33,9 +33,10 @@ class LoginView extends StatelessWidget {
                       CircularProgressIndicator(color: AppColors.primaryColor),
                 )
               : Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: AppSpace.paddingSpace,
-                    vertical: AppSpace.maxSpace3,
+                  padding: const EdgeInsets.only(
+                    left: AppSpace.paddingSpace,
+                    right: AppSpace.paddingSpace,
+                    top: AppSpace.maxSpace3,
                   ),
                   child: CustomScrollView(
                     slivers: [
@@ -43,7 +44,7 @@ class LoginView extends StatelessWidget {
                       SliverToBoxAdapter(
                         child: SizedBox(height: AppSpace.maxSpace2),
                       ),
-                      
+
                       // ********** the body of the login screen
                       SliverToBoxAdapter(child: CustomLoginForm()),
 

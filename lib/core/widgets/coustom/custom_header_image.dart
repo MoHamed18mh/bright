@@ -5,7 +5,8 @@ import 'package:bright/core/widgets/back_icon_button_widget.dart';
 import 'package:flutter/material.dart';
 
 class CustomHeaderImage extends StatelessWidget {
-  const CustomHeaderImage({super.key, required this.title, required this.imagePath});
+  const CustomHeaderImage(
+      {super.key, required this.title, required this.imagePath});
   final String title, imagePath;
 
   @override

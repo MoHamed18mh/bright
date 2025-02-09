@@ -32,10 +32,8 @@ class CourseRepo {
       );
       return Right(CourseModel.fromJson(response));
     } on ServerException catch (e) {
-      print('================ ${e.toString()}');
       return Left(e.errorModel.message);
     } catch (e) {
-      print('__________________ ${e.toString()}');
       return Left(AppStrings.unexpectedError);
     }
   }

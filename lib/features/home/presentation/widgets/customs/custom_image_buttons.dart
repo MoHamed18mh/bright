@@ -12,7 +12,7 @@ class CustomImageButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverGrid.builder(
       gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-        maxCrossAxisExtent: AppSpace.size2,
+        maxCrossAxisExtent: AppSpace.size1,
         mainAxisExtent: AppSpace.size1,
         crossAxisSpacing: AppSpace.smallSpace,
         mainAxisSpacing: AppSpace.smallSpace,

@@ -20,6 +20,7 @@ import 'package:bright/features/instructor/cubit/instructor_cubit.dart';
 import 'package:bright/features/instructor/presentation/views/instructor_view.dart';
 import 'package:bright/features/splash/cubit/splash_cubit.dart';
 import 'package:bright/features/splash/presentation/views/splash_view.dart';
+import 'package:bright/features/testimonial/cubit/testimonial_cubit.dart';
 import 'package:bright/features/testimonial/presentation/views/testimonial_view.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -163,7 +164,10 @@ final GoRouter router = GoRouter(
     //
     GoRoute(
       path: RouteKey.testimonialView,
-      builder: (context, state) => TestimonialView(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => TestimonialCubit()..startAutoScroll(),
+        child: TestimonialView(),
+      ),
     ),
     //
     GoRoute(

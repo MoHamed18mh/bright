@@ -61,4 +61,10 @@ abstract class AppTextStyle {
     color: AppColors.white,
     fontWeight: FontWeight.bold,
   );
+  static final notoSerif15WhiteBlod = TextStyle(
+    fontFamily: 'NotoSerif',
+    fontSize: 15,
+    color: AppColors.white,
+    fontWeight: FontWeight.bold,
+  );
 }

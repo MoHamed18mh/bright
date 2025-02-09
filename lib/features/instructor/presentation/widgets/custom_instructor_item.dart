@@ -16,7 +16,6 @@ class CustomInstructorItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.all(AppSpace.paddingSpace),
-      height: AppSpace.size5,
       color: AppColors.primaryHighLight,
       //
       child: Column(

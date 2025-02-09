@@ -1,3 +1,9 @@
+import 'package:bright/core/utils/app_assets.dart';
+import 'package:bright/core/utils/app_space.dart';
+import 'package:bright/core/utils/app_strings.dart';
+import 'package:bright/core/widgets/coustom/custom_header_image.dart';
+import 'package:bright/core/widgets/coustom/custom_section_header.dart';
+import 'package:bright/features/testimonial/presentation/widgets/custom_testimonial.dart';
 import 'package:flutter/material.dart';
 
 class TestimonialView extends StatelessWidget {
@@ -6,9 +12,36 @@ class TestimonialView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text('TestimonialView'),
+      body: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: CustomHeaderImage(
+              title: AppStrings.testimonial,
+              imagePath: Assets.assetsImagesTestimonial1,
+            ),
+          ),
+          SliverToBoxAdapter(child: SizedBox(height: AppSpace.maxSpace2)),
+          //
+          SliverToBoxAdapter(
+            child: CustomSectionHeader(
+              title: AppStrings.testimonial,
+              subTitle: AppStrings.ourStudentsSay,
+            ),
+          ),
+          SliverToBoxAdapter(child: SizedBox(height: AppSpace.meduimSpace2)),
+          //
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CustomTestimonial(),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
 }
+
+
+

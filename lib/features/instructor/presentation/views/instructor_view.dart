@@ -39,21 +39,22 @@ class InstructorView extends StatelessWidget {
               SliverToBoxAdapter(
                 child: const SizedBox(height: AppSpace.meduimSpace2),
               ),
-              //
-              SliverList(
-                delegate: SliverChildBuilderDelegate(
-                  childCount: (state is InstructorSuccessState)
-                      ? state.instructorModel.data.items.length
-                      : 3,
-                  (BuildContext context, int index) {
-                    if (state is InstructorSuccessState) {
-                      return CustomInstructorItem(
-                          itemModel: state.instructorModel.data.items[index]);
-                    } else {
-                      return CustomInstructorShimmer();
-                    }
-                  },
-                ),
+              // // instructor items
+              SliverGrid.builder(
+                gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                    maxCrossAxisExtent: AppSpace.size4,
+                    mainAxisExtent: AppSpace.size5),
+                itemBuilder: (context, index) {
+                  if (state is InstructorSuccessState) {
+                    return CustomInstructorItem(
+                        itemModel: state.instructorModel.data.items[index]);
+                  } else {
+                    return CustomInstructorShimmer();
+                  }
+                },
+                itemCount: (state is InstructorSuccessState)
+                    ? state.instructorModel.data.items.length
+                    : 3,
               ),
               //
               SliverToBoxAdapter(
