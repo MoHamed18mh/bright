@@ -5,8 +5,8 @@ import 'package:bright/core/widgets/coustom/custom_header_image.dart';
 import 'package:bright/core/widgets/coustom/custom_section_header.dart';
 import 'package:bright/features/instructor/cubit/instructor_cubit.dart';
 import 'package:bright/features/instructor/cubit/instructor_state.dart';
-import 'package:bright/features/instructor/presentation/widgets/custom_instructor_item.dart';
-import 'package:bright/features/instructor/presentation/widgets/custom_instructor_shimmer.dart';
+import 'package:bright/features/instructor/presentation/widgets/customs/custom_instructor_item.dart';
+import 'package:bright/features/instructor/presentation/widgets/customs/custom_instructor_shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -47,13 +47,14 @@ class InstructorView extends StatelessWidget {
                 itemBuilder: (context, index) {
                   if (state is InstructorSuccessState) {
                     return CustomInstructorItem(
-                        itemModel: state.instructorModel.data.items[index]);
+                        instructorItem: state.instructorModel.instructorData
+                            .instructorItem[index]);
                   } else {
                     return CustomInstructorShimmer();
                   }
                 },
                 itemCount: (state is InstructorSuccessState)
-                    ? state.instructorModel.data.items.length
+                    ? state.instructorModel.instructorData.instructorItem.length
                     : 3,
               ),
               //

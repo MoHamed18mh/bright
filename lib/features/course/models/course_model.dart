@@ -61,7 +61,7 @@ class CourseItems {
   final String pictureUrl;
   final String createdDate;
   final String updatedDate;
-  final String? sections;
+  final dynamic sections;
 
   CourseItems({
     required this.id,
@@ -72,7 +72,7 @@ class CourseItems {
     required this.pictureUrl,
     required this.createdDate,
     required this.updatedDate,
-    this.sections,
+    required this.sections,
   });
 
   factory CourseItems.fromJson(Map<String, dynamic> json) {

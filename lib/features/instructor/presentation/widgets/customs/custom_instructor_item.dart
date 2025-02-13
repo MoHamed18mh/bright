@@ -1,0 +1,53 @@
+import 'package:bright/core/functions/navigation.dart';
+import 'package:bright/core/routes/route_key.dart';
+import 'package:bright/core/utils/app_colors.dart';
+import 'package:bright/core/utils/app_space.dart';
+import 'package:bright/core/utils/app_text_style.dart';
+import 'package:bright/features/instructor/models/instructor_model.dart';
+import 'package:flutter/material.dart';
+
+class CustomInstructorItem extends StatelessWidget {
+  const CustomInstructorItem({
+    super.key,
+    required this.instructorItem,
+  });
+
+  final InstructorItem instructorItem;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () => navigate(context, RouteKey.instructorDetailsView,
+          extra: instructorItem),
+      child: Container(
+        margin: const EdgeInsets.all(AppSpace.paddingSpace),
+        color: AppColors.primaryHighLight,
+        //
+        child: Column(
+          children: [
+            Image.network(
+              instructorItem.imageCover,
+              height: AppSpace.size2,
+              fit: BoxFit.cover,
+            ),
+            const SizedBox(height: AppSpace.mainSpace),
+            //
+            Text(
+              instructorItem.displayName,
+              style: AppTextStyle.nunitoSans22LightBlackBold,
+            ),
+            //
+            Text(
+              instructorItem.jobTitle,
+              style: AppTextStyle.nunitoSans14Grey800,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 2,
+              softWrap: true,
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

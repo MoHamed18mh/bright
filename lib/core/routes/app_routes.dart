@@ -17,6 +17,8 @@ import 'package:bright/features/course/cubit/course_cubit.dart';
 import 'package:bright/features/course/presentation/views/course_view.dart';
 import 'package:bright/features/home/presentation/views/home_view.dart';
 import 'package:bright/features/instructor/cubit/instructor_cubit.dart';
+import 'package:bright/features/instructor/models/instructor_model.dart';
+import 'package:bright/features/instructor/presentation/views/instructor_details_view.dart';
 import 'package:bright/features/instructor/presentation/views/instructor_view.dart';
 import 'package:bright/features/splash/cubit/splash_cubit.dart';
 import 'package:bright/features/splash/presentation/views/splash_view.dart';
@@ -157,6 +159,13 @@ final GoRouter router = GoRouter(
             InstructorCubit(InstructorRepo(api: DioConsumer(dio: Dio())))
               ..getInstructors(),
         child: InstructorView(),
+      ),
+    ),
+    //
+    GoRoute(
+      path: RouteKey.instructorDetailsView,
+      builder: (context, state) => InstructorDetailsView(
+        instructorItem: state.extra as InstructorItem,
       ),
     ),
     //
