@@ -7,7 +7,6 @@ import 'package:bright/core/widgets/coustom/custom_section_header.dart';
 import 'package:bright/features/course/cubit/course_cubit.dart';
 import 'package:bright/features/course/cubit/course_state.dart';
 import 'package:bright/features/course/presentation/widgets/coutom_course_item.dart';
-import 'package:bright/features/course/presentation/widgets/custom_category_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -31,40 +30,41 @@ class CourseView extends StatelessWidget {
                 child: const SizedBox(height: AppSpace.maxSpace2),
               ),
 
-              // ******************* categorey Section
-              SliverToBoxAdapter(
-                child: CustomSectionHeader(
-                  title: AppStrings.categories,
-                  subTitle: AppStrings.coursesCategories,
-                ),
-              ),
-              SliverToBoxAdapter(
-                child: const SizedBox(height: AppSpace.meduimSpace2),
-              ),
+              //// There is an issue that prevents getCourses and getCategories from executing together
+              // // ******************* categorey Section
+              // SliverToBoxAdapter(
+              //   child: CustomSectionHeader(
+              //     title: AppStrings.categories,
+              //     subTitle: AppStrings.coursesCategories,
+              //   ),
+              // ),
+              // SliverToBoxAdapter(
+              //   child: const SizedBox(height: AppSpace.meduimSpace2),
+              // ),
 
-              // ******************** category items
-              SliverGrid.builder(
-                gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                  maxCrossAxisExtent: AppSpace.size6,
-                  mainAxisExtent: AppSpace.size1,
-                ),
-                itemBuilder: (BuildContext contex, int index) {
-                  if (state is CategorySuccessState) {
-                    return CustomCategoryItem(
-                      categoryData: state.categoryModel.categoryData[index],
-                    );
-                  } else {
-                    return ContainerShimmerWidget(
-                      edgeInsets: EdgeInsets.all(AppSpace.paddingSpace),
-                    );
-                  }
-                },
-                itemCount: state is CategorySuccessState
-                    ? state.categoryModel.categoryData.length
-                    : 3,
-              ),
-              SliverToBoxAdapter(child: SizedBox(height: AppSpace.maxSpace1)),
-              // ***************************
+              // // ******************** category items
+              // SliverGrid.builder(
+              //   gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+              //     maxCrossAxisExtent: AppSpace.size6,
+              //     mainAxisExtent: AppSpace.size1,
+              //   ),
+              //   itemBuilder: (BuildContext contex, int index) {
+              //     if (state is CategorySuccessState) {
+              //       return CustomCategoryItem(
+              //         categoryData: state.categoryModel.categoryData[index],
+              //       );
+              //     } else {
+              //       return ContainerShimmerWidget(
+              //         edgeInsets: EdgeInsets.all(AppSpace.paddingSpace),
+              //       );
+              //     }
+              //   },
+              //   itemCount: state is CategorySuccessState
+              //       ? state.categoryModel.categoryData.length
+              //       : 3,
+              // ),
+              // SliverToBoxAdapter(child: SizedBox(height: AppSpace.maxSpace1)),
+              // // ***************************
 
               // ********************** courses section
               SliverToBoxAdapter(

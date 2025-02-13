@@ -1,25 +1,26 @@
-import 'package:bright/features/course/models/category_model.dart';
 import 'package:bright/features/course/models/course_model.dart';
 
 class CourseState {}
 
 final class CourseInitial extends CourseState {}
 
-// ***************** categories states
-final class CategoryLoadingState extends CourseState {}
+// // ***************** categories states
+// final class CategoryLoadingState extends CourseState {}
 
-final class CategorySuccessState extends CourseState {
-  final CategoryModel categoryModel;
+// final class CategorySuccessState extends CourseState {
+//   final CategoryModel categoryModel;
 
-  CategorySuccessState({required this.categoryModel});
-}
+//   CategorySuccessState({required this.categoryModel});
+// }
 
-final class CategoryFailureState extends CourseState {
-  final String errorMessage;
+// final class CategoryFailureState extends CourseState {
+//   final String errorMessage;
 
-  CategoryFailureState({required this.errorMessage});
-}
-// ********************
+//   CategoryFailureState({required this.errorMessage});
+// }
+// // ********************
+
+
 // ***************** cours states
 final class CourseLoadingState extends CourseState {}
 

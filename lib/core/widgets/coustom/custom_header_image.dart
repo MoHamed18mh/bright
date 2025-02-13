@@ -15,10 +15,14 @@ class CustomHeaderImage extends StatelessWidget {
       height: AppSpace.size4,
       child: Stack(
         children: [
-          Image.asset(
-            imagePath,
-            height: AppSpace.size4,
-            fit: BoxFit.cover,
+          Align(
+            alignment: Alignment.center,
+            child: Image.asset(
+              imagePath,
+              height: AppSpace.size4,
+              width: double.infinity,
+              fit: BoxFit.cover,
+            ),
           ),
           //
           Container(

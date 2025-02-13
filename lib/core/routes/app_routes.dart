@@ -140,13 +140,11 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: RouteKey.courseView,
       builder: (context, state) {
-        final courseCubit =
-            CourseCubit(CourseRepo(api: DioConsumer(dio: Dio())))
-              ..getCategories();
-        // ..getCourses();
-
         return BlocProvider(
-          create: (context) => courseCubit,
+          create: (context) =>
+              CourseCubit(CourseRepo(api: DioConsumer(dio: Dio())))
+                // ..getCategories()
+                ..getCourses(),
           child: CourseView(),
         );
       },

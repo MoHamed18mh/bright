@@ -42,7 +42,7 @@ class InstructorView extends StatelessWidget {
               // // instructor items
               SliverGrid.builder(
                 gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                    maxCrossAxisExtent: AppSpace.size4,
+                    maxCrossAxisExtent: AppSpace.size5,
                     mainAxisExtent: AppSpace.size5),
                 itemBuilder: (context, index) {
                   if (state is InstructorSuccessState) {
