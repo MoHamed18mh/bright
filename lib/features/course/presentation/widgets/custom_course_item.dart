@@ -1,8 +1,9 @@
-import 'package:bright/core/utils/app_assets.dart';
 import 'package:bright/core/utils/app_colors.dart';
 import 'package:bright/core/utils/app_space.dart';
 import 'package:bright/core/utils/app_text_style.dart';
+import 'package:bright/core/widgets/container_shimmer_widget.dart';
 import 'package:bright/features/course/models/course_model.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class CustomCourseItem extends StatelessWidget {
@@ -18,19 +19,14 @@ class CustomCourseItem extends StatelessWidget {
       child: Column(
         children: [
           // ********************* image
-          // CachedNetworkImage(
-          //   imageUrl: courseItem.pictureUrl,
-          //   height: AppSpace.size1,
-          //   width: double.infinity,
-          //   fit: BoxFit.cover,
-          //   placeholder: (context, url) => ContainerShimmerWidget(),
-          //   errorWidget: (context, url, error) => Icon(Icons.error),
-          // ),
-          Image.asset(
-            Assets.assetsImagesCourse1,
+          CachedNetworkImage(
+            imageUrl: courseItem.pictureUrl,
             height: AppSpace.size1,
             width: double.infinity,
+            memCacheHeight: 250,
             fit: BoxFit.cover,
+            placeholder: (context, url) => ContainerShimmerWidget(),
+            errorWidget: (context, url, error) => Icon(Icons.error),
           ),
           const SizedBox(height: AppSpace.mainSpace),
 
