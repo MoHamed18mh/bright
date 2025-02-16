@@ -2,8 +2,8 @@ import 'package:bright/core/utils/app_space.dart';
 import 'package:bright/core/widgets/container_shimmer_widget.dart';
 import 'package:flutter/material.dart';
 
-class CustomInstructorShimmer extends StatelessWidget {
-  const CustomInstructorShimmer({super.key});
+class CustomCourseShimmer extends StatelessWidget {
+  const CustomCourseShimmer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,13 +13,18 @@ class CustomInstructorShimmer extends StatelessWidget {
       child: Column(
         children: [
           ContainerShimmerWidget(
-            height: AppSpace.size2,
+            height: AppSpace.size1,
             width: double.infinity,
           ),
           const SizedBox(height: AppSpace.mainSpace),
-          ContainerShimmerWidget(width: 150),
+          ContainerShimmerWidget(
+            width: 130,
+            height: 35,
+          ),
           const SizedBox(height: AppSpace.smallSpace),
-          ContainerShimmerWidget(width: 210),
+          ContainerShimmerWidget(width: 220),
+          const SizedBox(height: AppSpace.smallSpace),
+          ContainerShimmerWidget(width: 200),
         ],
       ),
     );

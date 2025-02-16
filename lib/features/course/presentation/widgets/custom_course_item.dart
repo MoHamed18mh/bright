@@ -1,3 +1,4 @@
+import 'package:bright/core/utils/app_assets.dart';
 import 'package:bright/core/utils/app_colors.dart';
 import 'package:bright/core/utils/app_space.dart';
 import 'package:bright/core/utils/app_text_style.dart';
@@ -5,8 +6,9 @@ import 'package:bright/features/course/models/course_model.dart';
 import 'package:flutter/material.dart';
 
 class CustomCourseItem extends StatelessWidget {
-  const CustomCourseItem({super.key, required this.courseItems});
-  final CourseItems courseItems;
+  const CustomCourseItem({super.key, required this.courseItem});
+
+  final CourseItem courseItem;
 
   @override
   Widget build(BuildContext context) {
@@ -16,22 +18,32 @@ class CustomCourseItem extends StatelessWidget {
       child: Column(
         children: [
           // ********************* image
-          Image.network(
-            courseItems.pictureUrl,
+          // CachedNetworkImage(
+          //   imageUrl: courseItem.pictureUrl,
+          //   height: AppSpace.size1,
+          //   width: double.infinity,
+          //   fit: BoxFit.cover,
+          //   placeholder: (context, url) => ContainerShimmerWidget(),
+          //   errorWidget: (context, url, error) => Icon(Icons.error),
+          // ),
+          Image.asset(
+            Assets.assetsImagesCourse1,
             height: AppSpace.size1,
-            fit: BoxFit.fill,
+            width: double.infinity,
+            fit: BoxFit.cover,
           ),
           const SizedBox(height: AppSpace.mainSpace),
 
           // ********************** price
           Text(
-            '${courseItems.price}\$',
+            '${courseItem.price}\$',
             style: AppTextStyle.nunitoSans26LightBlackBold,
           ),
           const SizedBox(height: AppSpace.smallSpace),
-          //
+
+          // ********************** course name
           Text(
-            courseItems.name,
+            courseItem.name,
             style: AppTextStyle.nunitoSans22LightBlackBold,
             maxLines: 2,
             softWrap: true,
@@ -46,11 +58,11 @@ class CustomCourseItem extends StatelessWidget {
             children: [
               Icon(Icons.person, color: AppColors.primaryColor),
               Text(
-                courseItems.instructorName,
+                courseItem.instructorName,
                 style: AppTextStyle.nunitoSans16LightBlackBold,
               )
             ],
-          )
+          ),
         ],
       ),
     );

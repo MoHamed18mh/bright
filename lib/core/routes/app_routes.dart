@@ -20,6 +20,7 @@ import 'package:bright/features/instructor/cubit/instructor_cubit.dart';
 import 'package:bright/features/instructor/models/instructor_model.dart';
 import 'package:bright/features/instructor/presentation/views/instructor_details_view.dart';
 import 'package:bright/features/instructor/presentation/views/instructor_view.dart';
+import 'package:bright/features/profile/presentation/views/profile_view.dart';
 import 'package:bright/features/splash/cubit/splash_cubit.dart';
 import 'package:bright/features/splash/presentation/views/splash_view.dart';
 import 'package:bright/features/testimonial/cubit/testimonial_cubit.dart';
@@ -140,19 +141,6 @@ final GoRouter router = GoRouter(
     ),
     //
     GoRoute(
-      path: RouteKey.courseView,
-      builder: (context, state) {
-        return BlocProvider(
-          create: (context) =>
-              CourseCubit(CourseRepo(api: DioConsumer(dio: Dio())))
-                // ..getCategories()
-                ..getCourses(),
-          child: CourseView(),
-        );
-      },
-    ),
-    //
-    GoRoute(
       path: RouteKey.instructorView,
       builder: (context, state) => BlocProvider(
         create: (context) =>
@@ -170,6 +158,14 @@ final GoRouter router = GoRouter(
     ),
     //
     GoRoute(
+      path: RouteKey.courseView,
+      builder: (context, state) => BlocProvider(
+        create: (context) => CourseCubit(CourseRepo(api: DioConsumer(dio: Dio())))..getCourses(),
+        child: CourseView(),
+      ),
+    ),
+    //
+    GoRoute(
       path: RouteKey.testimonialView,
       builder: (context, state) => BlocProvider(
         create: (context) => TestimonialCubit()..startAutoScroll(),
@@ -180,6 +176,11 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: RouteKey.contactView,
       builder: (context, state) => ContactView(),
+    ),
+    //
+    GoRoute(
+      path: RouteKey.profileView,
+      builder: (context, state) => ProfileView(),
     ),
   ],
 );

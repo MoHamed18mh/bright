@@ -38,7 +38,7 @@ class InstructorData {
   });
 
   factory InstructorData.fromJson(Map<String, dynamic> json) {
-    // convert items in json to ItemModel
+    // convert items from json to ItemModel
     var itemsList = json[ApiKey.items] as List;
     List<InstructorItem> items =
         itemsList.map((e) => InstructorItem.fromJson(e)).toList();

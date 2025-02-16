@@ -1,7 +1,7 @@
 import 'package:bright/core/utils/app_colors.dart';
 import 'package:bright/core/utils/app_space.dart';
 import 'package:bright/core/utils/app_text_style.dart';
-import 'package:bright/features/home/model/about_model.dart';
+import 'package:bright/features/home/models/about_model.dart';
 import 'package:flutter/material.dart';
 
 class ServiceWidget extends StatelessWidget {

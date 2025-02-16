@@ -1,12 +1,12 @@
 import 'package:bright/core/utils/app_assets.dart';
 import 'package:bright/core/utils/app_space.dart';
 import 'package:bright/core/utils/app_strings.dart';
-import 'package:bright/core/widgets/container_shimmer_widget.dart';
 import 'package:bright/core/widgets/coustom/custom_header_image.dart';
 import 'package:bright/core/widgets/coustom/custom_section_header.dart';
 import 'package:bright/features/course/cubit/course_cubit.dart';
 import 'package:bright/features/course/cubit/course_state.dart';
-import 'package:bright/features/course/presentation/widgets/coutom_course_item.dart';
+import 'package:bright/features/course/presentation/widgets/custom_course_item.dart';
+import 'package:bright/features/course/presentation/widgets/custom_course_shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -29,44 +29,7 @@ class CourseView extends StatelessWidget {
               SliverToBoxAdapter(
                 child: const SizedBox(height: AppSpace.maxSpace2),
               ),
-
-              //// There is an issue that prevents getCourses and getCategories from executing together
-              // // ******************* categorey Section
-              // SliverToBoxAdapter(
-              //   child: CustomSectionHeader(
-              //     title: AppStrings.categories,
-              //     subTitle: AppStrings.coursesCategories,
-              //   ),
-              // ),
-              // SliverToBoxAdapter(
-              //   child: const SizedBox(height: AppSpace.meduimSpace2),
-              // ),
-
-              // // ******************** category items
-              // SliverGrid.builder(
-              //   gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-              //     maxCrossAxisExtent: AppSpace.size6,
-              //     mainAxisExtent: AppSpace.size1,
-              //   ),
-              //   itemBuilder: (BuildContext contex, int index) {
-              //     if (state is CategorySuccessState) {
-              //       return CustomCategoryItem(
-              //         categoryData: state.categoryModel.categoryData[index],
-              //       );
-              //     } else {
-              //       return ContainerShimmerWidget(
-              //         edgeInsets: EdgeInsets.all(AppSpace.paddingSpace),
-              //       );
-              //     }
-              //   },
-              //   itemCount: state is CategorySuccessState
-              //       ? state.categoryModel.categoryData.length
-              //       : 3,
-              // ),
-              // SliverToBoxAdapter(child: SizedBox(height: AppSpace.maxSpace1)),
-              // // ***************************
-
-              // ********************** courses section
+              //
               SliverToBoxAdapter(
                 child: CustomSectionHeader(
                   title: AppStrings.courses,
@@ -76,31 +39,24 @@ class CourseView extends StatelessWidget {
               SliverToBoxAdapter(
                 child: const SizedBox(height: AppSpace.meduimSpace2),
               ),
+              //
 
-              // ******************* courses items
+              // ********************* course items
               SliverGrid.builder(
                 gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                   maxCrossAxisExtent: AppSpace.size6,
                   mainAxisExtent: AppSpace.size5,
                 ),
-                itemBuilder: (BuildContext contex, int index) {
-                  if (state is CourseSuccessState) {
-                    return CustomCourseItem(
-                      courseItems:
-                          state.courseModel.courseData.courseItems[index],
-                    );
-                  } else {
-                    return ContainerShimmerWidget(
-                      edgeInsets: EdgeInsets.all(AppSpace.paddingSpace),
-                    );
-                  }
-                },
-                itemCount: state is CourseSuccessState
-                    ? state.courseModel.courseData.courseItems.length
-                    : 3,
+                itemBuilder: (context, index) => (state is CourseSuccessState)
+                    ? CustomCourseItem(courseItem: state.courseModel.courseData.courseItem[index])
+                    : CustomCourseShimmer(),
+                itemCount: (state is CourseSuccessState)
+                    ? state.courseModel.courseData.courseItem.length
+                    : 2,
               ),
-              SliverToBoxAdapter(child: SizedBox(height: AppSpace.maxSpace1)),
-              // ***************************
+              SliverToBoxAdapter(
+                child: const SizedBox(height: AppSpace.meduimSpace2),
+              ),
             ],
           ),
         );
@@ -108,4 +64,3 @@ class CourseView extends StatelessWidget {
     );
   }
 }
-

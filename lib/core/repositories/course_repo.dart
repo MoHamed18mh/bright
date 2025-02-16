@@ -10,20 +10,6 @@ class CourseRepo {
 
   CourseRepo({required this.api});
 
-  // // get all categories from api
-  // Future<Either<String, CategoryModel>> getCategories() async {
-  //   try {
-  //     final response = await api.get(
-  //       EndPoint.getCategories,
-  //     );
-  //     return Right(CategoryModel.fromJson(response));
-  //   } on ServerException catch (e) {
-  //     return Left(e.errorModel.message);
-  //   } catch (e) {
-  //     return Left(AppStrings.unexpectedError);
-  //   }
-  // }
-
   Future<Either<String, CourseModel>> getCourses() async {
     try {
       final response = await api.get(

@@ -1,5 +1,5 @@
 import 'package:bright/core/utils/app_space.dart';
-import 'package:bright/features/home/model/home_model.dart';
+import 'package:bright/features/home/models/home_model.dart';
 import 'package:bright/features/home/presentation/widgets/button_image_widget.dart';
 import 'package:flutter/material.dart';
 
