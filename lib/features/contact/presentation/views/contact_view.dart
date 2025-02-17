@@ -4,7 +4,7 @@ import 'package:bright/core/utils/app_strings.dart';
 import 'package:bright/core/utils/app_text_style.dart';
 import 'package:bright/core/widgets/coustom/custom_header_image.dart';
 import 'package:bright/core/widgets/coustom/custom_section_header.dart';
-import 'package:bright/features/contact/presentation/widgets/contact_info_widget.dart';
+import 'package:bright/features/contact/presentation/widgets/customs/custom_contact_info.dart';
 import 'package:bright/features/contact/presentation/widgets/customs/custom_contact_form.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +22,6 @@ class ContactView extends StatelessWidget {
             imagePath: Assets.assetsImagesContactus,
           ),
         ),
-        SliverToBoxAdapter(child: const SizedBox(height: AppSpace.maxSpace2)),
 
         // ***************** contact description
         SliverToBoxAdapter(
@@ -31,9 +30,7 @@ class ContactView extends StatelessWidget {
             subTitle: AppStrings.contactForAny,
           ),
         ),
-        SliverToBoxAdapter(
-          child: const SizedBox(height: AppSpace.meduimSpace1),
-        ),
+
         SliverToBoxAdapter(
           child: Padding(
             padding:
@@ -57,7 +54,7 @@ class ContactView extends StatelessWidget {
         SliverToBoxAdapter(child: const SizedBox(height: AppSpace.mainSpace)),
         // **********
 
-        ContactInfoWidget(),
+        CustomContactInfo(),
         SliverToBoxAdapter(child: const SizedBox(height: AppSpace.maxSpace1)),
 
         SliverToBoxAdapter(child: CustomContactForm()),

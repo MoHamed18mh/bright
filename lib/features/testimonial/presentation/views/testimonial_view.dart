@@ -1,5 +1,4 @@
 import 'package:bright/core/utils/app_assets.dart';
-import 'package:bright/core/utils/app_space.dart';
 import 'package:bright/core/utils/app_strings.dart';
 import 'package:bright/core/widgets/coustom/custom_header_image.dart';
 import 'package:bright/core/widgets/coustom/custom_section_header.dart';
@@ -20,16 +19,12 @@ class TestimonialView extends StatelessWidget {
               imagePath: Assets.assetsImagesTestimonial1,
             ),
           ),
-          SliverToBoxAdapter(child: SizedBox(height: AppSpace.maxSpace2)),
-          //
           SliverToBoxAdapter(
             child: CustomSectionHeader(
               title: AppStrings.testimonial,
               subTitle: AppStrings.ourStudentsSay,
             ),
           ),
-          SliverToBoxAdapter(child: SizedBox(height: AppSpace.meduimSpace2)),
-          //
           SliverList(
             delegate: SliverChildListDelegate(
               [
@@ -42,6 +37,3 @@ class TestimonialView extends StatelessWidget {
     );
   }
 }
-
-
-

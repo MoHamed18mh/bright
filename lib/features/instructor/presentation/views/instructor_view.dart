@@ -26,20 +26,15 @@ class InstructorView extends StatelessWidget {
                   imagePath: Assets.assetsImagesTeam1,
                 ),
               ),
-              SliverToBoxAdapter(
-                child: const SizedBox(height: AppSpace.maxSpace2),
-              ),
-              //
+
               SliverToBoxAdapter(
                 child: CustomSectionHeader(
                   title: AppStrings.instructors,
                   subTitle: AppStrings.expertInstructors,
                 ),
               ),
-              SliverToBoxAdapter(
-                child: const SizedBox(height: AppSpace.meduimSpace2),
-              ),
-              // // instructor items
+
+              // *************** instructor items
               SliverGrid.builder(
                 gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                     maxCrossAxisExtent: AppSpace.size5,

@@ -25,13 +25,17 @@ class ContactTextFormFieldWidget extends StatelessWidget {
         labelStyle: AppTextStyle.nunitoSans13Grey700,
         border: outLineInputBorder(),
         enabledBorder: outLineInputBorder(),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(color: AppColors.primaryColor, width: 2),
-        ),
+        focusedBorder: outLineFocuseBorder(),
         errorBorder: outLineInputBorder(),
       ),
     );
+  }
+
+  OutlineInputBorder outLineFocuseBorder() {
+    return OutlineInputBorder(
+        borderRadius: BorderRadius.circular(15),
+        borderSide: BorderSide(color: AppColors.primaryColor, width: 2),
+      );
   }
 
   OutlineInputBorder outLineInputBorder() {

@@ -2,27 +2,27 @@ import 'package:bright/core/routes/route_key.dart';
 import 'package:bright/core/utils/app_assets.dart';
 import 'package:bright/core/utils/app_strings.dart';
 
-class HomeModel {
+class ButtonModel {
   final String imagePath;
   final String route;
 
-  HomeModel({required this.imagePath, required this.route});
+  ButtonModel({required this.imagePath, required this.route});
 }
 
-Map<String, HomeModel> homeData = {
-  AppStrings.courses: HomeModel(
+Map<String, ButtonModel> buttonsData = {
+  AppStrings.courses: ButtonModel(
     imagePath: Assets.assetsImagesCourse1,
     route: RouteKey.courseView,
   ),
-  AppStrings.instructors: HomeModel(
+  AppStrings.instructors: ButtonModel(
     imagePath: Assets.assetsImagesTeam1,
     route: RouteKey.instructorView,
   ),
-  AppStrings.testimonial: HomeModel(
+  AppStrings.testimonial: ButtonModel(
     imagePath: Assets.assetsImagesTestimonial1,
     route: RouteKey.testimonialView,
   ),
-  AppStrings.contact: HomeModel(
+  AppStrings.contact: ButtonModel(
     imagePath: Assets.assetsImagesContactus,
     route: RouteKey.contactView,
   ),

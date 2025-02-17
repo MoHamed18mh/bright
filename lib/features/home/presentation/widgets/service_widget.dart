@@ -29,6 +29,7 @@ class ServiceWidget extends StatelessWidget {
             color: AppColors.primaryColor,
           ),
           const SizedBox(height: AppSpace.mainSpace),
+          //
           Text(
             title,
             style: AppTextStyle.nunitoSans22LightBlackBold,

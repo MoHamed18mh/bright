@@ -1,11 +1,16 @@
+import 'package:bright/core/utils/app_space.dart';
 import 'package:bright/core/utils/app_text_style.dart';
 import 'package:bright/core/widgets/left_decoration_lines_widget.dart';
 import 'package:bright/core/widgets/rigth_decoration_lines_widget.dart';
 import 'package:flutter/material.dart';
 
 class CustomSectionHeader extends StatelessWidget {
-  const CustomSectionHeader(
-      {super.key, required this.title, required this.subTitle});
+  const CustomSectionHeader({
+    super.key,
+    required this.title,
+    required this.subTitle,
+  });
+
   final String title, subTitle;
 
   @override
@@ -30,6 +35,7 @@ class CustomSectionHeader extends StatelessWidget {
           subTitle,
           style: AppTextStyle.nunitoSans22LightBlackBold,
         ),
+        SizedBox(height: AppSpace.meduimSpace2),
       ],
     );
   }
