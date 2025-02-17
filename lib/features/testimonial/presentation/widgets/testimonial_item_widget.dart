@@ -25,10 +25,6 @@ class TestimonialItem extends StatelessWidget {
             AppStrings.clientName,
             style: AppTextStyle.nunitoSans16LightBlackBold,
           ),
-          Text(
-            AppStrings.profession,
-            style: AppTextStyle.nunitoSans14Grey800,
-          ),
           const SizedBox(height: AppSpace.mainSpace),
           //
           Container(

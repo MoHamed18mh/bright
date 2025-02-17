@@ -19,12 +19,14 @@ class CustomInstructorItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => navigate(context, RouteKey.instructorDetailsView,
-          extra: instructorItem),
+      onTap: () => navigate(
+        context,
+        RouteKey.instructorDetailsView,
+        extra: instructorItem,
+      ),
       child: Container(
         margin: const EdgeInsets.all(AppSpace.paddingSpace),
         color: AppColors.primaryHighLight,
-        //
         child: Column(
           children: [
             CachedNetworkImage(
@@ -45,9 +47,8 @@ class CustomInstructorItem extends StatelessWidget {
             Text(
               instructorItem.jobTitle,
               style: AppTextStyle.nunitoSans14Grey800,
+              maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              maxLines: 2,
-              softWrap: true,
               textAlign: TextAlign.center,
             ),
           ],

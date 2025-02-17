@@ -15,7 +15,7 @@ class CustomAbout extends StatelessWidget {
         maxCrossAxisExtent: AppSpace.size6,
         mainAxisSpacing: AppSpace.mainSpace,
         crossAxisSpacing: AppSpace.mainSpace,
-        childAspectRatio: .9,
+        childAspectRatio: .85,
       ),
       delegate: SliverChildListDelegate(
         [

@@ -28,11 +28,13 @@ class BoardingCubit extends Cubit<BoardingState> {
         curve: Curves.easeInOut,
       );
     }
+
   }
 
-  // affter finish boarding save value that isBoardingVisited and go to LoginView screen
+  // after finish boarding save value that isBoardingVisited and go to LoginView screen
   void navigateToLogin(BuildContext context) {
     getIt<CacheHelper>().saveData(key: CacheKey.isBoardingVisited, value: true);
     emit(BoardingCompleted());
+
   }
 }

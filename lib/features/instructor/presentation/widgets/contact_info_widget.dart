@@ -17,7 +17,7 @@ class ContactInfoWidget extends StatelessWidget {
     return Column(
       children: [
         ContactItem(text: instructorItem.email, iconData: Icons.email),
-        const SizedBox(height: AppSpace.smallSpace),
+        const SizedBox(height: AppSpace.mainSpace),
         ContactItem(text: instructorItem.mobile, iconData: Icons.phone)
       ],
     );

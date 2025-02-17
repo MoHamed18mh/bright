@@ -23,7 +23,7 @@ class CustomCourseItem extends StatelessWidget {
             imageUrl: courseItem.pictureUrl,
             height: AppSpace.size1,
             width: double.infinity,
-            memCacheHeight: 250,
+            memCacheHeight: 230,
             fit: BoxFit.cover,
             placeholder: (context, url) => ContainerShimmerWidget(),
             errorWidget: (context, url, error) => Icon(Icons.error),

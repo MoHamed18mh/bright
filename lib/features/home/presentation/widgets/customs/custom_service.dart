@@ -18,7 +18,7 @@ class CustomService extends StatelessWidget {
       itemBuilder: (context, index) {
         String title = aboutServices.keys.elementAt(index);
         AboutModel aboutModel = aboutServices[title]!;
-        //
+
         return ServiceWidget(title: title, aboutModel: aboutModel);
       },
       itemCount: aboutServices.length,

@@ -13,6 +13,8 @@ import 'package:bright/features/auth/presentation/widgets/text_form_field_widget
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../home/presentation/views/home_view.dart';
+
 class CustomLoginForm extends StatelessWidget {
   const CustomLoginForm({super.key});
 
@@ -64,6 +66,7 @@ class CustomLoginForm extends StatelessWidget {
                   ? CircularProgressIndicator(color: AppColors.primaryColor)
                   : MaterialButtonWidget(
                       onPressed: () {
+
                         if (authCubit.loginKey.currentState!.validate()) {
                           authCubit.login();
                         }

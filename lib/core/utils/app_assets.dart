@@ -89,5 +89,7 @@ class Assets {
   /// Assets for assetsImagesTestimonial4
   /// assets/images/testimonial-4.jpg
   static const String assetsImagesTestimonial4 = "assets/images/testimonial-4.jpg";
+  ///assets/images/User.png
+  static const String assetsImagesProfile = "assets/images/User.png";
 }
 

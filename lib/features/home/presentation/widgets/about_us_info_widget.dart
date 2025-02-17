@@ -24,21 +24,17 @@ class AboutUsInfoWidget extends StatelessWidget {
           Text(
             AppStrings.temporErateAtClita,
             style: AppTextStyle.nunitoSans16LightBlackBold,
-            overflow: TextOverflow.ellipsis,
-            maxLines: 2,
             softWrap: true,
           ),
           const SizedBox(height: AppSpace.mainSpace),
           Text(
             AppStrings.temporErate,
             style: AppTextStyle.nunitoSans16LightBlackBold,
-            overflow: TextOverflow.ellipsis,
-            maxLines: 3,
             softWrap: true,
           ),
           SizedBox(height: AppSpace.mainSpace),
           //
-          AboutSkillsWidget()
+          SkillsAboutWidget()
         ],
       ),
     );

@@ -1,4 +1,6 @@
 import 'package:bright/core/utils/app_space.dart';
+import 'package:bright/core/widgets/container_shimmer_widget.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class InstructorImageWidget extends StatelessWidget {
@@ -12,16 +14,14 @@ class InstructorImageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Container(
-        height: AppSpace.maxSpace3,
-        width: AppSpace.maxSpace3,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(AppSpace.maxSpace3),
-          image: DecorationImage(
-              image: NetworkImage(
-                imageCover,
-              ),
-              fit: BoxFit.cover),
+      child: ClipOval(
+        child: CachedNetworkImage(
+          imageUrl: imageCover,
+          fit: BoxFit.cover,
+          height: AppSpace.maxSpace4,
+          width: AppSpace.maxSpace3,
+          placeholder: (context, url) => ContainerShimmerWidget(),
+          errorWidget: (context, url, error) => const Icon(Icons.error),
         ),
       ),
     );

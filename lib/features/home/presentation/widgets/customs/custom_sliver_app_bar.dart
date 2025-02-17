@@ -18,9 +18,7 @@ class CustomSliverAppBar extends StatelessWidget {
       ),
       titleSpacing: AppSpace.smallSpace, // spase between leading and title
       title: AppBarTitleWidget(),
-      actions: [
-        ProfileButtonWidget()
-      ],
+      actions: [ProfileButtonWidget()],
       backgroundColor: Colors.white,
       //pinned: true,
       floating: true,
@@ -33,4 +31,3 @@ class CustomSliverAppBar extends StatelessWidget {
     );
   }
 }
-

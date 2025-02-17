@@ -18,16 +18,12 @@ class CustomImageButtons extends StatelessWidget {
         mainAxisSpacing: AppSpace.smallSpace,
       ),
       itemBuilder: (context, index) {
-        String title = homeData.keys.elementAt(index);
-        HomeModel homeModel = homeData[title]!;
-        //
-        return ButtonImageWidget(
-          imagePath: homeModel.imagePath,
-          title: title,
-          path: homeModel.route,
-        );
+        String title = buttonsData.keys.elementAt(index);
+        ButtonModel buttonModel = buttonsData[title]!;
+
+        return ButtonImageWidget(title: title, buttonModel: buttonModel);
       },
-      itemCount: homeData.length,
+      itemCount: buttonsData.length,
     );
   }
 }
