@@ -20,6 +20,30 @@ abstract class AppTextStyle {
     fontWeight: FontWeight.bold,
     color: AppColors.primaryColor,
   );
+  static final notoSerif38WhiteBlod = TextStyle(
+    fontFamily: 'NotoSerif',
+    fontSize: 38,
+    color: Colors.white,
+    fontWeight: FontWeight.bold,
+  );
+  static final notoSerif30WhiteBlod = TextStyle(
+    fontFamily: 'NotoSerif',
+    fontSize: 30,
+    color: Colors.white,
+    fontWeight: FontWeight.bold,
+  );
+  static final notoSerif25WhiteBlod = TextStyle(
+    fontFamily: 'NotoSerif',
+    fontSize: 25,
+    color: Colors.white,
+    fontWeight: FontWeight.bold,
+  );
+  static final nunitoSans15WhiteBlod = TextStyle(
+    fontFamily: 'NunitoSans',
+    fontSize: 15,
+    color: Colors.white,
+    fontWeight: FontWeight.bold,
+  );
   static final nunitoSans22LightBlackBold = TextStyle(
     fontFamily: 'NunitoSans',
     fontSize: 22,
@@ -32,7 +56,6 @@ abstract class AppTextStyle {
     fontWeight: FontWeight.bold,
     color: AppColors.lightBlack,
   );
-
   static final nunitoSans16LightBlackBold = TextStyle(
     fontFamily: 'NunitoSans',
     fontSize: 16,
@@ -48,23 +71,5 @@ abstract class AppTextStyle {
     fontFamily: 'NunitoSans',
     fontSize: 14,
     color: Colors.grey[900],
-  );
-  static final notoSerif38WhiteBlod = TextStyle(
-    fontFamily: 'NotoSerif',
-    fontSize: 38,
-    color: AppColors.white,
-    fontWeight: FontWeight.bold,
-  );
-  static final notoSerif30WhiteBlod = TextStyle(
-    fontFamily: 'NotoSerif',
-    fontSize: 30,
-    color: AppColors.white,
-    fontWeight: FontWeight.bold,
-  );
-  static final notoSerif15WhiteBlod = TextStyle(
-    fontFamily: 'NotoSerif',
-    fontSize: 15,
-    color: AppColors.white,
-    fontWeight: FontWeight.bold,
   );
 }

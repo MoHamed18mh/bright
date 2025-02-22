@@ -41,7 +41,7 @@ class CustomHeaderImage extends StatelessWidget {
           ),
           Positioned(
             top: AppSpace.meduimSpace1,
-            child: BackIconButtonWidget(),
+            child: BackButtonWidget(),
           ),
         ],
       ),

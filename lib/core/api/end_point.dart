@@ -1,14 +1,17 @@
 abstract class EndPoint {
-  static final String baseUrl = 'https://brightminds.runasp.net';
-  static final String postLogin = '/api/Account/login';
-  static final String postRegister = '/api/Account/register';
-  static final String postAuthenticateEmail = '/api/Account/authnticate-email';
-  static final String postConfirmEmail = '/api/Account/confirm-email';
-  static final String postForgotPassword = '/api/Account/forget-password';
-  static final String postResetPassword = '/api/Account/reset-password';
-  static final String getInstructors = '/api/Instructor';
-  static final String getCategories = '/api/Category';
-  static final String getCourses = '/api/Course';
+  static const String baseUrl = 'https://brightminds.runasp.net';
+  static const String postLogin = '/api/Account/login';
+  static const String postRegister = '/api/Account/register';
+  static const String postAuthenticateEmail = '/api/Account/authnticate-email';
+  static const String postConfirmEmail = '/api/Account/confirm-email';
+  static const String postForgotPassword = '/api/Account/forget-password';
+  static const String postResetPassword = '/api/Account/reset-password';
+  static const String getInstructors = '/api/Instructor';
+  static const String getCategories = '/api/Category';
+  static const String getCourses = '/api/Course';
+  static String getSection(courseId) {
+    return '/api/Section/course/$courseId';
+  }
 }
 
 abstract class ApiKey {
@@ -60,5 +63,7 @@ abstract class ApiKey {
       pictureUrl = 'pictureUrl',
       instructorName = 'instructorName',
       price = 'price',
+      courseId = 'courseId',
+      order = 'order',
       description = 'description';
 }

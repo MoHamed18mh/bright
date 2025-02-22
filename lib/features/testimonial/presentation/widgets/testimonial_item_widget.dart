@@ -32,7 +32,7 @@ class TestimonialItem extends StatelessWidget {
             color: AppColors.primaryColor,
             child: Text(
               AppStrings.temporErate,
-              style: AppTextStyle.notoSerif15WhiteBlod,
+              style: AppTextStyle.nunitoSans15WhiteBlod,
             ),
           ),
         ],

@@ -38,16 +38,12 @@ class InstructorData {
   });
 
   factory InstructorData.fromJson(Map<String, dynamic> json) {
-    // convert items from json to ItemModel
-    var itemsList = json[ApiKey.items] as List;
-    List<InstructorItem> items =
-        itemsList.map((e) => InstructorItem.fromJson(e)).toList();
-
     return InstructorData(
       pageSize: json[ApiKey.pageSize],
       count: json[ApiKey.count],
       pageIndex: json[ApiKey.pageIndex],
-      instructorItem: items,
+      instructorItem: List<InstructorItem>.from(
+          json[ApiKey.items].map((e) => InstructorItem.fromJson(e))),
     );
   }
 }

@@ -1,4 +1,4 @@
-import 'package:bright/core/errors/api_error/error_model.dart';
+import 'package:bright/core/api/errors/error_model.dart';
 import 'package:dio/dio.dart';
 
 class ServerException implements Exception {

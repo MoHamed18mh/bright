@@ -17,19 +17,21 @@ class ForgotPasswordView extends StatelessWidget {
           slivers: [
             SliverToBoxAdapter(child: SizedBox(height: AppSpace.maxSpace1)),
 
-            //*************** go back for the previous screen 
-            SliverToBoxAdapter(child: BackIconButtonWidget()),
+            //*************** go back for the previous screen
+            SliverToBoxAdapter(child: BackButtonWidget()),
 
-            SliverToBoxAdapter(child: const SizedBox(height: AppSpace.meduimSpace1)),
+            SliverToBoxAdapter(
+                child: const SizedBox(height: AppSpace.meduimSpace1)),
             SliverToBoxAdapter(
               child: ForgotPasswordTitle(
                 text1: AppStrings.enterEmail,
                 text2: AppStrings.willSendMessage,
               ),
             ),
-            SliverToBoxAdapter(child: const SizedBox(height: AppSpace.meduimSpace1)),
+            SliverToBoxAdapter(
+                child: const SizedBox(height: AppSpace.meduimSpace1)),
 
-            // *************** fields and button of forgot screen 
+            // *************** fields and button of forgot screen
             SliverToBoxAdapter(child: CustomForgotPasswordForm()),
           ],
         ),

@@ -2,7 +2,7 @@ import 'package:bright/core/api/api_consumer.dart';
 import 'package:bright/core/api/end_point.dart';
 import 'package:bright/core/database/cache_helper.dart';
 import 'package:bright/core/database/cache_key.dart';
-import 'package:bright/core/errors/api_error/exception.dart';
+import 'package:bright/core/api/errors/exception.dart';
 import 'package:bright/core/routes/deep_links_key.dart';
 import 'package:bright/core/services/service_locator.dart';
 import 'package:bright/core/utils/app_strings.dart';

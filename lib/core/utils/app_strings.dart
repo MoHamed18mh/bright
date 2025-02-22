@@ -60,7 +60,7 @@ abstract class AppStrings {
       hrs = '1.49 Hrs',
       john = 'John Doe',
       webDesingDevelopment = 'Web Design & Development Course for Beginners',
-      price = '\$149.00',
+      price = 'Price',
       dolorAmetSit = 'Dolor amet sit justo amet elitr clita ipsum elitr est.',
       newSletter = 'Newsletter',
       gallery = 'Gallery',
@@ -92,6 +92,8 @@ abstract class AppStrings {
       send = 'Send',
       subject = 'Subject',
       expertInstructors = 'Expert Instructors',
+      addToCart = 'Add To Cart',
+      buyNow = 'Buy Now',
       // anthor
       skip = 'Skip',
       next = 'Next';

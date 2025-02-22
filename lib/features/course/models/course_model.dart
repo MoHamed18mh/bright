@@ -37,15 +37,12 @@ class CourseData {
   });
 
   factory CourseData.fromJson(Map<String, dynamic> json) {
-    var itemsList = json[ApiKey.items] as List;
-    List<CourseItem> items =
-        itemsList.map((e) => CourseItem.fromJson(e)).toList();
-
     return CourseData(
       pageSize: json[ApiKey.pageSize],
       count: json[ApiKey.count],
       pageIndex: json[ApiKey.pageIndex],
-      courseItem: items,
+      courseItem: List<CourseItem>.from(
+          json[ApiKey.items].map((e) => CourseItem.fromJson(e))),
     );
   }
 }

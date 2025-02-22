@@ -21,7 +21,7 @@ class InstructorDetailsView extends StatelessWidget {
           slivers: [
             SliverToBoxAdapter(
                 child: const SizedBox(height: AppSpace.mainSpace)),
-            SliverToBoxAdapter(child: BackIconButtonWidget()),
+            SliverToBoxAdapter(child: BackButtonWidget()),
             //
             SliverToBoxAdapter(
                 child: InstructorImageWidget(

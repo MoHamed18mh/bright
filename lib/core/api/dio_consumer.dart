@@ -1,6 +1,6 @@
 import 'package:bright/core/api/api_consumer.dart';
 import 'package:bright/core/api/end_point.dart';
-import 'package:bright/core/errors/api_error/exception.dart';
+import 'package:bright/core/api/errors/exception.dart';
 import 'package:dio/dio.dart';
 
 class DioConsumer extends ApiConsumer {

@@ -14,7 +14,9 @@ import 'package:bright/features/boarding/cubit/boarding_cubit.dart';
 import 'package:bright/features/boarding/prsentation/views/boarding_view.dart';
 import 'package:bright/features/contact/presentation/views/contact_view.dart';
 import 'package:bright/features/course/cubit/course_cubit.dart';
+import 'package:bright/features/course/models/course_model.dart';
 import 'package:bright/features/course/presentation/views/course_view.dart';
+import 'package:bright/features/course/presentation/views/section_view.dart';
 import 'package:bright/features/home/presentation/views/home_view.dart';
 import 'package:bright/features/instructor/cubit/instructor_cubit.dart';
 import 'package:bright/features/instructor/models/instructor_model.dart';
@@ -160,9 +162,23 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: RouteKey.courseView,
       builder: (context, state) => BlocProvider(
-        create: (context) => CourseCubit(CourseRepo(api: DioConsumer(dio: Dio())))..getCourses(),
+        create: (context) =>
+            CourseCubit(CourseRepo(api: DioConsumer(dio: Dio())))..getCourses(),
         child: CourseView(),
       ),
+    ),
+    //
+    GoRoute(
+      path: RouteKey.sectionView,
+      builder: (context, state) {
+        final CourseItem courseItem = state.extra as CourseItem;
+        return BlocProvider(
+          create: (context) =>
+              CourseCubit(CourseRepo(api: DioConsumer(dio: Dio())))
+                ..getSections(courseItem.id),
+          child: SectionView(courseItem: courseItem,),
+        );
+      },
     ),
     //
     GoRoute(
