@@ -15,7 +15,7 @@ class AuthRepo {
 
   AuthRepo({required this.api});
 
-  // ********** prepare register and send verify email method with api *********
+  // prepare register and send verify email method with api
   Future<Either<List<String>, String>> register({
     required String firstName,
     required String lastName,
@@ -38,6 +38,7 @@ class AuthRepo {
         },
         isFormData: true,
       );
+
       // send email verify
       await api.post(
         EndPoint.postAuthenticateEmail,
@@ -46,11 +47,12 @@ class AuthRepo {
           ApiKey.clientUrl: DeepLinksKey.verifyDeepLink,
         },
       );
-      return Right(AppStrings.pleaseCheckEmail);
+
+      return const Right(AppStrings.pleaseCheckEmail);
     } on ServerException catch (e) {
       return Left(e.errorModel.errors!);
     } catch (e) {
-      return Left([AppStrings.unexpectedError]);
+      return const Left([AppStrings.unexpectedError]);
     }
   }
 
@@ -65,20 +67,17 @@ class AuthRepo {
           ApiKey.token: token,
         },
       );
-      return Right(AppStrings.verifyDone);
+      return const Right(AppStrings.verifyDone);
     } on ServerException catch (e) {
       return Left(e.errorModel.message);
     } catch (e) {
-      return Left(AppStrings.unexpectedError);
+      return const Left(AppStrings.unexpectedError);
     }
   }
-  // ***************************************************************************
 
-  // ********************* prepare login method with api ***********************
-  Future<Either<String, LoginModel>> login({
-    required String email,
-    required String password,
-  }) async {
+  //  prepare login method with api
+  Future<Either<String, LoginModel>> login(
+      {required String email, required String password}) async {
     try {
       final response = await api.post(
         EndPoint.postLogin,
@@ -87,21 +86,26 @@ class AuthRepo {
           ApiKey.password: password,
         },
       );
-      final LoginModel loginModel = LoginModel.fromJson(response);
+
+      final loginModel = LoginModel.fromJson(response);
       final decodedToken = JwtDecoder.decode(loginModel.token);
+
+      // save user token in the database
+      await getIt<CacheHelper>()
+          .saveData(key: CacheKey.token, value: loginModel.token);
       await getIt<CacheHelper>()
           .saveData(key: CacheKey.userId, value: decodedToken[ApiKey.idSchema]);
+
       return Right(loginModel);
     } on ServerException catch (e) {
       return Left(e.errorModel.message);
     } catch (e) {
-      return Left(AppStrings.unexpectedError);
+      return const Left(AppStrings.unexpectedError);
     }
   }
-  // ***************************************************************************
 
-  // ******************* prepare forgotPassword method *************************
-  // ******************* send verify email
+  // prepare forgotPassword method
+  //  send verify email
   Future<Either<String, String>> forgotPassword({required String email}) async {
     try {
       await api.post(
@@ -111,15 +115,16 @@ class AuthRepo {
           ApiKey.clientUrl: DeepLinksKey.forgotPasswordDeepLink,
         },
       );
-      return Right(AppStrings.pleaseCheckEmail);
+
+      return const Right(AppStrings.pleaseCheckEmail);
     } on ServerException catch (e) {
       return Left(e.errorModel.message);
     } catch (e) {
-      return Left(AppStrings.unexpectedError);
+      return const Left(AppStrings.unexpectedError);
     }
   }
 
-  // ********************* reset password
+  //  reset password
   Future<Either<String, String>> resetPassword({
     required String email,
     required String token,
@@ -133,10 +138,10 @@ class AuthRepo {
         ApiKey.password: password,
         ApiKey.confirmPassword: confirmPassword,
       });
-      return Right(AppStrings.successResetPassword);
+
+      return const Right(AppStrings.successResetPassword);
     } on ServerException catch (e) {
       return Left(e.errorModel.message);
     }
   }
-  // ***************************************************************************
 }

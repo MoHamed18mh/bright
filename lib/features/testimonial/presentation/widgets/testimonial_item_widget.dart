@@ -11,26 +11,30 @@ class TestimonialItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: AppSpace.paddingSpace),
+      margin: const EdgeInsets.symmetric(horizontal: AppSpace.padding),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          CircleAvatar(
+
+          // stucent image
+          const CircleAvatar(
             backgroundImage: AssetImage(Assets.assetsImagesTestimonial1),
-            radius: AppSpace.mainSpace,
+            radius: AppSpace.meduim1,
           ),
-          const SizedBox(height: AppSpace.mainSpace),
-          //
+          const SizedBox(height: AppSpace.main),
+
+          // student name
           Text(
             AppStrings.clientName,
             style: AppTextStyle.nunitoSans16LightBlackBold,
           ),
-          const SizedBox(height: AppSpace.mainSpace),
-          //
+          const SizedBox(height: AppSpace.main),
+
+          // student say
           Container(
-            padding: const EdgeInsets.all(AppSpace.mainSpace),
+            padding: const EdgeInsets.all(AppSpace.main),
             color: AppColors.primaryColor,
-            child: Text(
+            child: const Text(
               AppStrings.temporErate,
               style: AppTextStyle.nunitoSans15WhiteBlod,
             ),

@@ -1,4 +1,5 @@
 import 'package:bright/core/repositories/auth_repo.dart';
+import 'package:bright/core/utils/app_strings.dart';
 import 'package:bright/features/auth/cubit/auth_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -41,30 +42,24 @@ class AuthCubit extends Cubit<AuthState> {
   String? deepEmail;
   String? deepToken;
 
-  // ******************* change the value of obscurePasswordValue **************
+  //  change the value of obscurePasswordValue
   void changeObscurePasswordValue() {
-    if (obscurePasswordValue) {
-      obscurePasswordValue = false;
-    } else {
-      obscurePasswordValue = true;
-    }
-    emit(ChangeObscurePasswordState());
+    obscurePasswordValue = !obscurePasswordValue;
+    emit(ChangeObscurePassword());
   }
-  // ***************************************************************************
 
-  // ******** check if text form field is empty for validate *******************
+  //  check if text form field is empty for validate
   String? validator(String? value) {
     if (value == null || value.isEmpty) {
-      return 'This field cannot be empty';
+      return AppStrings.thisFieldCannotBeEmpty;
     }
     return null;
   }
-  // ***************************************************************************
 
-  // ********************* register and confirm methodes ***********************
-  // ****************** regisger
+  //  register and confirm methodes
+  //  regisger
   Future<void> register() async {
-    emit(RegisterLoadingState());
+    emit(RegisterLoading());
     final response = await authRepo.register(
       firstName: registerFirstNameController.text,
       lastName: registerLastNameController.text,
@@ -75,60 +70,57 @@ class AuthCubit extends Cubit<AuthState> {
     );
     response.fold(
       (errorMessage) =>
-          emit(RegisterFailureState(errorMessage: errorMessage.toString())),
-      (messege) => emit(RegisterSuccessState(message: messege)),
+          emit(RegisterFailure(errorMessage: errorMessage.toString())),
+      (messege) => emit(RegisterSuccess(message: messege)),
     );
   }
 
-  // ****************** confirm Email
+  //  confirm Email
   Future<void> confirmEmail(
       {required String email, required String token}) async {
-    emit(ConfirmLoadingState());
+    emit(ConfirmLoading());
     final response = await authRepo.confirmEmail(email: email, token: token);
     response.fold(
-      (errorMessage) => emit(ConfirmFailureState(errorMessage: errorMessage)),
-      (message) => emit(ConfirmSuccessState(message: message)),
+      (errorMessage) => emit(ConfirmFailure(errorMessage: errorMessage)),
+      (message) => emit(ConfirmSuccess(message: message)),
     );
   }
-  // ***************************************************************************
 
-  // *********************** login method **************************************
+  //  login method
   Future<void> login() async {
-    emit(LoginLoadingState());
+    emit(LoginLoading());
     final response = await authRepo.login(
       email: loginEmailController.text,
       password: loginPasswordController.text,
     );
     response.fold(
-      (errorMessage) => emit(LoginFailureState(errorMessage: errorMessage)),
+      (errorMessage) => emit(LoginFailure(errorMessage: errorMessage)),
       (loginModel) =>
-          emit(LoginSuccessState(displayName: loginModel.user.displayName)),
+          emit(LoginSuccess(displayName: loginModel.user.displayName)),
     );
   }
-  // ***************************************************************************
 
-  // ****************** forgot password and reset  method **********************
-  // ****************** forgot password
+  //  forgot password and reset  method
+  //  forgot password
   Future<void> forgotPassword() async {
-    emit(ForgotPasswordLoadingState());
+    emit(ForgotPasswordLoading());
     final response =
         await authRepo.forgotPassword(email: forgotPassEmailController.text);
     response.fold(
-      (errorMessage) =>
-          emit(ForgotPasswordFailureState(errorMessage: errorMessage)),
-      (message) => emit(ForgotPasswordSuccessState(message: message)),
+      (errorMessage) => emit(ForgotPasswordFailure(errorMessage: errorMessage)),
+      (message) => emit(ForgotPasswordSuccess(message: message)),
     );
   }
 
-  // ****************** get email and token from deep link
+  //  get email and token from deep link
   void getEmailAndToken({required String email, required String token}) {
     deepEmail = email;
     deepToken = token;
   }
 
-  // ****************** reset password
+  //  reset password
   Future<void> resetPassword() async {
-    emit(ResetPasswordLoadingState());
+    emit(ResetPasswordLoading());
     final response = await authRepo.resetPassword(
       email: deepEmail!,
       token: deepToken!,
@@ -136,10 +128,8 @@ class AuthCubit extends Cubit<AuthState> {
       confirmPassword: resetConfirmPasswordController.text,
     );
     response.fold(
-      (errorMessage) =>
-          emit(ResetPasswordFailureState(errorMessage: errorMessage)),
-      (message) => emit(ResetPasswordSuccessState(message: message)),
+      (errorMessage) => emit(ResetPasswordFailure(errorMessage: errorMessage)),
+      (message) => emit(ResetPasswordSuccess(message: message)),
     );
   }
-  // ***************************************************************************
 }

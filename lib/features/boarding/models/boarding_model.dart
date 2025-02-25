@@ -13,11 +13,13 @@ List<BoardingModel> boardingData = [
   BoardingModel(
     imagePath: Assets.assetsImagesBoarding1,
     title: 'Welcome To ',
-    subTitle: 'Discover a World of knowledge at your fingertips with \'Bright Minds\' comprehensive learning platform',
+    subTitle:
+        'Discover a World of knowledge at your fingertips with \'Bright Minds\' comprehensive learning platform',
   ),
   BoardingModel(
     imagePath: Assets.assetsImagesBoarding2,
     title: 'Learn From The Best',
-    subTitle: 'Access high-quality courses from top educators and industry experts, anytime, anywhere',
+    subTitle:
+        'Access high-quality courses from top educators and industry experts, anytime, anywhere',
   ),
 ];

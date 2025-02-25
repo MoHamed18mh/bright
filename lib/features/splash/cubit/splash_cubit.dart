@@ -8,15 +8,15 @@ import 'package:bright/features/splash/cubit/splash_state.dart';
 class SplashCubit extends Cubit<SplashState> {
   SplashCubit() : super(SplashInitial());
 
-  // ***** start when app is launch and go to the next screen after 4 seconds
+  // The timer starts when you launch the application and moves to the appropriate screen after 4 seconds
   void splashViewTimer(Map<String, String> queryParameters) async {
     await Future.delayed(
-      Duration(seconds: 4),
+      const Duration(seconds: 4),
       () async {
-        // get deepLinkPath from queryParameters
+        // Trying to get deepLinkPath from queryParameters.
         final String? deepLinkPath = queryParameters[RouteKey.deepLinkPath];
 
-        // build new uri to contain the path of next screen
+        // If deepLinkPath exists, a new URI is constructed and passed to the appropriate screen.
         if (deepLinkPath != null) {
           Uri uri = Uri(
             path: deepLinkPath, // set accual path of deep link
@@ -32,14 +32,14 @@ class SplashCubit extends Cubit<SplashState> {
           return;
         }
 
-        // check if userId exists in the cache then user is login
+        // Check for userId in the cache to determine if the user is logged in.
         bool isUserIdExists =
-            await getIt<CacheHelper>().containsKey(key: CacheKey.userId);
+            getIt<CacheHelper>().containsKey(key: CacheKey.userId);
 
         if (isUserIdExists) {
           emit(SplashNavigateToHomeView());
         } else {
-          // get the value of the 'isBoardingVisited' from the database and make it 'false' if not found
+          // Check if the Boarding screen has been visited before.
           bool isBoardingVisited =
               getIt<CacheHelper>().getData(key: CacheKey.isBoardingVisited) ??
                   false;
@@ -53,5 +53,4 @@ class SplashCubit extends Cubit<SplashState> {
       },
     );
   }
-  // ***************************************************************************
 }

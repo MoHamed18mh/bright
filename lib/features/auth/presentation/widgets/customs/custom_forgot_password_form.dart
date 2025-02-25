@@ -18,9 +18,9 @@ class CustomForgotPasswordForm extends StatelessWidget {
 
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
-        if (state is ForgotPasswordSuccessState) {
+        if (state is ForgotPasswordSuccess) {
           showToast(msg: state.message);
-        } else if (state is ForgotPasswordFailureState) {
+        } else if (state is ForgotPasswordFailure) {
           showToast(msg: state.errorMessage);
         }
       },
@@ -29,16 +29,16 @@ class CustomForgotPasswordForm extends StatelessWidget {
           key: authCubit.forgotPasswordKey,
           child: Column(
             children: [
-              // ************** forgot password email field
+              //  forgot password email field
               TextFormFieldWidget(
                 text: AppStrings.email,
-                prefixIcon: Icon(Icons.email_outlined),
+                prefixIcon: const Icon(Icons.email_outlined),
                 controller: authCubit.forgotPassEmailController,
               ),
-              SizedBox(height: AppSpace.meduimSpace2),
+              const SizedBox(height: AppSpace.meduim2),
 
-              // ************ button send verify email for reset password 
-              (state is ForgotPasswordLoadingState)
+              //  button send verify email for reset password
+              (state is ForgotPasswordLoading)
                   ? CircularProgressIndicator(color: AppColors.primaryColor)
                   : MaterialButtonWidget(
                       onPressed: () {

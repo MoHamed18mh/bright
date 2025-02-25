@@ -17,25 +17,24 @@ class ServiceWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(AppSpace.paddingSpace),
-      padding: const EdgeInsets.all(AppSpace.mainSpace),
+      margin: const EdgeInsets.all(AppSpace.padding),
+      padding: const EdgeInsets.all(AppSpace.main),
       color: AppColors.primaryHighLight,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(
             aboutModel.iconData,
-            size: 60,
+            size: AppSpace.meduim2,
             color: AppColors.primaryColor,
           ),
-          const SizedBox(height: AppSpace.mainSpace),
-          //
+          const SizedBox(height: AppSpace.main),
           Text(
             title,
             style: AppTextStyle.nunitoSans22LightBlackBold,
             textAlign: TextAlign.center,
           ),
-          const SizedBox(height: AppSpace.mainSpace),
+          const SizedBox(height: AppSpace.main),
           Text(
             aboutModel.subTitle,
             softWrap: true,

@@ -18,9 +18,9 @@ class CustomTestimonial extends StatelessWidget {
           height: AppSpace.size2,
           child: PageView.builder(
             controller: testimonialCubit.pageController,
-            itemCount: 4,
+            itemCount: testimonialCount,
             itemBuilder: (context, index) {
-              return TestimonialItem();
+              return const TestimonialItem();
             },
           ),
         );

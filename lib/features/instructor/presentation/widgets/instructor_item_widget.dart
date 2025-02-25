@@ -25,25 +25,28 @@ class CustomInstructorItem extends StatelessWidget {
         extra: instructorItem,
       ),
       child: Container(
-        margin: const EdgeInsets.all(AppSpace.paddingSpace),
+        margin: const EdgeInsets.all(AppSpace.padding),
         color: AppColors.primaryHighLight,
         child: Column(
           children: [
+            // instructor image
             CachedNetworkImage(
               imageUrl: instructorItem.imageCover,
               height: AppSpace.size2,
               width: double.infinity,
               fit: BoxFit.cover,
-              placeholder: (context, url) => ContainerShimmerWidget(),
-              errorWidget: (context, url, error) => Icon(Icons.error),
+              placeholder: (context, url) => const ContainerShimmerWidget(),
+              errorWidget: (context, url, error) => const Icon(Icons.error),
             ),
-            const SizedBox(height: AppSpace.mainSpace),
-            //
+            const SizedBox(height: AppSpace.main),
+
+            // instructor name
             Text(
               instructorItem.displayName,
               style: AppTextStyle.nunitoSans22LightBlackBold,
             ),
-            //
+
+            // instructor job
             Text(
               instructorItem.jobTitle,
               style: AppTextStyle.nunitoSans14Grey800,

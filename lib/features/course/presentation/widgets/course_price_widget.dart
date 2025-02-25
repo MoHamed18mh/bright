@@ -16,8 +16,7 @@ class CoursePriceWidget extends StatelessWidget {
     return Align(
       alignment: Alignment.centerLeft,
       child: Padding(
-          padding:
-              const EdgeInsets.symmetric(horizontal: AppSpace.paddingSpace),
+          padding: const EdgeInsets.symmetric(horizontal: AppSpace.padding),
           child: Text.rich(TextSpan(
             text: '${AppStrings.price}: ',
             style: AppTextStyle.nunitoSans22LightBlackBold,

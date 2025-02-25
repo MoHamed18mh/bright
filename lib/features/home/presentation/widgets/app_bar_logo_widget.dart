@@ -1,5 +1,6 @@
 import 'package:bright/core/utils/app_assets.dart';
 import 'package:bright/core/utils/app_colors.dart';
+import 'package:bright/core/utils/app_space.dart';
 import 'package:flutter/material.dart';
 
 class AppBarLogoWidget extends StatelessWidget {
@@ -9,7 +10,7 @@ class AppBarLogoWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Image.asset(
       Assets.assetsImagesLogo,
-      height: 45,
+      height: AppSpace.meduim1,
       color: AppColors.primaryColor,
     );
   }

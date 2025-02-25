@@ -1,5 +1,5 @@
 abstract class RouteKey {
-  static const String launch = '/'; // splashView
+  static const String splashView = '/SplashView';
   static const String boardingView = '/BoardingView';
   static const String loginView = '/LoginView';
   static const String registerView = '/RegisterView';
@@ -13,5 +13,6 @@ abstract class RouteKey {
   static const String contactView = '/ContactView';
   static const String profileView = '/ProfileView';
   static const String sectionView = '/SectionView';
-  static const String deepLinkPath = 'deepLinkPath'; // the key of create local deep link
+  static const String deepLinkPath =
+      'deepLinkPath'; // the key of create local deep link
 }

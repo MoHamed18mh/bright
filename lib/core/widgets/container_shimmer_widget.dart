@@ -1,4 +1,3 @@
-import 'package:bright/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -22,7 +21,7 @@ class ContainerShimmerWidget extends StatelessWidget {
       width: width,
       child: Shimmer.fromColors(
         baseColor: Colors.grey.shade300,
-        highlightColor: AppColors.white,
+        highlightColor: Colors.white,
         child: Container(
           color: Colors.grey.shade300,
         ),

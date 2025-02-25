@@ -14,7 +14,7 @@ class ProfileButtonWidget extends StatelessWidget {
     return InkWell(
       onTap: () => navigate(context, RouteKey.profileView),
       child: Container(
-        margin: EdgeInsets.only(right: AppSpace.smallSpace),
+        margin: const EdgeInsets.only(right: AppSpace.small2),
         decoration: BoxDecoration(
           border: Border.all(
             color: AppColors.primaryColor,
@@ -25,7 +25,7 @@ class ProfileButtonWidget extends StatelessWidget {
         child: Icon(
           Icons.person_2_outlined,
           color: AppColors.primaryColor,
-          size: AppSpace.meduimSpace1,
+          size: AppSpace.meduim1,
         ),
       ),
     );

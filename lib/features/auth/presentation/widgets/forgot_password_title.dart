@@ -15,7 +15,7 @@ class ForgotPasswordTitle extends StatelessWidget {
           text1,
           style: AppTextStyle.nunitoSans26LightBlackBold,
         ),
-        SizedBox(height: AppSpace.smallSpace),
+        const SizedBox(height: AppSpace.small2),
         Text(
           text2,
           style: AppTextStyle.nunitoSans13Grey700,

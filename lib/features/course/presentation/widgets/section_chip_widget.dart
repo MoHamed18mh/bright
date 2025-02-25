@@ -14,17 +14,17 @@ class SectionChipeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: AppSpace.meduimSpace1,
+      height: AppSpace.meduim1,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: sectionModel.sectionData.length,
         itemBuilder: (context, index) {
           return Container(
-              margin: EdgeInsets.symmetric(horizontal: 4),
-              padding: EdgeInsets.symmetric(horizontal: AppSpace.smallSpace),
+              margin: const EdgeInsets.symmetric(horizontal: AppSpace.small1),
+              padding: const EdgeInsets.symmetric(horizontal: AppSpace.small2),
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey, width: 1),
+                border: Border.all(color: Colors.grey, width: 2),
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Row(
@@ -34,7 +34,7 @@ class SectionChipeWidget extends StatelessWidget {
                     size: 18,
                     color: AppColors.primaryColor,
                   ),
-                  const SizedBox(width: 4),
+                  const SizedBox(width: 3),
                   Text(
                     sectionModel.sectionData[index].name,
                     style: AppTextStyle.nunitoSans14Grey800,

@@ -33,9 +33,9 @@ class ContactTextFormFieldWidget extends StatelessWidget {
 
   OutlineInputBorder outLineFocuseBorder() {
     return OutlineInputBorder(
-        borderRadius: BorderRadius.circular(15),
-        borderSide: BorderSide(color: AppColors.primaryColor, width: 2),
-      );
+      borderRadius: BorderRadius.circular(15),
+      borderSide: BorderSide(color: AppColors.primaryColor, width: 2),
+    );
   }
 
   OutlineInputBorder outLineInputBorder() {

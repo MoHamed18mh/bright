@@ -13,7 +13,7 @@ class SectionDescriptionWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: AppSpace.paddingSpace),
+      padding: const EdgeInsets.symmetric(horizontal: AppSpace.padding),
       child: Text(
         description,
         style: AppTextStyle.nunitoSans16LightBlackBold,

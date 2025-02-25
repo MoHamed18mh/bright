@@ -23,7 +23,7 @@ class InstructorModel {
   }
 }
 
-//
+// data
 class InstructorData {
   final int pageSize;
   final int count;
@@ -48,7 +48,7 @@ class InstructorData {
   }
 }
 
-//
+// items
 class InstructorItem {
   final String qualifications;
   final String userId;

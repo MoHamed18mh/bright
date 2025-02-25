@@ -6,31 +6,31 @@ class CourseState {}
 final class CourseInitial extends CourseState {}
 
 // course states
-final class CourseLoadingState extends CourseState {}
+final class CourseLoading extends CourseState {}
 
-final class CourseSuccessState extends CourseState {
+final class CourseSuccess extends CourseState {
   final CourseModel courseModel;
 
-  CourseSuccessState({required this.courseModel});
+  CourseSuccess({required this.courseModel});
 }
 
-final class CourseFailureState extends CourseState {
+final class CourseFailure extends CourseState {
   final String errorMessage;
 
-  CourseFailureState({required this.errorMessage});
+  CourseFailure({required this.errorMessage});
 }
 
 // section states
-final class SectionLoadingState extends CourseState {}
+final class SectionLoading extends CourseState {}
 
-final class SectionSuccessState extends CourseState {
+final class SectionSuccess extends CourseState {
   final SectionModel sectionModel;
 
-  SectionSuccessState({required this.sectionModel});
+  SectionSuccess({required this.sectionModel});
 }
 
-final class SectionFailureState extends CourseState {
+final class SectionFailure extends CourseState {
   final String errorMessage;
 
-  SectionFailureState({required this.errorMessage});
+  SectionFailure({required this.errorMessage});
 }

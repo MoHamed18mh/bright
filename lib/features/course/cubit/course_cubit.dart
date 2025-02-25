@@ -8,20 +8,20 @@ class CourseCubit extends Cubit<CourseState> {
   final CourseRepo courseRepo;
 
   Future<void> getCourses() async {
-    emit(CourseLoadingState());
+    emit(CourseLoading());
     final response = await courseRepo.getCourses();
     response.fold(
-      (errorMessage) => emit(CourseFailureState(errorMessage: errorMessage)),
-      (courseModel) => emit(CourseSuccessState(courseModel: courseModel)),
+      (errorMessage) => emit(CourseFailure(errorMessage: errorMessage)),
+      (courseModel) => emit(CourseSuccess(courseModel: courseModel)),
     );
   }
 
-  Future<void> getSections(courseId) async {
-    emit(SectionLoadingState());
+  Future<void> getSections(int courseId) async {
+    emit(SectionLoading());
     final response = await courseRepo.getSections(courseId);
     response.fold(
-      (errorMessage) => emit(SectionFailureState(errorMessage: errorMessage)),
-      (sectionModel) => emit(SectionSuccessState(sectionModel: sectionModel)),
+      (errorMessage) => emit(SectionFailure(errorMessage: errorMessage)),
+      (sectionModel) => emit(SectionSuccess(sectionModel: sectionModel)),
     );
   }
 }

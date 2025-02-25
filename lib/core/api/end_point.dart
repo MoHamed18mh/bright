@@ -9,18 +9,16 @@ abstract class EndPoint {
   static const String getInstructors = '/api/Instructor';
   static const String getCategories = '/api/Category';
   static const String getCourses = '/api/Course';
-  static String getSection(courseId) {
+  static String getSection(int courseId) {
     return '/api/Section/course/$courseId';
   }
 }
 
 abstract class ApiKey {
-  static final String statusCode = 'statusCode',
+  static const String statusCode = 'statusCode',
       message = 'message',
       errors = 'errors',
       user = 'user',
-
-      // login key
       token = 'token',
       email = 'email',
       password = 'password',
@@ -30,8 +28,6 @@ abstract class ApiKey {
       id = 'id',
       imageCover = 'imageCover',
       walletBalance = 'waletBalance',
-
-      // register key
       rFirstName = 'FirstName',
       rLastName = 'LastName',
       rEmail = 'Email',
@@ -39,12 +35,6 @@ abstract class ApiKey {
       rPassword = 'Password',
       rConfirmPassword = 'ConfirmPassword',
       clientUrl = 'clientUrl',
-
-      // id key in token
-      idSchema =
-          'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier',
-
-      // instructors key
       success = 'success',
       data = 'data',
       pageSize = 'pageSize',
@@ -55,8 +45,6 @@ abstract class ApiKey {
       jobTitle = 'jobTitle',
       name = 'name',
       items = 'items',
-
-      // courses keys
       sections = 'sections',
       updatedDate = 'updatedDate',
       createdDate = 'createdDate',
@@ -65,5 +53,7 @@ abstract class ApiKey {
       price = 'price',
       courseId = 'courseId',
       order = 'order',
-      description = 'description';
+      description = 'description',
+      idSchema =
+          'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier';
 }

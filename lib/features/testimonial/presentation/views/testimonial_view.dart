@@ -1,7 +1,7 @@
 import 'package:bright/core/utils/app_assets.dart';
 import 'package:bright/core/utils/app_strings.dart';
-import 'package:bright/core/widgets/coustom/custom_header_image.dart';
-import 'package:bright/core/widgets/coustom/custom_section_header.dart';
+import 'package:bright/core/widgets/custom/custom_image_head.dart';
+import 'package:bright/core/widgets/custom/custom_part_title.dart';
 import 'package:bright/features/testimonial/presentation/widgets/custom_testimonial.dart';
 import 'package:flutter/material.dart';
 
@@ -13,14 +13,14 @@ class TestimonialView extends StatelessWidget {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          SliverToBoxAdapter(
-            child: CustomHeaderImage(
+          const SliverToBoxAdapter(
+            child: CustomImageHead(
               title: AppStrings.testimonial,
               imagePath: Assets.assetsImagesTestimonial1,
             ),
           ),
-          SliverToBoxAdapter(
-            child: CustomSectionHeader(
+          const SliverToBoxAdapter(
+            child: CustomPartTitle(
               title: AppStrings.testimonial,
               subTitle: AppStrings.ourStudentsSay,
             ),
@@ -28,7 +28,7 @@ class TestimonialView extends StatelessWidget {
           SliverList(
             delegate: SliverChildListDelegate(
               [
-                CustomTestimonial(),
+                const CustomTestimonial(),
               ],
             ),
           ),

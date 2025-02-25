@@ -1,6 +1,5 @@
 import 'package:bright/core/routes/route_key.dart';
 import 'package:bright/core/utils/app_assets.dart';
-import 'package:bright/core/utils/app_strings.dart';
 
 class ButtonModel {
   final String imagePath;
@@ -10,19 +9,19 @@ class ButtonModel {
 }
 
 Map<String, ButtonModel> buttonsData = {
-  AppStrings.courses: ButtonModel(
+  'Courses': ButtonModel(
     imagePath: Assets.assetsImagesCourse1,
     route: RouteKey.courseView,
   ),
-  AppStrings.instructors: ButtonModel(
+  'Instructors': ButtonModel(
     imagePath: Assets.assetsImagesTeam1,
     route: RouteKey.instructorView,
   ),
-  AppStrings.testimonial: ButtonModel(
+  'Testimonial': ButtonModel(
     imagePath: Assets.assetsImagesTestimonial1,
     route: RouteKey.testimonialView,
   ),
-  AppStrings.contact: ButtonModel(
+  'Contact': ButtonModel(
     imagePath: Assets.assetsImagesContactus,
     route: RouteKey.contactView,
   ),

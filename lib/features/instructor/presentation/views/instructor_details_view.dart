@@ -1,7 +1,7 @@
 import 'package:bright/core/utils/app_space.dart';
-import 'package:bright/core/widgets/back_icon_button_widget.dart';
+import 'package:bright/core/widgets/back_button_widget.dart';
 import 'package:bright/features/instructor/models/instructor_model.dart';
-import 'package:bright/features/instructor/presentation/widgets/contact_info_widget.dart';
+import 'package:bright/features/instructor/presentation/widgets/call_info_widget.dart';
 import 'package:bright/features/instructor/presentation/widgets/instructor_description_widget.dart';
 import 'package:bright/features/instructor/presentation/widgets/instructor_image_widget.dart';
 import 'package:bright/features/instructor/presentation/widgets/instructor_name_widget.dart';
@@ -16,32 +16,32 @@ class InstructorDetailsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: AppSpace.paddingSpace),
+        padding: const EdgeInsets.symmetric(horizontal: AppSpace.padding),
         child: CustomScrollView(
           slivers: [
-            SliverToBoxAdapter(
-                child: const SizedBox(height: AppSpace.mainSpace)),
-            SliverToBoxAdapter(child: BackButtonWidget()),
-            //
+            const SliverToBoxAdapter(child: SizedBox(height: AppSpace.main)),
+            const SliverToBoxAdapter(child: BackButtonWidget()),
+
+            //  image
             SliverToBoxAdapter(
                 child: InstructorImageWidget(
                     imageCover: instructorItem.imageCover)),
-            SliverToBoxAdapter(
-                child: const SizedBox(height: AppSpace.smallSpace)),
-            //
+            const SliverToBoxAdapter(child: SizedBox(height: AppSpace.small2)),
+
+            //  name and job
             SliverToBoxAdapter(
                 child: InstructorNameWidget(instructorItem: instructorItem)),
-            SliverToBoxAdapter(
-                child: const SizedBox(height: AppSpace.mainSpace)),
-            //
+            const SliverToBoxAdapter(child: SizedBox(height: AppSpace.main)),
+
+            //  description
             SliverToBoxAdapter(
                 child: InstructorDescriptionWidget(
                     text: instructorItem.qualifications)),
+            const SliverToBoxAdapter(child: SizedBox(height: AppSpace.meduim1)),
+
+            // contact information
             SliverToBoxAdapter(
-                child: const SizedBox(height: AppSpace.meduimSpace1)),
-            //
-            SliverToBoxAdapter(
-              child: ContactInfoWidget(instructorItem: instructorItem),
+              child: CallInfoWidget(instructorItem: instructorItem),
             )
           ],
         ),

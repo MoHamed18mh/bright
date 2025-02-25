@@ -2,85 +2,70 @@ class AuthState {}
 
 final class AuthInitial extends AuthState {}
 
-// ************* password text field state ************************************
-final class ChangeObscurePasswordState extends AuthState {}
+//  password text field state
+final class ChangeObscurePassword extends AuthState {}
 
-// ************* login states **************************************************
-final class LoginLoadingState extends AuthState {}
+//  login states
+final class LoginLoading extends AuthState {}
 
-final class LoginSuccessState extends AuthState {
+final class LoginSuccess extends AuthState {
   final String displayName;
-
-  LoginSuccessState({required this.displayName});
+  LoginSuccess({required this.displayName});
 }
 
-final class LoginFailureState extends AuthState {
+final class LoginFailure extends AuthState {
   final String errorMessage;
-
-  LoginFailureState({required this.errorMessage});
+  LoginFailure({required this.errorMessage});
 }
-// *****************************************************************************
 
-// ************* register states ***********************************************
-final class RegisterLoadingState extends AuthState {}
+//  register states
+final class RegisterLoading extends AuthState {}
 
-final class RegisterSuccessState extends AuthState {
+final class RegisterSuccess extends AuthState {
   final String message;
-
-  RegisterSuccessState({required this.message});
+  RegisterSuccess({required this.message});
 }
 
-final class RegisterFailureState extends AuthState {
+final class RegisterFailure extends AuthState {
   final String errorMessage;
-
-  RegisterFailureState({required this.errorMessage});
+  RegisterFailure({required this.errorMessage});
 }
-// *****************************************************************************
 
-// *************** Confirm states **********************************************
-final class ConfirmLoadingState extends AuthState {}
+//  Confirm states
+final class ConfirmLoading extends AuthState {}
 
-final class ConfirmSuccessState extends AuthState {
+final class ConfirmSuccess extends AuthState {
   final String message;
-
-  ConfirmSuccessState({required this.message});
+  ConfirmSuccess({required this.message});
 }
 
-final class ConfirmFailureState extends AuthState {
+final class ConfirmFailure extends AuthState {
   final String errorMessage;
-
-  ConfirmFailureState({required this.errorMessage});
+  ConfirmFailure({required this.errorMessage});
 }
-// *****************************************************************************
 
-// ************* ForgotPassword states *****************************************
-final class ForgotPasswordLoadingState extends AuthState {}
+//  ForgotPassword states
+final class ForgotPasswordLoading extends AuthState {}
 
-final class ForgotPasswordSuccessState extends AuthState {
+final class ForgotPasswordSuccess extends AuthState {
   final String message;
-
-  ForgotPasswordSuccessState({required this.message});
+  ForgotPasswordSuccess({required this.message});
 }
 
-final class ForgotPasswordFailureState extends AuthState {
+final class ForgotPasswordFailure extends AuthState {
   final String errorMessage;
-
-  ForgotPasswordFailureState({required this.errorMessage});
+  ForgotPasswordFailure({required this.errorMessage});
 }
-// *****************************************************************************
 
-// ************* ResetPassword states *****************************************
-final class ResetPasswordLoadingState extends AuthState {}
+//  ResetPassword states
+final class ResetPasswordLoading extends AuthState {}
 
-final class ResetPasswordSuccessState extends AuthState {
+final class ResetPasswordSuccess extends AuthState {
   final String message;
-
-  ResetPasswordSuccessState({required this.message});
+  ResetPasswordSuccess({required this.message});
 }
 
-final class ResetPasswordFailureState extends AuthState {
+final class ResetPasswordFailure extends AuthState {
   final String errorMessage;
-
-  ResetPasswordFailureState({required this.errorMessage});
+  ResetPasswordFailure({required this.errorMessage});
 }
-// *****************************************************************************

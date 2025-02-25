@@ -11,10 +11,10 @@ class CustomAbout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverGrid(
-      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-        maxCrossAxisExtent: AppSpace.size6,
-        mainAxisSpacing: AppSpace.mainSpace,
-        crossAxisSpacing: AppSpace.mainSpace,
+      gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+        maxCrossAxisExtent: AppSpace.size7,
+        mainAxisSpacing: AppSpace.main,
+        crossAxisSpacing: AppSpace.main,
         childAspectRatio: .75,
       ),
       delegate: SliverChildListDelegate(
@@ -24,7 +24,7 @@ class CustomAbout extends StatelessWidget {
             height: AppSpace.size4,
             fit: BoxFit.cover,
           ),
-          AboutUsInfoWidget(),
+          const AboutUsInfoWidget(),
         ],
       ),
     );

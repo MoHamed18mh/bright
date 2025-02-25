@@ -1,7 +1,5 @@
 abstract class AppStrings {
   static const String appName = 'Bright Minds',
-
-      // auth
       email = 'Email',
       password = 'Password',
       confirmPassword = 'Confirm Password',
@@ -27,24 +25,8 @@ abstract class AppStrings {
       verifyDone = 'Verify Done! Login Now',
       wellcom = 'Wellcom',
       unexpectedError = 'Unexpected error occurred',
-
-      // app strings
       instructors = 'Instructors',
-      home = 'Home',
       courses = 'Courses',
-      bestOnlineCourses = 'Best Online Courses',
-      theBestOnlineLearning = 'The Best Online Learning Platform',
-      getEducatedFromHome = 'Get Educated Online From Your Home',
-      veroElitr =
-          'Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea sanctus eirmod elitr.',
-      skilldeInstructors = 'Skilled Instructors',
-      onlineClasses = 'Online Classes',
-      homeProjects = 'Home Projects',
-      bookLibrary = 'Book Library',
-      diamElitrKasd =
-          'Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam',
-      readMore = 'Read More',
-      internationalCertificate = 'International Certificate',
       temporErate =
           'Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet',
       temporErateAtClita =
@@ -52,41 +34,20 @@ abstract class AppStrings {
       aboutUs = 'About Us',
       wellcomTo = 'Wellcom to BRIGHT MINDS',
       popularCourses = 'Popular Courses',
-      webDesign = 'Web Design',
-      courses49 = '49 Courses',
-      categories = 'Categories',
-      coursesCategories = 'Courses Categories',
-      students30 = '30 Students',
-      hrs = '1.49 Hrs',
-      john = 'John Doe',
-      webDesingDevelopment = 'Web Design & Development Course for Beginners',
       price = 'Price',
-      dolorAmetSit = 'Dolor amet sit justo amet elitr clita ipsum elitr est.',
-      newSletter = 'Newsletter',
-      gallery = 'Gallery',
-      infoExample = 'info@example.com',
-      number = '+012 345 67890',
-      address = '123 Street, New York, USA',
       contact = 'Contact',
       contactForAny = 'Contact For Any Query',
       getInToutch = 'Get In Toutch',
       theContactForm =
           'The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you\'re done. ',
-      office = 'Office',
       tanta = 'Tanta',
       mobile = 'Mobile',
       mobileNumbe = '+012 34567 890',
       emailExample = 'info@example.com',
-      termsCondition = 'Terms & Condition',
-      privacyPolicy = 'Privacy Policy',
       contactUs = 'Contact Us',
-      quickLink = 'Quick Link',
-      profession = 'Profession',
       clientName = 'Client Name',
       ourStudentsSay = 'Our Students Say!',
       testimonial = 'Testimonial',
-      designation = 'Designation',
-      instructorName = 'Instructor Name',
       name = 'Name',
       message = 'Message',
       send = 'Send',
@@ -94,7 +55,7 @@ abstract class AppStrings {
       expertInstructors = 'Expert Instructors',
       addToCart = 'Add To Cart',
       buyNow = 'Buy Now',
-      // anthor
       skip = 'Skip',
+      thisFieldCannotBeEmpty = 'This field cannot be empty',
       next = 'Next';
 }

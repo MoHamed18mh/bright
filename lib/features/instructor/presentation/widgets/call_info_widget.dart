@@ -4,8 +4,8 @@ import 'package:bright/core/utils/app_text_style.dart';
 import 'package:bright/features/instructor/models/instructor_model.dart';
 import 'package:flutter/material.dart';
 
-class ContactInfoWidget extends StatelessWidget {
-  const ContactInfoWidget({
+class CallInfoWidget extends StatelessWidget {
+  const CallInfoWidget({
     super.key,
     required this.instructorItem,
   });
@@ -17,7 +17,7 @@ class ContactInfoWidget extends StatelessWidget {
     return Column(
       children: [
         ContactItem(text: instructorItem.email, iconData: Icons.email),
-        const SizedBox(height: AppSpace.mainSpace),
+        const SizedBox(height: AppSpace.main),
         ContactItem(text: instructorItem.mobile, iconData: Icons.phone)
       ],
     );
@@ -42,8 +42,8 @@ class ContactItem extends StatelessWidget {
           iconData,
           color: AppColors.primaryColor,
         ),
-        const SizedBox(width: AppSpace.smallSpace),
-        Text(
+        const SizedBox(width: AppSpace.small2),
+        SelectableText(
           text,
           style: AppTextStyle.nunitoSans16LightBlackBold,
         ),

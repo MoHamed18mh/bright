@@ -14,7 +14,7 @@ class InstructorNameWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(
+        SelectableText(
           instructorItem.displayName,
           style: AppTextStyle.nunitoSans22LightBlackBold,
         ),

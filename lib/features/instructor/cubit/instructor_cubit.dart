@@ -8,12 +8,12 @@ class InstructorCubit extends Cubit<InstructorState> {
   final InstructorRepo instructorRepo;
 
   Future<void> getInstructors() async {
-    emit(InstructorLoadingState());
+    emit(InstructorLoading());
     final response = await instructorRepo.getInstructors();
     response.fold(
-      (errorMessage) => emit(InstructorFailureState()),
+      (errorMessage) => emit(InstructorFailure()),
       (insturctormodel) =>
-          emit(InstructorSuccessState(instructorModel: insturctormodel)),
+          emit(InstructorSuccess(instructorModel: insturctormodel)),
     );
   }
 }

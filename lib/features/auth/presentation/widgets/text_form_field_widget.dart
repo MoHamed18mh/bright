@@ -22,17 +22,21 @@ class TextFormFieldWidget extends StatelessWidget {
       controller: controller,
       validator: validator,
       cursorColor: AppColors.lightBlack,
-      decoration: InputDecoration(
-        prefixIcon: prefixIcon,
-        prefixIconColor: AppColors.primaryColor,
-        hintText: text,
-        hintStyle: AppTextStyle.nunitoSans13Grey700,
-        suffixIconColor: AppColors.primaryColor,
-        border: outLineInputBorder(),
-        enabledBorder: outLineInputBorder(),
-        focusedBorder: outLineInputBorder(),
-        errorBorder: outLineInputBorder(),
-      ),
+      decoration: inputDecoration(),
+    );
+  }
+
+  InputDecoration inputDecoration() {
+    return InputDecoration(
+      prefixIcon: prefixIcon,
+      prefixIconColor: AppColors.primaryColor,
+      hintText: text,
+      hintStyle: AppTextStyle.nunitoSans13Grey700,
+      suffixIconColor: AppColors.primaryColor,
+      border: outLineInputBorder(),
+      enabledBorder: outLineInputBorder(),
+      focusedBorder: outLineInputBorder(),
+      errorBorder: outLineInputBorder(),
     );
   }
 

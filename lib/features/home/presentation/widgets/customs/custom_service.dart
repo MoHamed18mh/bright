@@ -11,7 +11,7 @@ class CustomService extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverGrid.builder(
-      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+      gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
         maxCrossAxisExtent: AppSpace.size4,
         mainAxisExtent: AppSpace.size3,
       ),

@@ -8,13 +8,14 @@ class DioConsumer extends ApiConsumer {
 
   DioConsumer({required this.dio}) {
     dio.options.baseUrl = EndPoint.baseUrl;
-    dio.interceptors.add(LogInterceptor(
-      request: true,
-      requestBody: true,
-      requestHeader: true,
-      responseBody: true,
-      responseHeader: true,
-    ));
+    // To activate the log of requests and responses, Interceptors can be activated when needed:
+    // dio.interceptors.add(LogInterceptor(
+    //   request: true,
+    //   requestBody: true,
+    //   requestHeader: true,
+    //   responseBody: true,
+    //   responseHeader: true,
+    // ));
     // dio.interceptors.add(ApiInterceptor());
   }
 
@@ -37,7 +38,7 @@ class DioConsumer extends ApiConsumer {
   }
 
   @override
-  Future delet(
+  Future delete(
     String path, {
     dynamic data,
     Map<String, dynamic>? queryParameters,

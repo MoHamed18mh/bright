@@ -8,17 +8,17 @@ class CustomInstructorShimmer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(AppSpace.paddingSpace),
+      margin: const EdgeInsets.all(AppSpace.padding),
       color: Colors.grey.shade200,
-      child: Column(
+      child: const Column(
         children: [
           ContainerShimmerWidget(
             height: AppSpace.size2,
             width: double.infinity,
           ),
-          const SizedBox(height: AppSpace.mainSpace),
+          SizedBox(height: AppSpace.main),
           ContainerShimmerWidget(width: 150),
-          const SizedBox(height: AppSpace.smallSpace),
+          SizedBox(height: AppSpace.small2),
           ContainerShimmerWidget(width: 210),
         ],
       ),

@@ -1,7 +1,7 @@
 import 'package:bright/core/utils/app_colors.dart';
 import 'package:bright/core/utils/app_space.dart';
 import 'package:bright/core/utils/app_text_style.dart';
-import 'package:bright/core/widgets/back_icon_button_widget.dart';
+import 'package:bright/core/widgets/back_button_widget.dart';
 import 'package:bright/features/course/models/course_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -17,15 +17,15 @@ class CustomSectionImage extends StatelessWidget {
       children: [
         CachedNetworkImage(
           imageUrl: courseItem.pictureUrl,
-          height: AppSpace.maxSpace5,
+          height: AppSpace.max5,
           width: double.infinity,
           fit: BoxFit.cover,
           memCacheHeight: 230,
         ),
         Container(
           width: double.infinity,
-          height: AppSpace.maxSpace5,
-          padding: const EdgeInsets.all(AppSpace.paddingSpace),
+          height: AppSpace.max5,
+          padding: const EdgeInsets.all(AppSpace.padding),
           decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.bottomCenter,
@@ -51,8 +51,8 @@ class CustomSectionImage extends StatelessWidget {
             ],
           ),
         ),
-        Positioned(
-          top: AppSpace.mainSpace,
+        const Positioned(
+          top: AppSpace.main,
           child: BackButtonWidget(),
         )
       ],

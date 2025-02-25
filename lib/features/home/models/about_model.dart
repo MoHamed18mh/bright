@@ -1,4 +1,3 @@
-import 'package:bright/core/utils/app_strings.dart';
 import 'package:flutter/material.dart';
 
 class AboutModel {
@@ -9,26 +8,30 @@ class AboutModel {
 }
 
 Map<String, AboutModel> aboutServices = {
-  AppStrings.skilldeInstructors: AboutModel(
-    subTitle: AppStrings.diamElitrKasd,
+  'Skilled Instructors': AboutModel(
+    subTitle:
+        'Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam',
     iconData: Icons.school,
   ),
-  AppStrings.onlineClasses: AboutModel(
-    subTitle: AppStrings.diamElitrKasd,
+  'Online Classes': AboutModel(
+    subTitle:
+        'Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam',
     iconData: Icons.language_rounded,
   ),
-  AppStrings.homeProjects: AboutModel(
-    subTitle: AppStrings.diamElitrKasd,
+  'Home Projects': AboutModel(
+    subTitle:
+        'Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam',
     iconData: Icons.home_rounded,
   ),
-  AppStrings.bookLibrary: AboutModel(
-    subTitle: AppStrings.diamElitrKasd,
+  'Book Library': AboutModel(
+    subTitle:
+        'Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam',
     iconData: Icons.menu_book_outlined,
   ),
 };
 
 List<String> skills = [
-  AppStrings.skilldeInstructors,
-  AppStrings.onlineClasses,
-  AppStrings.internationalCertificate,
+  'Skilled Instructors',
+  'Online Classes',
+  'International Certificate',
 ];

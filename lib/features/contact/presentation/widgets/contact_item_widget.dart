@@ -1,7 +1,7 @@
-import 'package:bright/core/utils/app_colors.dart';
 import 'package:bright/core/utils/app_space.dart';
 import 'package:bright/core/utils/app_text_style.dart';
 import 'package:bright/features/contact/models/contact_model.dart';
+import 'package:bright/features/contact/presentation/widgets/leading_icon_widget.dart';
 import 'package:flutter/material.dart';
 
 class ContactInfoItemWidget extends StatelessWidget {
@@ -17,20 +17,11 @@ class ContactInfoItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: AppSpace.paddingSpace),
-      margin: const EdgeInsets.only(bottom: AppSpace.smallSpace),
+      padding: const EdgeInsets.symmetric(horizontal: AppSpace.padding),
+      margin: const EdgeInsets.only(bottom: AppSpace.small2),
       child: Row(
         children: [
-          Container(
-            color: AppColors.primaryColor,
-            padding: const EdgeInsets.all(13),
-            margin: const EdgeInsets.only(right: AppSpace.paddingSpace),
-            child: Icon(
-              contactModel.iconData,
-              color: Colors.white,
-              size: AppSpace.mainSpace,
-            ),
-          ),
+          LeadingIconWidget(iconData: contactModel.iconData),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -49,3 +40,4 @@ class ContactInfoItemWidget extends StatelessWidget {
     );
   }
 }
+

@@ -4,10 +4,11 @@ import 'package:bright/core/utils/app_text_style.dart';
 import 'package:bright/features/home/models/home_model.dart';
 import 'package:flutter/material.dart';
 
-class ButtonImageWidget extends StatelessWidget {
-  const ButtonImageWidget({
+class ImageButtonWidget extends StatelessWidget {
+  const ImageButtonWidget({
     super.key,
-    required this.title, required this.buttonModel,
+    required this.title,
+    required this.buttonModel,
   });
 
   final String title;

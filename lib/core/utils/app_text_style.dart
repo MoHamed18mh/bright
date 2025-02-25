@@ -20,25 +20,25 @@ abstract class AppTextStyle {
     fontWeight: FontWeight.bold,
     color: AppColors.primaryColor,
   );
-  static final notoSerif38WhiteBlod = TextStyle(
+  static const notoSerif38WhiteBlod = TextStyle(
     fontFamily: 'NotoSerif',
     fontSize: 38,
     color: Colors.white,
     fontWeight: FontWeight.bold,
   );
-  static final notoSerif30WhiteBlod = TextStyle(
+  static const notoSerif30WhiteBlod = TextStyle(
     fontFamily: 'NotoSerif',
     fontSize: 30,
     color: Colors.white,
     fontWeight: FontWeight.bold,
   );
-  static final notoSerif25WhiteBlod = TextStyle(
+  static const notoSerif25WhiteBlod = TextStyle(
     fontFamily: 'NotoSerif',
     fontSize: 25,
     color: Colors.white,
     fontWeight: FontWeight.bold,
   );
-  static final nunitoSans15WhiteBlod = TextStyle(
+  static const nunitoSans15WhiteBlod = TextStyle(
     fontFamily: 'NunitoSans',
     fontSize: 15,
     color: Colors.white,

@@ -4,12 +4,12 @@ class InstructorState {}
 
 final class InstructorInitial extends InstructorState {}
 
-final class InstructorLoadingState extends InstructorState {}
+final class InstructorLoading extends InstructorState {}
 
-final class InstructorSuccessState extends InstructorState {
+final class InstructorSuccess extends InstructorState {
   final InstructorModel instructorModel;
 
-  InstructorSuccessState({required this.instructorModel});
+  InstructorSuccess({required this.instructorModel});
 }
 
-final class InstructorFailureState extends InstructorState {}
+final class InstructorFailure extends InstructorState {}

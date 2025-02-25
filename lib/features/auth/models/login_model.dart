@@ -1,5 +1,4 @@
 import 'package:bright/core/api/end_point.dart';
-import 'package:bright/features/auth/models/user_model.dart';
 
 class LoginModel {
   final String message;
@@ -17,6 +16,23 @@ class LoginModel {
       message: json[ApiKey.message],
       token: json[ApiKey.token],
       user: UserModel.fromJson(json[ApiKey.user]),
+    );
+  }
+}
+
+class UserModel {
+  final String email;
+  final String displayName;
+
+  UserModel({
+    required this.email,
+    required this.displayName,
+  });
+
+  factory UserModel.fromJson(Map<String, dynamic> json) {
+    return UserModel(
+      email: json[ApiKey.email],
+      displayName: json[ApiKey.displayName],
     );
   }
 }

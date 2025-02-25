@@ -27,20 +27,24 @@ class TextFormFieldPasswordWidget extends StatelessWidget {
           validator: validator,
           obscureText: authCubit.obscurePasswordValue,
           cursorColor: AppColors.lightBlack,
-          decoration: InputDecoration(
-            prefixIcon: Icon(Icons.lock_open_outlined),
-            prefixIconColor: AppColors.primaryColor,
-            hintText: text,
-            hintStyle: AppTextStyle.nunitoSans13Grey700,
-            suffixIcon: suffixIcon(context),
-            suffixIconColor: AppColors.primaryColor,
-            border: outLineInputBorder(),
-            enabledBorder: outLineInputBorder(),
-            focusedBorder: outLineInputBorder(),
-            errorBorder: outLineInputBorder(),
-          ),
+          decoration: inputDecoration(context),
         );
       },
+    );
+  }
+
+  InputDecoration inputDecoration(BuildContext context) {
+    return InputDecoration(
+      prefixIcon: const Icon(Icons.lock_open_outlined),
+      prefixIconColor: AppColors.primaryColor,
+      hintText: text,
+      hintStyle: AppTextStyle.nunitoSans13Grey700,
+      suffixIcon: suffixIcon(context),
+      suffixIconColor: AppColors.primaryColor,
+      border: outLineInputBorder(),
+      enabledBorder: outLineInputBorder(),
+      focusedBorder: outLineInputBorder(),
+      errorBorder: outLineInputBorder(),
     );
   }
 
@@ -49,8 +53,8 @@ class TextFormFieldPasswordWidget extends StatelessWidget {
     return IconButton(
       onPressed: () => authCubit.changeObscurePasswordValue(),
       icon: authCubit.obscurePasswordValue
-          ? Icon(Icons.visibility_outlined)
-          : Icon(Icons.visibility_off_outlined),
+          ? const Icon(Icons.visibility_outlined)
+          : const Icon(Icons.visibility_off_outlined),
     );
   }
 

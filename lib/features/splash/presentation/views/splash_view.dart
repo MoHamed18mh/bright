@@ -30,13 +30,13 @@ class SplashView extends StatelessWidget {
               extra: state.uri);
         }
       },
-      child: Scaffold(
+      child: const Scaffold(
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CustomShimmerLogo(),
-              const SizedBox(height: AppSpace.mainSpace),
+              SizedBox(height: AppSpace.main),
               CustomShimmerText(),
             ],
           ),

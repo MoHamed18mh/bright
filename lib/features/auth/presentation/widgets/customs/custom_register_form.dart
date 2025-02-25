@@ -21,10 +21,10 @@ class CustomRegisterForm extends StatelessWidget {
 
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
-        if (state is RegisterSuccessState) {
+        if (state is RegisterSuccess) {
           showToast(msg: state.message);
           navigateReplacement(context, RouteKey.loginView);
-        } else if (state is RegisterFailureState) {
+        } else if (state is RegisterFailure) {
           showToast(msg: state.errorMessage);
         }
       },
@@ -33,60 +33,60 @@ class CustomRegisterForm extends StatelessWidget {
           key: authCubit.registerKey,
           child: Column(
             children: [
-              // ************** First Name field 
+              //  First Name 
               TextFormFieldWidget(
                 text: AppStrings.firstName,
-                prefixIcon: Icon(Icons.person_outline),
+                prefixIcon: const Icon(Icons.person_outline),
                 validator: authCubit.validator,
                 controller: authCubit.registerFirstNameController,
               ),
-              const SizedBox(height: AppSpace.mainSpace),
+              const SizedBox(height: AppSpace.main),
 
-              // ************** last Name field 
+              //  last Name 
               TextFormFieldWidget(
                 text: AppStrings.lastName,
-                prefixIcon: Icon(Icons.person_outline),
+                prefixIcon: const Icon(Icons.person_outline),
                 validator: authCubit.validator,
                 controller: authCubit.registerLastNameController,
               ),
-              const SizedBox(height: AppSpace.mainSpace),
+              const SizedBox(height: AppSpace.main),
 
-              // ************** Email field 
+              //  Email 
               TextFormFieldWidget(
                 text: AppStrings.email,
-                prefixIcon: Icon(Icons.email_outlined),
+                prefixIcon: const Icon(Icons.email_outlined),
                 validator: authCubit.validator,
                 controller: authCubit.registerEmailController,
               ),
-              const SizedBox(height: AppSpace.mainSpace),
+              const SizedBox(height: AppSpace.main),
 
-              // ************** Phone field 
+              //  Phone number
               TextFormFieldWidget(
                 text: AppStrings.phoneNumber,
-                prefixIcon: Icon(Icons.phone_outlined),
+                prefixIcon: const Icon(Icons.phone_outlined),
                 validator: authCubit.validator,
                 controller: authCubit.registerMobileController,
               ),
-              const SizedBox(height: AppSpace.mainSpace),
+              const SizedBox(height: AppSpace.main),
 
-              // ************** password field
+              //  password 
               TextFormFieldPasswordWidget(
                 text: AppStrings.password,
                 validator: authCubit.validator,
                 controller: authCubit.registerPasswordController,
               ),
-              const SizedBox(height: AppSpace.mainSpace),
+              const SizedBox(height: AppSpace.main),
 
-              // ************** confirm password field
+              //  confirm password 
               TextFormFieldPasswordWidget(
                 text: AppStrings.confirmPassword,
                 validator: authCubit.validator,
                 controller: authCubit.registerConfirmPasswordController,
               ),
-              const SizedBox(height: AppSpace.meduimSpace2),
+              const SizedBox(height: AppSpace.meduim2),
 
-              // ************** register button
-              (state is RegisterLoadingState)
+              //  register button
+              (state is RegisterLoading)
                   ? CircularProgressIndicator(color: AppColors.primaryColor)
                   : MaterialButtonWidget(
                       onPressed: () {

@@ -5,7 +5,7 @@ import 'package:bright/core/utils/app_strings.dart';
 import 'package:bright/core/widgets/material_button_widget.dart';
 import 'package:bright/core/widgets/text_button_widget.dart';
 import 'package:bright/features/boarding/cubit/boarding_cubit.dart';
-import 'package:bright/features/auth/presentation/widgets/auth_head_widget.dart';
+import 'package:bright/core/widgets/app_name_widget.dart';
 import 'package:bright/features/boarding/cubit/boarding_state.dart';
 import 'package:bright/features/boarding/prsentation/widgets/customs/custom_boarding_body.dart';
 import 'package:flutter/material.dart';
@@ -26,42 +26,44 @@ class BoardingView extends StatelessWidget {
       },
       child: Scaffold(
         body: Padding(
-          padding:
-              const EdgeInsets.symmetric(horizontal: AppSpace.paddingSpace),
+          padding: const EdgeInsets.symmetric(horizontal: AppSpace.padding),
           child: CustomScrollView(
             slivers: [
+              const SliverToBoxAdapter(
+                  child: SizedBox(height: AppSpace.meduim1)),
+
+              // skip button
               SliverToBoxAdapter(
-                  child: const SizedBox(height: AppSpace.meduimSpace1)),
-              SliverToBoxAdapter(
-                // text button for skip boarding
                 child: TextButtonWidget(
                   alignment: Alignment.centerRight,
-                  onPressed: () => boardingCubit.navigateToLogin(context),
+                  onPressed: () => boardingCubit.navigateToLogin(),
                   text1: AppStrings.skip,
                   fontSize: 20,
                 ),
               ),
+              const SliverToBoxAdapter(
+                  child: SizedBox(height: AppSpace.padding)),
 
-              SliverToBoxAdapter(
-                  child: const SizedBox(height: AppSpace.mainSpace)),
-              SliverToBoxAdapter(child: AuthHeadWidget()),
-              SliverToBoxAdapter(
-                  child: const SizedBox(height: AppSpace.meduimSpace2)),
+              const SliverToBoxAdapter(child: AppNameWidget()),
+              const SliverToBoxAdapter(
+                  child: SizedBox(height: AppSpace.meduim1)),
 
               // the body of the screen
-              SliverToBoxAdapter(child: CustomBoardingBody()),
-              SliverToBoxAdapter(
-                  child: const SizedBox(height: AppSpace.mainSpace)),
+              const SliverToBoxAdapter(child: CustomBoardingBody()),
+              const SliverToBoxAdapter(
+                  child: SizedBox(height: AppSpace.small2)),
 
-              // button for the next screen in boarding
+              // next button
               SliverToBoxAdapter(
                 child: MaterialButtonWidget(
                   onPressed: () {
-                    boardingCubit.nextBoardingView(context);
+                    boardingCubit.nextBoardingView();
                   },
                   text: AppStrings.next,
                 ),
-              )
+              ),
+              const SliverToBoxAdapter(
+                  child: SizedBox(height: AppSpace.padding)),
             ],
           ),
         ),

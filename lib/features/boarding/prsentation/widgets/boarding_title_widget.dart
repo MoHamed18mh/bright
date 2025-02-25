@@ -1,16 +1,14 @@
 import 'package:bright/core/utils/app_strings.dart';
 import 'package:bright/core/utils/app_text_style.dart';
-import 'package:bright/features/boarding/cubit/boarding_cubit.dart';
 import 'package:bright/features/boarding/models/boarding_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BoardingTitleWidget extends StatelessWidget {
-  const BoardingTitleWidget({
-    super.key,
-    required this.index,
-  });
+  const BoardingTitleWidget(
+      {super.key, required this.index, required this.isLastPage});
+
   final int index;
+  final bool isLastPage;
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +19,7 @@ class BoardingTitleWidget extends StatelessWidget {
             text: boardingData[index].title,
             style: AppTextStyle.nunitoSans22LightBlackBold,
           ),
-          if (context.read<BoardingCubit>().currentIndex !=
-              boardingData.length - 1)
+          if (!isLastPage)
             TextSpan(
               text: AppStrings.appName,
               style: AppTextStyle.notoSerif25PrimaryBold,

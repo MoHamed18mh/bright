@@ -22,10 +22,10 @@ class CustomLoginForm extends StatelessWidget {
 
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
-        if (state is LoginSuccessState) {
+        if (state is LoginSuccess) {
           showToast(msg: '${AppStrings.wellcom} ${state.displayName}');
           navigateReplacement(context, RouteKey.homeView);
-        } else if (state is LoginFailureState) {
+        } else if (state is LoginFailure) {
           showToast(msg: state.errorMessage);
         }
       },
@@ -34,33 +34,33 @@ class CustomLoginForm extends StatelessWidget {
           key: authCubit.loginKey,
           child: Column(
             children: [
-              // ************* email field
+              //  email field
               TextFormFieldWidget(
                 text: AppStrings.email,
-                prefixIcon: Icon(Icons.email_outlined),
+                prefixIcon: const Icon(Icons.email_outlined),
                 validator: authCubit.validator,
                 controller: authCubit.loginEmailController,
               ),
-              const SizedBox(height: AppSpace.mainSpace),
+              const SizedBox(height: AppSpace.main),
 
-              // ************** password field
+              //  password field
               TextFormFieldPasswordWidget(
                 text: AppStrings.password,
                 validator: authCubit.validator,
                 controller: authCubit.loginPasswordController,
               ),
 
-              // **************** text button for go to forgotPasswordView screen
+              //  button go to forgot password screen
               TextButtonWidget(
                 alignment: Alignment.centerRight,
                 onPressed: () => navigate(context, RouteKey.forgotPasswordView),
                 text1: AppStrings.forgotPassword,
                 fontSize: 13,
               ),
-              const SizedBox(height: AppSpace.maxSpace1),
+              const SizedBox(height: AppSpace.max1),
 
-              // *************** login button
-              (state is LoginLoadingState)
+              //  login button
+              (state is LoginLoading)
                   ? CircularProgressIndicator(color: AppColors.primaryColor)
                   : MaterialButtonWidget(
                       onPressed: () {

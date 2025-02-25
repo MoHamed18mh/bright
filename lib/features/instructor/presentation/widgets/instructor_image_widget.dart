@@ -18,9 +18,9 @@ class InstructorImageWidget extends StatelessWidget {
         child: CachedNetworkImage(
           imageUrl: imageCover,
           fit: BoxFit.cover,
-          height: AppSpace.maxSpace4,
-          width: AppSpace.maxSpace3,
-          placeholder: (context, url) => ContainerShimmerWidget(),
+          height: AppSpace.max4,
+          width: AppSpace.max4,
+          placeholder: (context, url) => const ContainerShimmerWidget(),
           errorWidget: (context, url, error) => const Icon(Icons.error),
         ),
       ),

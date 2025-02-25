@@ -13,14 +13,13 @@ class InstructorRepo {
   // get all instructors from api
   Future<Either<String, InstructorModel>> getInstructors() async {
     try {
-      final response = await api.get(
-        EndPoint.getInstructors,
-      );
+      final response = await api.get(EndPoint.getInstructors);
+
       return Right(InstructorModel.fromJson(response));
     } on ServerException catch (e) {
       return Left(e.errorModel.message);
     } catch (e) {
-      return Left(AppStrings.unexpectedError);
+      return const Left(AppStrings.unexpectedError);
     }
   }
 }

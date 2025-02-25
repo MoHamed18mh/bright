@@ -17,13 +17,13 @@ class CustomResetPasswordForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AuthCubit authCubit = context.read<AuthCubit>();
-    
+
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
-        if (state is ResetPasswordSuccessState) {
+        if (state is ResetPasswordSuccess) {
           showToast(msg: state.message);
           navigateReplacement(context, RouteKey.loginView);
-        } else if (state is ResetPasswordFailureState) {
+        } else if (state is ResetPasswordFailure) {
           showToast(msg: state.errorMessage);
         }
       },
@@ -32,22 +32,22 @@ class CustomResetPasswordForm extends StatelessWidget {
           key: authCubit.resetPasswordKey,
           child: Column(
             children: [
-              // ************* reset password field
+              //  reset password field
               TextFormFieldPasswordWidget(
                 text: AppStrings.password,
                 controller: authCubit.resetPasswordController,
               ),
-              const SizedBox(height: AppSpace.mainSpace),
+              const SizedBox(height: AppSpace.main),
 
-              // ************* reset confirm password field
+              //  reset confirm password field
               TextFormFieldPasswordWidget(
                 text: AppStrings.confirmPassword,
                 controller: authCubit.resetConfirmPasswordController,
               ),
-              const SizedBox(height: AppSpace.meduimSpace2),
+              const SizedBox(height: AppSpace.meduim2),
 
-              // *********** button for create new password 
-              (state is ResetPasswordLoadingState)
+              //  button for create new password
+              (state is ResetPasswordLoading)
                   ? CircularProgressIndicator(color: AppColors.primaryColor)
                   : MaterialButtonWidget(
                       onPressed: () {

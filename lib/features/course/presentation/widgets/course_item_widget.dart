@@ -20,30 +20,30 @@ class CustomCourseItem extends StatelessWidget {
         navigate(context, RouteKey.sectionView, extra: courseItem);
       },
       child: Container(
-        margin: const EdgeInsets.all(AppSpace.paddingSpace),
+        margin: const EdgeInsets.all(AppSpace.padding),
         color: AppColors.primaryHighLight,
         child: Column(
           children: [
-            // ********************* image
+            //  image
             CachedNetworkImage(
               imageUrl: courseItem.pictureUrl,
               height: AppSpace.size1,
               width: double.infinity,
               memCacheHeight: 230,
               fit: BoxFit.cover,
-              placeholder: (context, url) => ContainerShimmerWidget(),
-              errorWidget: (context, url, error) => Icon(Icons.error),
+              placeholder: (context, url) => const ContainerShimmerWidget(),
+              errorWidget: (context, url, error) => const Icon(Icons.error),
             ),
-            const SizedBox(height: AppSpace.mainSpace),
+            const SizedBox(height: AppSpace.main),
 
-            // ********************** price
+            //  price
             Text(
               '${courseItem.price} \$',
               style: AppTextStyle.nunitoSans26LightBlackBold,
             ),
-            const SizedBox(height: AppSpace.smallSpace),
+            const SizedBox(height: AppSpace.small2),
 
-            // ********************** course name
+            //  course name
             Text(
               courseItem.name,
               style: AppTextStyle.nunitoSans22LightBlackBold,
@@ -52,9 +52,9 @@ class CustomCourseItem extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: AppSpace.smallSpace),
+            const SizedBox(height: AppSpace.small2),
 
-            // *********************** insturctor name
+            //  insturctor name
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

@@ -15,23 +15,22 @@ class BoardingCubit extends Cubit<BoardingState> {
   // change the index of the pageView
   void updateCurrentIndex(int index) {
     currentIndex = index;
-    emit(BoardingIndexUpdated(index));
   }
 
   // go the next page in boarding
-  void nextBoardingView(context) {
+  void nextBoardingView() {
     if (currentIndex == boardingData.length - 1) {
-      navigateToLogin(context);
+      navigateToLogin();
     } else {
       pageController.nextPage(
-        duration: Duration(milliseconds: 300),
+        duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
       );
     }
   }
 
   // affter finish boarding save value that isBoardingVisited and go to LoginView screen
-  void navigateToLogin(BuildContext context) {
+  void navigateToLogin() {
     getIt<CacheHelper>().saveData(key: CacheKey.isBoardingVisited, value: true);
     emit(BoardingCompleted());
   }

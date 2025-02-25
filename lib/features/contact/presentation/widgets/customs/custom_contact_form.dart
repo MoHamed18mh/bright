@@ -11,29 +11,29 @@ class CustomContactForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return Form(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: AppSpace.paddingSpace),
+        padding: const EdgeInsets.symmetric(horizontal: AppSpace.padding),
         child: Column(
           children: [
-            // ************** name field
-            ContactTextFormFieldWidget(text: AppStrings.name),
-            const SizedBox(height: AppSpace.smallSpace),
+            //  name 
+            const ContactTextFormFieldWidget(text: AppStrings.name),
+            const SizedBox(height: AppSpace.small2),
 
-            // ************** email field
-            ContactTextFormFieldWidget(text: AppStrings.email),
-            const SizedBox(height: AppSpace.smallSpace),
+            //  email 
+            const ContactTextFormFieldWidget(text: AppStrings.email),
+            const SizedBox(height: AppSpace.small2),
 
-            // *************** subject field
-            ContactTextFormFieldWidget(text: AppStrings.subject),
-            const SizedBox(height: AppSpace.smallSpace),
+            //  subject 
+            const ContactTextFormFieldWidget(text: AppStrings.subject),
+            const SizedBox(height: AppSpace.small2),
 
-            // **************** message field
-            ContactTextFormFieldWidget(
+            //  message 
+            const ContactTextFormFieldWidget(
               text: AppStrings.message,
               maxLines: 5,
             ),
-            const SizedBox(height: AppSpace.meduimSpace1),
+            const SizedBox(height: AppSpace.meduim1),
 
-            // ***************** button
+            //  send button
             MaterialButtonWidget(onPressed: () {}, text: AppStrings.send),
           ],
         ),
