@@ -12,7 +12,8 @@ import 'package:bright/features/boarding/prsentation/views/boarding_view.dart';
 import 'package:bright/features/contact/presentation/views/contact_view.dart';
 import 'package:bright/features/course/models/course_model.dart';
 import 'package:bright/features/course/presentation/views/course_view.dart';
-import 'package:bright/features/course/presentation/views/section_view.dart';
+import 'package:bright/features/course/presentation/views/course_details_view.dart';
+import 'package:bright/features/course/presentation/views/videos_view.dart';
 import 'package:bright/features/home/presentation/views/home_view.dart';
 import 'package:bright/features/instructor/models/instructor_model.dart';
 import 'package:bright/features/instructor/presentation/views/instructor_details_view.dart';
@@ -148,15 +149,33 @@ final GoRouter router = GoRouter(
       ),
     ),
 
-    // section screen
+    // course details screen
     GoRoute(
-      path: RouteKey.sectionView,
+      path: RouteKey.courseDetailsView,
       builder: (context, state) {
         final CourseItem courseItem = state.extra as CourseItem;
         return BlocProvider(
           create: (context) => createCourseCubit()..getSections(courseItem.id),
-          child: SectionView(
+          child: CourseDetailsView(
             courseItem: courseItem,
+          ),
+        );
+      },
+    ),
+
+    // videos screen
+    GoRoute(
+      path: RouteKey.videosView,
+      builder: (context, state) {
+        final Map<String, dynamic> extra = state.extra as Map<String, dynamic>;
+        final int sectionId = extra['sectionId'];
+        final String sectionName = extra['sectionName'];
+
+        return BlocProvider(
+          create: (context) => createCourseCubit()..getVideos(sectionId),
+          child: VideosView(
+            sectionName: sectionName,
+            sectionId: sectionId,
           ),
         );
       },

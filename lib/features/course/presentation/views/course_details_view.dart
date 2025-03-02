@@ -11,8 +11,8 @@ import 'package:bright/features/course/presentation/widgets/section_description_
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SectionView extends StatelessWidget {
-  const SectionView({super.key, required this.courseItem});
+class CourseDetailsView extends StatelessWidget {
+  const CourseDetailsView({super.key, required this.courseItem});
 
   final CourseItem courseItem;
 
@@ -30,7 +30,7 @@ class SectionView extends StatelessWidget {
 
               // course description
               SliverToBoxAdapter(
-                  child: SectionDescriptionWidget(
+                  child: CourseDescriptionWidget(
                       description: courseItem.description)),
               const SliverToBoxAdapter(
                   child: Divider(
@@ -77,4 +77,3 @@ class SectionView extends StatelessWidget {
     );
   }
 }
-

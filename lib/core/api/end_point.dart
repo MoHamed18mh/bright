@@ -7,10 +7,12 @@ abstract class EndPoint {
   static const String postForgotPassword = '/api/Account/forget-password';
   static const String postResetPassword = '/api/Account/reset-password';
   static const String getInstructors = '/api/Instructor';
-  static const String getCategories = '/api/Category';
   static const String getCourses = '/api/Course';
   static String getSection(int courseId) {
     return '/api/Section/course/$courseId';
+  }
+  static String getVideo(int sectionId) {
+    return '/api/Video/section/$sectionId';
   }
 }
 
@@ -54,6 +56,11 @@ abstract class ApiKey {
       courseId = 'courseId',
       order = 'order',
       description = 'description',
+      sectionId = 'sectionId',
+      sectionName = 'sectionName',
+      videoUrl = 'videoUrl',
+      coverUrl = 'coverUrl',
+      duration = 'duration',
       idSchema =
           'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier';
 }

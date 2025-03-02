@@ -44,6 +44,12 @@ abstract class AppTextStyle {
     color: Colors.white,
     fontWeight: FontWeight.bold,
   );
+  static final nunitoSans18LightBlackBold = TextStyle(
+    fontFamily: 'NunitoSans',
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+    color: AppColors.lightBlack,
+  );
   static final nunitoSans22LightBlackBold = TextStyle(
     fontFamily: 'NunitoSans',
     fontSize: 22,

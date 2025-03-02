@@ -6,8 +6,8 @@ import 'package:bright/features/course/presentation/widgets/custom/custom_course
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CustomCourseItems extends StatelessWidget {
-  const CustomCourseItems({
+class CustomCoursesList extends StatelessWidget {
+  const CustomCoursesList({
     super.key,
   });
 
@@ -22,7 +22,7 @@ class CustomCourseItems extends StatelessWidget {
           ),
           itemBuilder: (context, index) {
             if (state is CourseSuccess) {
-              return CustomCourseItem(
+              return CourseItemWidget(
                 courseItem: state.courseModel.courseData.courseItem[index],
               );
             } else {

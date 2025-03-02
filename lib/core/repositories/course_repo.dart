@@ -4,6 +4,7 @@ import 'package:bright/core/api/errors/exception.dart';
 import 'package:bright/core/utils/app_strings.dart';
 import 'package:bright/features/course/models/course_model.dart';
 import 'package:bright/features/course/models/section_model.dart';
+import 'package:bright/features/course/models/video_model.dart';
 import 'package:dartz/dartz.dart';
 
 class CourseRepo {
@@ -30,6 +31,19 @@ class CourseRepo {
       final response = await api.get(EndPoint.getSection(courseId));
 
       return Right(SectionModel.fromJson(response));
+    } on ServerException catch (e) {
+      return Left(e.errorModel.message);
+    } catch (e) {
+      return const Left(AppStrings.unexpectedError);
+    }
+  }
+
+  // get videos based on sectionId
+  Future<Either<String, VideoModel>> getVideos(int sectionId) async {
+    try {
+      final response = await api.get(EndPoint.getVideo(sectionId));
+
+      return Right(VideoModel.formJson(response));
     } on ServerException catch (e) {
       return Left(e.errorModel.message);
     } catch (e) {

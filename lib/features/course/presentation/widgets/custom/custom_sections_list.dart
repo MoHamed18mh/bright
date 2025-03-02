@@ -1,14 +1,12 @@
 import 'package:bright/core/utils/app_space.dart';
 import 'package:bright/features/course/cubit/course_cubit.dart';
 import 'package:bright/features/course/cubit/course_state.dart';
-import 'package:bright/features/course/presentation/widgets/section_chip_widget.dart';
+import 'package:bright/features/course/presentation/widgets/horizontal_list_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CustomSectionsList extends StatelessWidget {
-  const CustomSectionsList({
-    super.key,
-  });
+  const CustomSectionsList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +16,7 @@ class CustomSectionsList extends StatelessWidget {
           delegate: SliverChildBuilderDelegate(
             (context, index) {
               if (state is SectionSuccess) {
-                return SectionChipeWidget(sectionModel: state.sectionModel);
+                return HorizontalListWidget(sectionModel: state.sectionModel);
               } else {
                 return const SizedBox(height: AppSpace.meduim1);
               }

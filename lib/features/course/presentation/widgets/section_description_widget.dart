@@ -2,8 +2,8 @@ import 'package:bright/core/utils/app_space.dart';
 import 'package:bright/core/utils/app_text_style.dart';
 import 'package:flutter/material.dart';
 
-class SectionDescriptionWidget extends StatelessWidget {
-  const SectionDescriptionWidget({
+class CourseDescriptionWidget extends StatelessWidget {
+  const CourseDescriptionWidget({
     super.key,
     required this.description,
   });

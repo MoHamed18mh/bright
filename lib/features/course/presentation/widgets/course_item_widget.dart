@@ -8,8 +8,8 @@ import 'package:bright/features/course/models/course_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-class CustomCourseItem extends StatelessWidget {
-  const CustomCourseItem({super.key, required this.courseItem});
+class CourseItemWidget extends StatelessWidget {
+  const CourseItemWidget({super.key, required this.courseItem});
 
   final CourseItem courseItem;
 
@@ -17,7 +17,7 @@ class CustomCourseItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        navigate(context, RouteKey.sectionView, extra: courseItem);
+        navigate(context, RouteKey.courseDetailsView, extra: courseItem);
       },
       child: Container(
         margin: const EdgeInsets.all(AppSpace.padding),

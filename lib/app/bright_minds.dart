@@ -8,6 +8,7 @@ class BrightMinds extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
+      title: 'BrightMinds',
       routerConfig: router,
     );
   }

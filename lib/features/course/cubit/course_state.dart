@@ -1,5 +1,6 @@
 import 'package:bright/features/course/models/course_model.dart';
 import 'package:bright/features/course/models/section_model.dart';
+import 'package:bright/features/course/models/video_model.dart';
 
 class CourseState {}
 
@@ -33,4 +34,19 @@ final class SectionFailure extends CourseState {
   final String errorMessage;
 
   SectionFailure({required this.errorMessage});
+}
+
+// section states
+final class VideoLoading extends CourseState {}
+
+final class VideoSuccess extends CourseState {
+  final VideoModel videoModel;
+
+  VideoSuccess({required this.videoModel});
+}
+
+final class VideoFailure extends CourseState {
+  final String errorMessage;
+
+  VideoFailure({required this.errorMessage});
 }
