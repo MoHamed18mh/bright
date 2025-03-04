@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class InstructorImageWidget extends StatelessWidget {
   const InstructorImageWidget({
     super.key,
-    required this.imageCover,
+    required this.imageCover
   });
 
   final String imageCover;

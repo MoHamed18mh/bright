@@ -1,7 +1,7 @@
 abstract class AppSpace {
   static const double small1 = 4;
   static const double small2 = 8;
-  static const double padding = 18;
+  static const double padding = 16;
   static const double main = 24;
   static const double meduim1 = 34;
   static const double meduim2 = 50;

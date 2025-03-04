@@ -1,3 +1,4 @@
+import 'package:bright/core/utils/app_colors.dart';
 import 'package:bright/core/utils/app_space.dart';
 import 'package:bright/core/utils/app_strings.dart';
 import 'package:bright/core/widgets/material_button_widget.dart';
@@ -21,6 +22,18 @@ class CourseDetailsView extends StatelessWidget {
     return BlocBuilder<CourseCubit, CourseState>(
       builder: (context, state) {
         return Scaffold(
+          // favorite button
+          floatingActionButton: Align(
+            alignment: Alignment.bottomRight,
+            child: IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.favorite_border,
+                color: AppColors.primaryColor,
+                size: 55,
+              ),
+            ),
+          ),
           body: CustomScrollView(
             slivers: [
               // image
@@ -41,7 +54,9 @@ class CourseDetailsView extends StatelessWidget {
 
               // section list
               const CustomSectionsList(),
-              const SliverToBoxAdapter(child: SizedBox(height: AppSpace.main)),
+              const SliverToBoxAdapter(
+                child: SizedBox(height: AppSpace.meduim2),
+              ),
 
               // course price
               SliverToBoxAdapter(
@@ -49,17 +64,17 @@ class CourseDetailsView extends StatelessWidget {
               const SliverToBoxAdapter(
                   child: SizedBox(height: AppSpace.small2)),
 
-              // button add to cart
-              SliverToBoxAdapter(
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: AppSpace.padding),
-                  child: MaterialButtonWidget(
-                      onPressed: () {}, text: AppStrings.addToCart),
-                ),
-              ),
-              const SliverToBoxAdapter(
-                  child: SizedBox(height: AppSpace.small2)),
+              // // button add to cart
+              // SliverToBoxAdapter(
+              //   child: Padding(
+              //     padding:
+              //         const EdgeInsets.symmetric(horizontal: AppSpace.padding),
+              //     child: MaterialButtonWidget(
+              //         onPressed: () {}, text: AppStrings.addToCart),
+              //   ),
+              // ),
+              // const SliverToBoxAdapter(
+              //     child: SizedBox(height: AppSpace.small2)),
 
               // button buy
               SliverToBoxAdapter(

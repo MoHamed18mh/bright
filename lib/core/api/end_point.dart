@@ -14,6 +14,9 @@ abstract class EndPoint {
   static String getVideo(int sectionId) {
     return '/api/Video/section/$sectionId';
   }
+  static String getUser(String userId) {
+    return '/api/Account/$userId';
+  }
 }
 
 abstract class ApiKey {
@@ -61,6 +64,7 @@ abstract class ApiKey {
       videoUrl = 'videoUrl',
       coverUrl = 'coverUrl',
       duration = 'duration',
+      profileMess = 'messaget',
       idSchema =
           'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier';
 }

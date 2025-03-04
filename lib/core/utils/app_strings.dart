@@ -57,5 +57,9 @@ abstract class AppStrings {
       buyNow = 'Buy Now',
       skip = 'Skip',
       thisFieldCannotBeEmpty = 'This field cannot be empty',
+      myDetails = 'My Details',
+      favorites = 'Favorites',
+      settings = 'Settings',
+      payment = 'Payment',
       next = 'Next';
 }

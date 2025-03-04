@@ -1,7 +1,10 @@
 import 'package:bright/core/api/end_point.dart';
+import 'package:bright/core/database/cache_helper.dart';
+import 'package:bright/core/database/cache_key.dart';
 import 'package:bright/core/functions/handel_redirect.dart';
 import 'package:bright/core/routes/create_cubit.dart';
 import 'package:bright/core/routes/route_key.dart';
+import 'package:bright/core/services/service_locator.dart';
 import 'package:bright/features/auth/cubit/auth_cubit.dart';
 import 'package:bright/features/auth/presentation/views/forgot_password_view.dart';
 import 'package:bright/features/auth/presentation/views/login_view.dart';
@@ -199,7 +202,11 @@ final GoRouter router = GoRouter(
     // profile screen
     GoRoute(
       path: RouteKey.profileView,
-      builder: (context, state) => const ProfileView(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => createProfileCubit()
+          ..getUser(getIt<CacheHelper>().getData(key: CacheKey.userId)),
+        child: const ProfileView(),
+      ),
     ),
   ],
 );
