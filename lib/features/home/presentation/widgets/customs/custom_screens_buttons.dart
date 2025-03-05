@@ -13,7 +13,7 @@ class CustomScreensButtons extends StatelessWidget {
     return SliverGrid.builder(
       gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
         maxCrossAxisExtent: AppSpace.size1,
-        mainAxisExtent: AppSpace.size1,
+        mainAxisExtent: AppSpace.max4,
         crossAxisSpacing: AppSpace.small2,
         mainAxisSpacing: AppSpace.small2,
       ),

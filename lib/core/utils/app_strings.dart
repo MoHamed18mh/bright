@@ -58,7 +58,7 @@ abstract class AppStrings {
       skip = 'Skip',
       thisFieldCannotBeEmpty = 'This field cannot be empty',
       myDetails = 'My Details',
-      favorites = 'Favorites',
+      myCourses = 'My Courses',
       settings = 'Settings',
       payment = 'Payment',
       next = 'Next';

@@ -21,7 +21,10 @@ import 'package:bright/features/home/presentation/views/home_view.dart';
 import 'package:bright/features/instructor/models/instructor_model.dart';
 import 'package:bright/features/instructor/presentation/views/instructor_details_view.dart';
 import 'package:bright/features/instructor/presentation/views/instructor_view.dart';
+import 'package:bright/features/profile/presentation/views/my_details_view.dart';
+import 'package:bright/features/profile/presentation/views/payment_view.dart';
 import 'package:bright/features/profile/presentation/views/profile_view.dart';
+import 'package:bright/features/profile/presentation/views/settings_view.dart';
 import 'package:bright/features/splash/cubit/splash_cubit.dart';
 import 'package:bright/features/splash/presentation/views/splash_view.dart';
 import 'package:bright/features/testimonial/cubit/testimonial_cubit.dart';
@@ -207,6 +210,24 @@ final GoRouter router = GoRouter(
           ..getUser(getIt<CacheHelper>().getData(key: CacheKey.userId)),
         child: const ProfileView(),
       ),
+    ),
+
+    // my details screen
+    GoRoute(
+      path: RouteKey.myDetailsView,
+      builder: (context, state) => const MyDetailsView(),
+    ),
+
+    // payment screen
+    GoRoute(
+      path: RouteKey.paymentView,
+      builder: (context, state) => const PaymentView(),
+    ),
+
+    // payment screen
+    GoRoute(
+      path: RouteKey.settingsView,
+      builder: (context, state) => const SettingsView(),
     ),
   ],
 );
