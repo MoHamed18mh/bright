@@ -59,7 +59,7 @@ abstract class AppStrings {
       thisFieldCannotBeEmpty = 'This field cannot be empty',
       myDetails = 'My Details',
       myCourses = 'My Courses',
-      settings = 'Settings',
+      logOut = 'Log Out',
       payment = 'Payment',
       next = 'Next';
 }
