@@ -49,7 +49,7 @@ class ProfileView extends StatelessWidget {
             itemTitle: AppStrings.settings,
             onTap: () => navigate(context, RouteKey.settingsView),
           )),
-          SliverToBoxAdapter(child: SizedBox(height: AppSpace.max3)),
+          const SliverToBoxAdapter(child: SizedBox(height: AppSpace.max3)),
         ],
       ),
     ));
