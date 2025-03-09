@@ -32,6 +32,8 @@ import 'package:bright/features/testimonial/presentation/views/testimonial_view.
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/profile/presentation/views/profile_edit.dart';
+
 final GoRouter router = GoRouter(
   //  set start screen
   initialLocation: RouteKey.splashView,
@@ -228,6 +230,10 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: RouteKey.settingsView,
       builder: (context, state) => const SettingsView(),
+    ),
+    GoRoute(
+      path: RouteKey.profileEdit,
+      builder: (context, state) => const ProfileEdit(),
     ),
   ],
 );

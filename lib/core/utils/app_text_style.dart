@@ -38,6 +38,12 @@ abstract class AppTextStyle {
     color: Colors.white,
     fontWeight: FontWeight.bold,
   );
+  static var notoSerif22LightBlackBold = TextStyle(
+    fontFamily: 'NotoSerif',
+    fontSize: 22,
+    color: AppColors.lightBlack,
+    fontWeight: FontWeight.bold,
+  );
   static const nunitoSans15WhiteBlod = TextStyle(
     fontFamily: 'NunitoSans',
     fontSize: 15,
