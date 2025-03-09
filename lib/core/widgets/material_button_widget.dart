@@ -20,7 +20,7 @@ class MaterialButtonWidget extends StatelessWidget {
         borderSide: BorderSide.none,
       ),
       child: Text(text,
-          style: AppTextStyle.nunitoSans15WhiteBlod.copyWith(fontSize: 18)),
+          style: AppTextStyle.nunitoSans15WhiteBlod.copyWith(fontSize: 20)),
     );
   }
 }
