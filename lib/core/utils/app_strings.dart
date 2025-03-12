@@ -60,6 +60,7 @@ abstract class AppStrings {
       myDetails = 'My Details',
       myCourses = 'My Courses',
       logOut = 'Log Out',
+      deleteAccount = 'Delete Account',
       edit = 'Edit',
       payment = 'Payment',
       next = 'Next';

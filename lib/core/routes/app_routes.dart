@@ -9,6 +9,7 @@ import 'package:bright/features/auth/presentation/views/reset_password_view.dart
 import 'package:bright/features/auth/presentation/views/register_view.dart';
 import 'package:bright/features/boarding/cubit/boarding_cubit.dart';
 import 'package:bright/features/boarding/prsentation/views/boarding_view.dart';
+import 'package:bright/features/cart/presentation/views/cart_view.dart';
 import 'package:bright/features/contact/presentation/views/contact_view.dart';
 import 'package:bright/features/course/models/course_model.dart';
 import 'package:bright/features/course/presentation/views/course_view.dart';
@@ -202,7 +203,10 @@ final GoRouter router = GoRouter(
     // profile screen
     GoRoute(
       path: RouteKey.profileView,
-      builder: (context, state) => const ProfileView(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => createProfileCubit(),
+        child: const ProfileView(),
+      ),
     ),
 
     // my details screen
@@ -214,12 +218,6 @@ final GoRouter router = GoRouter(
       ),
     ),
 
-    // payment screen
-    GoRoute(
-      path: RouteKey.paymentView,
-      builder: (context, state) => const PaymentView(),
-    ),
-
     // edit profile screen
     GoRoute(
       path: RouteKey.profileEditView,
@@ -227,6 +225,18 @@ final GoRouter router = GoRouter(
         create: (context) => createProfileCubit(),
         child: const ProfileEditView(),
       ),
+    ),
+
+    // payment screen
+    GoRoute(
+      path: RouteKey.paymentView,
+      builder: (context, state) => const PaymentView(),
+    ),
+
+    // cart screen
+    GoRoute(
+      path: RouteKey.cartView,
+      builder: (context, state) => const CartView(),
     ),
   ],
 );

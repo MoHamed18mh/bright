@@ -20,6 +20,9 @@ abstract class EndPoint {
   static String putEditUser(String userId) {
     return '/api/Account/$userId';
   }
+  static String deleteAccount(String userId) {
+    return '/api/Account/$userId';
+  }
 }
 
 abstract class ApiKey {

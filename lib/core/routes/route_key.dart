@@ -17,6 +17,7 @@ abstract class RouteKey {
   static const String myDetailsView = '/MyDetailsView';
   static const String paymentView = '/PaymentView';
   static const String profileEditView = '/ProfileEditView';
+  static const String cartView = '/CartView';
   static const String deepLinkPath =
       'deepLinkPath'; // the key of create local deep link
 }

@@ -36,3 +36,18 @@ final class EditUserFailure extends ProfileState {
 
   EditUserFailure({required this.errorMessage});
 }
+
+// edit user state
+final class DeleteAccountLoading extends ProfileState {}
+
+final class DeleteAccountSuccess extends ProfileState {
+  final String message;
+
+  DeleteAccountSuccess({required this.message});
+}
+
+final class DeleteAccountFailure extends ProfileState {
+  final String errorMessage;
+
+  DeleteAccountFailure({required this.errorMessage});
+}

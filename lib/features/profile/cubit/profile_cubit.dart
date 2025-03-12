@@ -51,4 +51,15 @@ class ProfileCubit extends Cubit<ProfileState> {
     userImage = image;
     emit(UpLoadUserImage());
   }
+
+  // delete account
+  Future<void> deleteAccount() async {
+    emit(DeleteAccountLoading());
+    final response = await profileRepo.deleteAccount();
+
+    response.fold(
+      (errorMessage) =>  emit(DeleteAccountFailure(errorMessage: errorMessage)),
+      (message) =>emit(DeleteAccountSuccess(message: message)),
+    );
+  }
 }

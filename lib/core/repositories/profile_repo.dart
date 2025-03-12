@@ -54,4 +54,17 @@ class ProfileRepo {
       return const Left([AppStrings.unexpectedError]);
     }
   }
+
+  // delete account
+  Future<Either<String, String>> deleteAccount() async {
+    try {
+      await api.delete(EndPoint.deleteAccount(userId));
+
+      return const Right('Done');
+    } on ServerException catch (e) {
+      return Left(e.errorModel.message);
+    } catch (e) {
+      return const Left(AppStrings.unexpectedError);
+    }
+  }
 }
