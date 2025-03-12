@@ -1,3 +1,4 @@
+import 'package:bright/core/functions/validate_fields.dart';
 import 'package:bright/core/utils/app_colors.dart';
 import 'package:bright/core/utils/app_text_style.dart';
 import 'package:bright/features/auth/cubit/auth_cubit.dart';
@@ -9,11 +10,9 @@ class TextFormFieldPasswordWidget extends StatelessWidget {
   const TextFormFieldPasswordWidget({
     super.key,
     required this.text,
-    this.validator,
     this.controller,
   });
   final String text;
-  final String? Function(String?)? validator;
   final TextEditingController? controller;
 
   @override
@@ -24,7 +23,7 @@ class TextFormFieldPasswordWidget extends StatelessWidget {
         return TextFormField(
           style: AppTextStyle.nunitoSans16LightBlackBold,
           controller: controller,
-          validator: validator,
+          validator: validatFields,
           obscureText: authCubit.obscurePasswordValue,
           cursorColor: AppColors.lightBlack,
           decoration: inputDecoration(context),

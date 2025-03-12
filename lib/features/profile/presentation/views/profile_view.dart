@@ -42,12 +42,11 @@ class ProfileView extends StatelessWidget {
             onTap: () => navigate(context, RouteKey.paymentView),
           )),
 
-          // settings screen
-          SliverToBoxAdapter(
+          // log out button
+          const SliverToBoxAdapter(
               child: ProfileItem(
             iconData: Icons.logout_rounded,
             itemTitle: AppStrings.logOut,
-            onTap: () => navigate(context, RouteKey.settingsView),
           )),
           const SliverToBoxAdapter(child: SizedBox(height: AppSpace.max3)),
         ],

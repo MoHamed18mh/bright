@@ -11,12 +11,19 @@ class ProfileButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(right: AppSpace.small2),
-      child: InkWell(
-        onTap: () => navigate(context, RouteKey.profileView),
+    return InkWell(
+      onTap: () => navigate(context, RouteKey.profileView),
+      child: Container(
+        margin: const EdgeInsets.only(right: AppSpace.small2),
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: AppColors.primaryColor,
+            width: 3,
+          ),
+          borderRadius: BorderRadius.circular(100),
+        ),
         child: Icon(
-          Icons.settings,
+          Icons.person_2_outlined,
           color: AppColors.primaryColor,
           size: AppSpace.meduim1,
         ),

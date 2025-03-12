@@ -37,7 +37,6 @@ class CustomRegisterForm extends StatelessWidget {
               TextFormFieldWidget(
                 text: AppStrings.firstName,
                 prefixIcon: const Icon(Icons.person_outline),
-                validator: authCubit.validator,
                 controller: authCubit.registerFirstNameController,
               ),
               const SizedBox(height: AppSpace.main),
@@ -46,7 +45,7 @@ class CustomRegisterForm extends StatelessWidget {
               TextFormFieldWidget(
                 text: AppStrings.lastName,
                 prefixIcon: const Icon(Icons.person_outline),
-                validator: authCubit.validator,
+                // validator: authCubit.validator,
                 controller: authCubit.registerLastNameController,
               ),
               const SizedBox(height: AppSpace.main),
@@ -55,7 +54,6 @@ class CustomRegisterForm extends StatelessWidget {
               TextFormFieldWidget(
                 text: AppStrings.email,
                 prefixIcon: const Icon(Icons.email_outlined),
-                validator: authCubit.validator,
                 controller: authCubit.registerEmailController,
               ),
               const SizedBox(height: AppSpace.main),
@@ -64,7 +62,6 @@ class CustomRegisterForm extends StatelessWidget {
               TextFormFieldWidget(
                 text: AppStrings.phoneNumber,
                 prefixIcon: const Icon(Icons.phone_outlined),
-                validator: authCubit.validator,
                 controller: authCubit.registerMobileController,
               ),
               const SizedBox(height: AppSpace.main),
@@ -72,7 +69,6 @@ class CustomRegisterForm extends StatelessWidget {
               //  password 
               TextFormFieldPasswordWidget(
                 text: AppStrings.password,
-                validator: authCubit.validator,
                 controller: authCubit.registerPasswordController,
               ),
               const SizedBox(height: AppSpace.main),
@@ -80,7 +76,6 @@ class CustomRegisterForm extends StatelessWidget {
               //  confirm password 
               TextFormFieldPasswordWidget(
                 text: AppStrings.confirmPassword,
-                validator: authCubit.validator,
                 controller: authCubit.registerConfirmPasswordController,
               ),
               const SizedBox(height: AppSpace.meduim2),

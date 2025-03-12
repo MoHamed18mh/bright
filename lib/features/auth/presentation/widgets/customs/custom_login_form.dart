@@ -38,7 +38,6 @@ class CustomLoginForm extends StatelessWidget {
               TextFormFieldWidget(
                 text: AppStrings.email,
                 prefixIcon: const Icon(Icons.email_outlined),
-                validator: authCubit.validator,
                 controller: authCubit.loginEmailController,
               ),
               const SizedBox(height: AppSpace.main),
@@ -46,7 +45,6 @@ class CustomLoginForm extends StatelessWidget {
               //  password field
               TextFormFieldPasswordWidget(
                 text: AppStrings.password,
-                validator: authCubit.validator,
                 controller: authCubit.loginPasswordController,
               ),
 

@@ -1,5 +1,4 @@
 import 'package:bright/core/repositories/auth_repo.dart';
-import 'package:bright/core/utils/app_strings.dart';
 import 'package:bright/features/auth/cubit/auth_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -46,14 +45,6 @@ class AuthCubit extends Cubit<AuthState> {
   void changeObscurePasswordValue() {
     obscurePasswordValue = !obscurePasswordValue;
     emit(ChangeObscurePassword());
-  }
-
-  //  check if text form field is empty for validate
-  String? validator(String? value) {
-    if (value == null || value.isEmpty) {
-      return AppStrings.thisFieldCannotBeEmpty;
-    }
-    return null;
   }
 
   //  register and confirm methodes

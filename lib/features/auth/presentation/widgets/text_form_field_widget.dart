@@ -1,3 +1,4 @@
+import 'package:bright/core/functions/validate_fields.dart';
 import 'package:bright/core/utils/app_colors.dart';
 import 'package:bright/core/utils/app_text_style.dart';
 import 'package:flutter/material.dart';
@@ -6,13 +7,11 @@ class TextFormFieldWidget extends StatelessWidget {
   const TextFormFieldWidget({
     super.key,
     required this.text,
-    required this.prefixIcon,
-    this.validator,
+    this.prefixIcon,
     this.controller,
   });
   final String text;
-  final Icon prefixIcon;
-  final String? Function(String?)? validator;
+  final Icon? prefixIcon;
   final TextEditingController? controller;
 
   @override
@@ -20,7 +19,7 @@ class TextFormFieldWidget extends StatelessWidget {
     return TextFormField(
       style: AppTextStyle.nunitoSans16LightBlackBold,
       controller: controller,
-      validator: validator,
+      validator: validatFields,
       cursorColor: AppColors.lightBlack,
       decoration: inputDecoration(),
     );
@@ -30,7 +29,10 @@ class TextFormFieldWidget extends StatelessWidget {
     return InputDecoration(
       prefixIcon: prefixIcon,
       prefixIconColor: AppColors.primaryColor,
-      hintText: text,
+      label: Text(
+        text,
+        style: AppTextStyle.nunitoSans13Grey700,
+      ),
       hintStyle: AppTextStyle.nunitoSans13Grey700,
       suffixIconColor: AppColors.primaryColor,
       border: outLineInputBorder(),

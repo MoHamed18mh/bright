@@ -17,6 +17,9 @@ abstract class EndPoint {
   static String getUser(String userId) {
     return '/api/Account/$userId';
   }
+  static String putEditUser(String userId) {
+    return '/api/Account/$userId';
+  }
 }
 
 abstract class ApiKey {
@@ -33,7 +36,9 @@ abstract class ApiKey {
       id = 'id',
       imageCover = 'imageCover',
       walletBalance = 'waletBalance',
+      firstName = 'firstName',
       rFirstName = 'FirstName',
+      lastName = 'lastName',
       rLastName = 'LastName',
       rEmail = 'Email',
       rMobile = 'Mobile',
@@ -65,6 +70,10 @@ abstract class ApiKey {
       coverUrl = 'coverUrl',
       duration = 'duration',
       profileMess = 'messaget',
+      image = 'image',
+
+      // schemas
+      imageNull = 'https://brightminds.runasp.net//files/UsersImages/',
       idSchema =
           'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier';
 }

@@ -1,10 +1,7 @@
 import 'package:bright/core/api/end_point.dart';
-import 'package:bright/core/database/cache_helper.dart';
-import 'package:bright/core/database/cache_key.dart';
 import 'package:bright/core/functions/handel_redirect.dart';
 import 'package:bright/core/routes/create_cubit.dart';
 import 'package:bright/core/routes/route_key.dart';
-import 'package:bright/core/services/service_locator.dart';
 import 'package:bright/features/auth/cubit/auth_cubit.dart';
 import 'package:bright/features/auth/presentation/views/forgot_password_view.dart';
 import 'package:bright/features/auth/presentation/views/login_view.dart';
@@ -23,16 +20,14 @@ import 'package:bright/features/instructor/presentation/views/instructor_details
 import 'package:bright/features/instructor/presentation/views/instructor_view.dart';
 import 'package:bright/features/profile/presentation/views/my_details_view.dart';
 import 'package:bright/features/profile/presentation/views/payment_view.dart';
+import 'package:bright/features/profile/presentation/views/profile_edit_view.dart';
 import 'package:bright/features/profile/presentation/views/profile_view.dart';
-import 'package:bright/features/profile/presentation/views/settings_view.dart';
 import 'package:bright/features/splash/cubit/splash_cubit.dart';
 import 'package:bright/features/splash/presentation/views/splash_view.dart';
 import 'package:bright/features/testimonial/cubit/testimonial_cubit.dart';
 import 'package:bright/features/testimonial/presentation/views/testimonial_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-
-import '../../features/profile/presentation/views/profile_edit.dart';
 
 final GoRouter router = GoRouter(
   //  set start screen
@@ -207,17 +202,16 @@ final GoRouter router = GoRouter(
     // profile screen
     GoRoute(
       path: RouteKey.profileView,
-      builder: (context, state) => BlocProvider(
-        create: (context) => createProfileCubit()
-          ..getUser(getIt<CacheHelper>().getData(key: CacheKey.userId)),
-        child: const ProfileView(),
-      ),
+      builder: (context, state) => const ProfileView(),
     ),
 
     // my details screen
     GoRoute(
       path: RouteKey.myDetailsView,
-      builder: (context, state) => const MyDetailsView(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => createProfileCubit()..getUser(),
+        child: const MyDetailsView(),
+      ),
     ),
 
     // payment screen
@@ -226,14 +220,13 @@ final GoRouter router = GoRouter(
       builder: (context, state) => const PaymentView(),
     ),
 
-    // payment screen
+    // edit profile screen
     GoRoute(
-      path: RouteKey.settingsView,
-      builder: (context, state) => const SettingsView(),
-    ),
-    GoRoute(
-      path: RouteKey.profileEdit,
-      builder: (context, state) => const ProfileEdit(),
+      path: RouteKey.profileEditView,
+      builder: (context, state) => BlocProvider(
+        create: (context) => createProfileCubit(),
+        child: const ProfileEditView(),
+      ),
     ),
   ],
 );
