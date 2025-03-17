@@ -37,6 +37,7 @@ abstract class ApiKey {
       displayName = 'displayName',
       mobile = 'mobile',
       id = 'id',
+      editId= 'Id',
       imageCover = 'imageCover',
       walletBalance = 'waletBalance',
       firstName = 'firstName',
@@ -73,7 +74,9 @@ abstract class ApiKey {
       coverUrl = 'coverUrl',
       duration = 'duration',
       profileMess = 'messaget',
+      editimage = 'Image',
       image = 'image',
+      authorization = 'Authorisation',
 
       // schemas
       imageNull = 'https://brightminds.runasp.net//files/UsersImages/',

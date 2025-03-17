@@ -1,4 +1,5 @@
 import 'package:bright/core/api/api_consumer.dart';
+import 'package:bright/core/api/api_interceptor.dart';
 import 'package:bright/core/api/end_point.dart';
 import 'package:bright/core/api/errors/exception.dart';
 import 'package:dio/dio.dart';
@@ -8,6 +9,7 @@ class DioConsumer extends ApiConsumer {
 
   DioConsumer({required this.dio}) {
     dio.options.baseUrl = EndPoint.baseUrl;
+    
     // To activate the log of requests and responses, Interceptors can be activated when needed:
     dio.interceptors.add(LogInterceptor(
       request: true,
@@ -16,7 +18,7 @@ class DioConsumer extends ApiConsumer {
       responseBody: true,
       responseHeader: true,
     ));
-    // dio.interceptors.add(ApiInterceptor());
+    dio.interceptors.add(ApiInterceptor());
   }
 
   @override

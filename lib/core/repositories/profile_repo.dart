@@ -35,14 +35,10 @@ class ProfileRepo {
       await api.put(
         EndPoint.putEditUser(userId),
         data: {
-          ApiKey.id: userId,
-          ApiKey.firstName: firstName,
-          ApiKey.lastName: lastName,
-          ApiKey.mobile: mobile,
-          ApiKey.image: image,
-        },
-        queryParameters: {
-          ApiKey.token: getIt<CacheHelper>().getData(key: CacheKey.token)
+          ApiKey.rFirstName: firstName,
+          ApiKey.rLastName: lastName,
+          ApiKey.rMobile: mobile,
+          ApiKey.editimage: image,
         },
         isFormData: true,
       );
